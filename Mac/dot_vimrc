@@ -135,8 +135,9 @@ nmap <Leader>Q :qa!<CR> 		" 不做任何保存，直接退出 vim
 
 """ Copy & Paste to system clipboard
 vnoremap <Leader>y "+y 			" 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <Leader>d "*d          " 设置快捷键将选中文本块剪切至系统剪贴板
-nmap <Leader>p "+p 				" 设置快捷键将系统剪贴板内容粘贴至vim
+vnoremap <Leader>x "*d          " 设置快捷键将选中文本块剪切至系统剪贴板
+nmap <Leader>p "+p 				" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
+nmap <Leader>P "+P 				" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 
 nnoremap <Leader>rtw :%s/\s\+$//<CR>		" 删除行尾空格
 
@@ -146,7 +147,7 @@ fun! ToggleFullscreen()
 endf
 
 nmap <C-F11> :set wrap!<CR>
-map <silent> <F11> :call ToggleFullscreen()<CR> 	" 全屏开/关快捷键
+map <F11> :call ToggleFullscreen()<CR> 	" 全屏开/关快捷键
 "autocmd VimEnter * call ToggleFullscreen() 		" 启动 vim 时自动全屏
 
 " inoremap <c-s> <c-o>:w<CR>			" ctrl-s Save 保存后返回原(插入)模式 only work in gvim
