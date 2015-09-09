@@ -41,11 +41,6 @@ let mapleader=";"
 
 set wildmenu 			" vim 自身命令行模式智能补全
 
-"" 用 cygwin 执行外部命令
-" set shell=C:/cygwin64/bin/cygwincmd
-" set shellcmdflag=--login\ -c
-" set shellxquote=\"
-
 """"""""""""""""""""""""""""""""""""""""""
 
 
@@ -196,7 +191,12 @@ nmap <S-Left> zH
 nmap <S-Right> zL
 
 " Number of lines by Ctrl+u and Ctrl+d
-set scroll=5
+" set scroll=5
+""" change scroll to 5 line one time scroll step length 步长
+nnoremap <C-U> 5<C-Y>
+nnoremap <C-D> 5<C-E>
+inoremap <C-U> 5<C-Y>
+inoremap <C-D> 5<C-E>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -628,16 +628,6 @@ vnoremap <Leader>he :call HtmlEscape()<CR>
 " <<
 
 " let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
-
-
-
-
-
-
-
-
-
-
 
 
 
