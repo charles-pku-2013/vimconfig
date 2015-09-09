@@ -196,7 +196,7 @@ nmap <S-Left> zH
 nmap <S-Right> zL
 
 " Number of lines by Ctrl+u and Ctrl+d
-set scroll=7
+set scroll=5
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
