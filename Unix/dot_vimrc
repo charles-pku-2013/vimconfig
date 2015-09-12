@@ -4,14 +4,18 @@ set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" inoremap <C-s> <C-o>dw
 
-""""""""""""""""" 全局设置 """""""""""""""""
+""""""""""""""""" 全局设置 """""""""""""
 
-set enc=utf-8		" 文件编码
-set nobackup		" 不自动备份，生成讨厌的~
+" 文件编码
+set enc=utf-8
+" 不自动备份，生成讨厌的~
+set nobackup
 let mapleader=";"
 
-set wildmenu 			" vim 自身命令行模式智能补全
+" vim 自身命令行模式智能补全
+set wildmenu
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -71,7 +75,8 @@ set softtabstop=4 	" 让 vim 把连续数量的空格视为一个制表符
 let g:indent_guides_enable_on_vim_startup=1 		" 随 vim 自启动
 let g:indent_guides_start_level=2					" 从第二层开始可视化显示缩进
 let g:indent_guides_guide_size=1					" 色块宽度
-nmap <silent> <Leader>im <Plug>IndentGuidesToggle 	" 快捷键 im 开/关缩进可视化
+" 快捷键 im 开/关缩进可视化
+nmap <silent> <Leader>im <Plug>IndentGuidesToggle
 
 """ 代码折叠
 set foldmethod=syntax 		" 基于缩进或语法进行代码折叠
@@ -95,18 +100,27 @@ autocmd VimEnter * nested :call feedkeys(";m")
 filetype on 			" 开启文件类型侦测
 filetype plugin on 		" 根据侦测到的不同类型加载对应的插件
 
-nmap <Leader>q :q<CR> 			" 定义快捷键关闭当前分割窗口
-nmap <Leader>w :w<CR> 			" 定义快捷键保存当前窗口内容
-nmap <Leader>WQ :wa<CR>:q<CR> 	" 定义快捷键保存所有窗口内容并退出 vim
-nmap <Leader>Q :qa!<CR> 		" 不做任何保存，直接退出 vim
+" 定义快捷键关闭当前分割窗口
+nmap <Leader>q :q<CR>
+" 定义快捷键保存当前窗口内容
+nmap <Leader>w :w<CR>
+" 定义快捷键保存所有窗口内容并退出 vim
+nmap <Leader>WQ :wa<CR>:q<CR>
+" 不做任何保存，直接退出 vim
+nmap <Leader>Q :qa!<CR>
 
 """ Copy & Paste to system clipboard
-vnoremap <Leader>y "+y 			" 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <Leader>x "*d          " 设置快捷键将选中文本块剪切至系统剪贴板
-nmap <Leader>p "+p 				" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
-nmap <Leader>P "+P 				" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
+" 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <Leader>y "+y
+" 设置快捷键将选中文本块剪切至系统剪贴板
+vnoremap <Leader>x "*d
+" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
+nmap <Leader>p "+p
+" 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
+nmap <Leader>P "+P
 
-nnoremap <Leader>rtw :%s/\s\+$//<CR>		" 删除行尾空格
+" 删除行尾空格
+nnoremap <Leader>rtw :%s/\s\+$//<CR>
 
 " 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
 fun! ToggleFullscreen()
@@ -114,7 +128,8 @@ fun! ToggleFullscreen()
 endf
 
 nmap <C-F11> :set wrap!<CR>
-map <F11> :call ToggleFullscreen()<CR> 	" 全屏开/关快捷键
+" 全屏开/关快捷键
+map <F11> :call ToggleFullscreen()<CR>
 "autocmd VimEnter * call ToggleFullscreen() 		" 启动 vim 时自动全屏
 
 " inoremap <c-s> <c-o>:w<CR>			" ctrl-s Save 保存后返回原(插入)模式 only work in gvim
@@ -124,9 +139,11 @@ map <F11> :call ToggleFullscreen()<CR> 	" 全屏开/关快捷键
 " disable auto open
 let g:miniBufExplorerAutoStart = 0
 
-nmap <Leader>bl :MBEToggle<CR>		" 显示/隐藏 MiniBufExplorer 窗口
+" 显示/隐藏 MiniBufExplorer 窗口
+nmap <Leader>bl :MBEToggle<CR>
 map <S-F10> :MBEToggle<CR>
-nmap <leader>ct :MBEbd<CR>               " close tab
+" close tab
+nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
 map <C-Tab> :MBEbn<cr>
 map <C-S-Tab> :MBEbp<cr>
@@ -140,7 +157,8 @@ autocmd VimEnter * nested :wincmd h 				" left to main window
 
 
 """ 工程文件浏览 plugin: NERDTree
-nmap <Leader>fl :NERDTreeToggle<CR>		" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+" 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <Leader>fl :NERDTreeToggle<CR>
 map <F10> :NERDTreeToggle<CR>
 let NERDTreeWinSize=22					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
@@ -151,7 +169,8 @@ let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffe
 " F4 关闭当前标签
 map <F4> <leader>ct
 """ BufOnly.vim
-noremap <S-F4> :BufOnly<CR>             " close all buffers except this
+" close all buffers except this
+noremap <S-F4> :BufOnly<CR>
 
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR>
@@ -174,7 +193,8 @@ nnoremap <C-D> 5<C-E>
 
 """"""""""""""""""" 查找替换 Find & Replace """"""""""""""""""
 
-nnoremap <silent> <C-l> :nohl<CR><C-l> 		" 取消搜索结果高亮显示并刷新屏幕
+" 取消搜索结果高亮显示并刷新屏幕
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 set incsearch 	" 开启实时搜索功能
 set ignorecase 	" 搜索时大小写不敏感
 set hlsearch 	" 高亮显示搜索结果
@@ -207,14 +227,16 @@ map <C-F3> <leader>sd
 noremap <F2> :Ack! -i "" %<Left><Left><Left>
 noremap <S-F2> :Ack! -rki ""<Left>
 noremap <C-F2> :Ack! -rki "" %:h<Left><Left><Left><Left><Left>
-nmap <leader>. :call ToggleQuickfixList()<CR>       " In plugin vim-togglelist
+" In plugin vim-togglelist
+nmap <leader>. :call ToggleQuickfixList()<CR>
 """ 替换
 vnoremap <F5> :s/<C-r>///g<Left><Left>
 nnoremap <F5> :s/<C-r>///g<Left><Left>
 vnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 
-nnoremap <leader>cq :ccl<CR>            " close quickfix window
+" close quickfix window
+nnoremap <leader>cq :ccl<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -223,22 +245,31 @@ nnoremap <leader>cq :ccl<CR>            " close quickfix window
 """""""""""""""""""""""""" 代码导航 Code Nav """"""""""""""""""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
-nmap <Leader>ch :A<CR> 			" *.cpp 和 *.h 间切换
-nmap <Leader>sch :AS<CR> 		" 子窗口中显示 *.cpp 或 *.h
+" *.cpp 和 *.h 间切换
+nmap <Leader>ch :A<CR>
+" 子窗口中显示 *.cpp 或 *.h
+nmap <Leader>sch :AS<CR>
 
 """ 这两个功能是vim tag功能一部分
-nmap <Leader>tn :tnext<CR>		" 正向遍历同名标签
-nmap <Leader>tp :tprevious<CR>	" 反向遍历同名标签
+" 正向遍历同名标签
+nmap <Leader>tn :tnext<CR>
+" 反向遍历同名标签
+nmap <Leader>tp :tprevious<CR>
 
 """ 基于语义的代码导航 plugin: YouCompleteMe
 nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>je :YcmCompleter GoToDefinition<CR> 	" 只能是 #include 或已打开的文件
+" 只能是 #include 或已打开的文件
+nnoremap <leader>je :YcmCompleter GoToDefinition<CR>
 
 """ 标签列表 plugin: tagbar
-let tagbar_left=1						" 设置 tagbar 子窗口的位置出现在主编辑区的左边
-nnoremap <Leader>tl :TagbarToggle<CR>	" 设置显示／隐藏标签列表子窗口的快捷键。速记：tag list
-let tagbar_width=25						" 设置标签子窗口的宽度
-let g:tagbar_compact=1					" tagbar 子窗口中不显示冗余帮助信息
+" 设置 tagbar 子窗口的位置出现在主编辑区的左边
+let tagbar_left=1
+" 设置显示／隐藏标签列表子窗口的快捷键。速记：tag list
+nnoremap <Leader>tl :TagbarToggle<CR>
+" 设置标签子窗口的宽度
+let tagbar_width=25
+" tagbar 子窗口中不显示冗余帮助信息
+let g:tagbar_compact=1
 " 设置 ctags 对哪些代码元素生成标签
 let g:tagbar_type_cpp = {
      \ 'ctagstype' : 'c++',
@@ -275,7 +306,8 @@ let g:tagbar_type_cpp = {
 \ }
 
 " autocmd VimEnter * nested :TagbarOpen				" 启动vim自动开启
-autocmd VimEnter * nested :call tagbar#autoopen(1)	" 启动vim自动开启仅对所支持文件类型
+" 启动vim自动开启仅对所支持文件类型
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 " nmap <Tab> <Return>                            " 防止鼠标双击导致程序崩溃Ctrl-I 不能工作
 
 """ cscope
@@ -350,24 +382,36 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
 """ YouCompleteMe
 "" YCM 补全菜单配色
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5 		" 菜单
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900 		" 选中项
+" 菜单
+highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+" 选中项
+highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
 
-let g:ycm_complete_in_comments=1 										" 补全功能在注释中同样有效
-let g:ycm_confirm_extra_conf=0 											" 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
-let g:ycm_collect_identifiers_from_tags_files=1 			" 开启 YCM 标签补全引擎
-inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"    " 回车即选中当前项 ycm
+" 补全功能在注释中同样有效
+let g:ycm_complete_in_comments=1
+" 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
+let g:ycm_confirm_extra_conf=0
+" 开启 YCM 标签补全引擎
+let g:ycm_collect_identifiers_from_tags_files=1
+" 回车即选中当前项 ycm
+inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " set tags+=/usr/include/c++/4.8/stdcpp.tags 		 			" 引入 C++ 标准库 tags
-inoremap <leader>; <C-x><C-o> 				" YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
-set completeopt-=preview 					" 补全内容不以分割子窗口形式出现，只显示补全列表
-let g:ycm_min_num_of_chars_for_completion=1 		" 从第一个键入字符就开始罗列匹配项
-let g:ycm_cache_omnifunc=0 					" 禁止缓存匹配项，每次都重新生成匹配项
-let g:ycm_seed_identifiers_with_syntax=1 		" 语法关键字补全
+" YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
+inoremap <leader>; <C-x><C-o>
+" 补全内容不以分割子窗口形式出现，只显示补全列表
+set completeopt-=preview
+" 从第一个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1
+" 禁止缓存匹配项，每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+" 语法关键字补全
+let g:ycm_seed_identifiers_with_syntax=1
 " 全局配置文件
 let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
 
 """ 注释 NERDCommenter
-let NERDSpaceDelims = 1                 " 注释符后跟一个空格
+" 注释符后跟一个空格
+let NERDSpaceDelims = 1
 map <F8> <leader>ci
 map <S-F8> <leader>cs
 
