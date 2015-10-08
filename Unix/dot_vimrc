@@ -219,14 +219,16 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 "" shift: search all in root dir recursively
 "" ctrl: search in the file dir recursively
 noremap <leader>sa :Ack! -rkw <cword><CR>
-map <S-F3> <leader>sa
+nmap <S-F3> <leader>sa
 noremap <leader>sc :Ack! -w <cword> %<CR>
-map <F3> <leader>sc
+" map <F3> <leader>sc
+nmap <F3> :Grep <cword> %<CR>
 noremap <leader>sd :Ack! -rkw <cword> %:h<CR>
-map <C-F3> <leader>sd
-noremap <F2> :Ack! -i "" %<Left><Left><Left>
-noremap <S-F2> :Ack! -rki ""<Left>
-noremap <C-F2> :Ack! -rki "" %:h<Left><Left><Left><Left><Left>
+nmap <C-F3> <leader>sd
+" noremap <F2> :Ack! -i "" %<Left><Left><Left>
+nmap <F2> :Grep -i  %<Left><Left>
+nmap <S-F2> :Ack! -rki ""<Left>
+nmap <C-F2> :Ack! -rki "" %:h<Left><Left><Left><Left><Left>
 " In plugin vim-togglelist
 nmap <leader>. :call ToggleQuickfixList()<CR>
 """ 替换
