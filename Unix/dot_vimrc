@@ -222,7 +222,7 @@ noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> <leader>sa
 noremap <leader>sc :Ack! -w <cword> %<CR>
 " map <F3> <leader>sc
-nmap <F3> :Grep <cword> %<CR>
+nmap <F3> :Grep -w <cword> %<CR>
 noremap <leader>sd :Ack! -rkw <cword> %:h<CR>
 nmap <C-F3> <leader>sd
 " noremap <F2> :Ack! -i "" %<Left><Left><Left>
