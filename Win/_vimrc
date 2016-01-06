@@ -190,6 +190,8 @@ nmap <S-Right> zL
 nnoremap <C-U> 5<C-Y>
 nnoremap <C-D> 5<C-E>
 
+nmap <F9> :QFix<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
