@@ -191,6 +191,12 @@ nnoremap <C-U> 5<C-Y>
 nnoremap <C-D> 5<C-E>
 
 nmap <F9> :QFix<CR>
+nmap <S-F9> <leader>l
+
+nmap <leader>c,  :colder<CR>
+nmap <leader>c.  :cnewer<CR>
+nmap <leader>l,  :lolder<CR>
+nmap <leader>l.  :lnewer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
