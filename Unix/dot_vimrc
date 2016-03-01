@@ -187,6 +187,11 @@ nmap <S-Right> zL
 vnoremap <C-U> 5<C-Y>
 vnoremap <C-D> 5<C-E>
 
+nmap <leader>c,  :colder<CR>
+nmap <leader>c.  :cnewer<CR>
+nmap <leader>l,  :lolder<CR>
+nmap <leader>l.  :lnewer<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
