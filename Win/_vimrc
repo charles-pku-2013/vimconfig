@@ -191,12 +191,13 @@ nnoremap <C-U> 5<C-Y>
 nnoremap <C-D> 5<C-E>
 
 nmap <F9> :QFix<CR>
-nmap <S-F9> <leader>l
+nmap <S-F9> :call ToggleLocationList()<CR>
+nmap <leader>. :QFix<CR>
 
-nmap <leader>c,  :colder<CR>
-nmap <leader>c.  :cnewer<CR>
-nmap <leader>l,  :lolder<CR>
-nmap <leader>l.  :lnewer<CR>
+nmap <leader>c<Left>  :colder<CR>
+nmap <leader>c<Right>  :cnewer<CR>
+nmap <leader>l<Left>  :lolder<CR>
+nmap <leader>l<Right>  :lnewer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -240,8 +241,6 @@ nmap <C-F3> <leader>sd
 nmap <F2> :Grep -iw  %<Left><Left>
 nmap <S-F2> :Ack! -rkiw ""<Left>
 nmap <C-F2> :Ack! -rkiw "" %:h<Left><Left><Left><Left><Left>
-" In plugin vim-togglelist
-nmap <leader>. :call ToggleQuickfixList()<CR>
 """ 替换
 vnoremap <F5> :s/<C-r>///g<Left><Left>
 nnoremap <F5> :s/<C-r>///g<Left><Left>
@@ -327,7 +326,7 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 " set cst					" 用cscope实现ctags功能 cscopetag
 " autocmd VimEnter * nested :silent cs add cscope.out
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
+nnoremap <leader>ll :call ToggleLocationList()<CR>
 " s: Find this C symbol
 nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
 " g: Find this definition
