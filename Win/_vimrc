@@ -104,7 +104,7 @@ filetype on 			" 开启文件类型侦测
 filetype plugin on 		" 根据侦测到的不同类型加载对应的插件
 
 " 定义快捷键关闭当前分割窗口
-nmap <Leader>q :q<CR>
+nmap <Leader>qt :q<CR>
 " 定义快捷键保存当前窗口内容
 nmap <Leader>w :w<CR>
 " 定义快捷键保存所有窗口内容并退出 vim
@@ -192,12 +192,12 @@ nnoremap <C-D> 5<C-E>
 
 nmap <F9> :QFix<CR>
 nmap <S-F9> :call ToggleLocationList()<CR>
-nmap <leader>. :QFix<CR>
+nmap <leader>qf :QFix<CR>
 
-nmap <leader>c<Left>  :colder<CR>
-nmap <leader>c<Right>  :cnewer<CR>
-nmap <leader>l<Left>  :lolder<CR>
-nmap <leader>l<Right>  :lnewer<CR>
+nmap <leader>qp  :colder<CR>
+nmap <leader>qn  :cnewer<CR>
+nmap <leader>lp  :lolder<CR>
+nmap <leader>ln  :lnewer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
