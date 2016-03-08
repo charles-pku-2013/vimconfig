@@ -163,7 +163,7 @@ autocmd VimEnter * nested :wincmd h 				" left to main window
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
 map <F10> :NERDTreeToggle<CR>
-let NERDTreeWinSize=22					" 设置 NERDTree 子窗口宽度
+let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 " let NERDTreeShowHidden=1				" 显示隐藏文件
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
