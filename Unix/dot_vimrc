@@ -138,6 +138,7 @@ map <F11> :call ToggleFullscreen()<CR>
 """ 多文档编辑 MiniBufExplorer
 " disable auto open
 let g:miniBufExplorerAutoStart = 0
+let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
 nmap <Leader>bl :MBEToggle<CR>
