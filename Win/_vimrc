@@ -242,6 +242,7 @@ nmap <C-F3> <leader>sd
 nmap <F2> :Grep -iw  %<Left><Left>
 nmap <S-F2> :Ack! -rkiw ""<Left>
 nmap <C-F2> :Ack! -rkiw "" %:h<Left><Left><Left><Left><Left>
+nmap <leader>sw /\<\><Left><Left>
 """ 替换
 vnoremap <F5> :s/<C-r>///g<Left><Left>
 nnoremap <F5> :s/<C-r>///g<Left><Left>
