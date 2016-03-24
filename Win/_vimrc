@@ -124,6 +124,8 @@ nmap <Leader>P "+P
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
+" 断行, split line
+nnoremap K i<CR><Esc>
 
 " 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
 fun! ToggleFullscreen()
