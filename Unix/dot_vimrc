@@ -118,6 +118,8 @@ vnoremap <Leader>x "+d
 nmap <Leader>p "+p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 nmap <Leader>P "+P
+" 选中刚刚更改的如粘贴, select just changed as paste
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
