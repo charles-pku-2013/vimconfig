@@ -203,6 +203,10 @@ nmap <leader>qp  :colder<CR>
 nmap <leader>qn  :cnewer<CR>
 nmap <leader>lp  :lolder<CR>
 nmap <leader>ln  :lnewer<CR>
+nmap <C-k>  :cprev<CR>zz
+nmap <C-j>  :cnext<CR>zz
+nmap <C-p>  :lprev<CR>zz
+nmap <C-n>  :lnext<CR>zz
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
