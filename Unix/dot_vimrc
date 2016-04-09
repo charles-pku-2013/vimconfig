@@ -386,7 +386,7 @@ map <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+l
         "\ }
 
 """ code folding
-set fdm=indent
+set fdm=syntax
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
