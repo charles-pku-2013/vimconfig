@@ -147,6 +147,7 @@ let g:miniBufExplMaxSize = 1
 " 显示/隐藏 MiniBufExplorer 窗口
 nmap <Leader>bl :MBEToggle<CR>
 map <S-F10> :MBEToggle<CR>
+map <C-F10> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
