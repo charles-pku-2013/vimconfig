@@ -535,6 +535,31 @@ nmap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""" Section vim-bookmarks""""""""""""""""""
+
+nmap <Leader>mm <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mn <Plug>BookmarkNext
+nmap <Leader>mp <Plug>BookmarkPrev
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
+nmap <Leader>mkk <Plug>BookmarkMoveUp
+nmap <Leader>mjj <Plug>BookmarkMoveDown
+
+let g:bookmark_auto_save = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_highlight_lines = 1
+" Turn off the warning when clearing all bookmarks
+let g:bookmark_show_warning = 0
+" Turn off the warning when toggling to clear a bookmark with annotation
+let g:bookmark_show_toggle_warning = 0
+" Turn on vertical line centering when jumping to bookmark
+let g:bookmark_center = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " 替换
 
 " 替换函数。参数说明：
@@ -594,7 +619,7 @@ let g:disable_protodef_sorting=1
 source $VIMRUNTIME/ftplugin/man.vim
 
 " 定义:Man命令查看各类man信息的快捷键
-nmap <Leader>man :Man 3 <cword><CR>
+" nmap <Leader>man :Man 3 <cword><CR>
 
 " <<
 
