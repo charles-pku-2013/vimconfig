@@ -6,7 +6,7 @@ set nocompatible
 
 " inoremap <C-s> <C-o>dw
 
-""""""""""""""""" 全局设置 """""""""""""
+""""""""""""""""" Section 全局设置"""""""""""""
 
 " 文件编码
 set enc=utf-8
@@ -14,18 +14,20 @@ set enc=utf-8
 set nobackup
 let mapleader=";"
 
+" swp文件单独存放
+set directory=$HOME/.vimswapfiles//
+
 " vim 自身命令行模式智能补全
 set wildmenu
+
+"""" for Windows
+set backspace=2
 
 """"""""""""""""""""""""""""""""""""""""""
 
 
-"""" for Windows """"
-set backspace=2
-""""""""""""""""""""
 
-
-""""""""""""""""" 插件管理 """""""""""""""""
+""""""""""""""""" Section 插件管理"""""""""""""""""
 
 " 将 pathogen 自身也置于独立目录中，需指定其路径
 runtime autoload/pathogen.vim
@@ -36,7 +38,7 @@ execute pathogen#infect()
 
 
 
-""""""""""""""""" 显示 """"""""""""""""""""
+""""""""""""""""" Section 显示""""""""""""""""""""
 
 " 设置字体
 set guifont=YaHei_Consolas_Hybrid:h16:cGB2312
@@ -97,7 +99,7 @@ autocmd VimEnter * nested :call feedkeys(";m")
 
 
 
-""""""""""""""""""" 控制 Control """"""""""""""""""
+""""""""""""""""""" Section 控制 Control""""""""""""""""""
 
 " set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
 filetype on 			" 开启文件类型侦测
@@ -213,7 +215,7 @@ nmap <C-n>  :lnext<CR>zz
 
 
 
-""""""""""""""""""" 查找替换 Find & Replace """"""""""""""""""
+""""""""""""""""""" Section 查找替换 Find & Replace""""""""""""""""""
 
 " 取消搜索结果高亮显示并刷新屏幕
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -267,7 +269,7 @@ nnoremap <leader>cq :ccl<CR>
 
 
 
-"""""""""""""""""""""""""" 代码导航 Code Nav """"""""""""""""""""""""""""
+"""""""""""""""""""""""""" Section 代码导航 Code Nav""""""""""""""""""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
 " *.cpp 和 *.h 间切换
@@ -398,7 +400,7 @@ set fdm=syntax
 
 
 
-""""""""""""""""""""""""""" 代码自动完成 Auto Complete """""""""""""""""""""""""""
+""""""""""""""""""""""""""" Section 代码自动完成 Auto Complete"""""""""""""""""""""""""""
 
 """ UltiSnips 的 tab 键与 YCM 冲突，重新设定
 let g:UltiSnipsSnippetDirectories="vim-snippets/UltiSnips/"
@@ -448,7 +450,7 @@ map <leader>dg :Dox<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""" neocomplete """""""""""""""""""""""""""""
+"""""""""""""""""""""""""" Section neocomplete"""""""""""""""""""""""""""""
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Enable AutoComplPop.
@@ -525,7 +527,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""Chapter 代码排版""""""""""""""""""""""
+""""""""""" Section 代码排版""""""""""""""""""""""
 
 """""""Easy Align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)

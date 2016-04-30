@@ -12,6 +12,10 @@ set nocompatible
 set enc=utf-8
 " 不自动备份，生成讨厌的~
 set nobackup
+
+" swp文件单独存放
+set directory=$HOME/.vimswapfiles//
+
 let mapleader=";"
 
 " vim 自身命令行模式智能补全
