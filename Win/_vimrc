@@ -116,13 +116,13 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 
 """ Copy & Paste to system clipboard
 " 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <Leader>y "+y
+vnoremap <Leader>y "*y
 " 设置快捷键将选中文本块剪切至系统剪贴板
-vnoremap <Leader>x "+d
+vnoremap <Leader>x "*d
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
-nmap <Leader>p "+p
+nmap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
-nmap <Leader>P "+P
+nmap <Leader>P "*P
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
