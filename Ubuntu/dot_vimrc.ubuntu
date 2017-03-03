@@ -1,4 +1,4 @@
-"""""""""""""""""""" original contents""""""""""""""""""""""""
+"""""""""""""""""""" original contents """"""""""""""""""""""""
 
 set nocompatible
 
@@ -6,16 +6,12 @@ set nocompatible
 
 " inoremap <C-s> <C-o>dw
 
-""""""""""""""""" Section 全局设置"""""""""""""
+""""""""""""""""" 全局设置 """""""""""""
 
 " 文件编码
 set enc=utf-8
 " 不自动备份，生成讨厌的~
 set nobackup
-
-" swp文件单独存放
-set directory=$HOME/.vimswapfiles//
-
 let mapleader=";"
 
 " vim 自身命令行模式智能补全
@@ -25,7 +21,7 @@ set wildmenu
 
 
 
-""""""""""""""""" Section 插件管理"""""""""""""""""
+""""""""""""""""" 插件管理 """""""""""""""""
 
 " 将 pathogen 自身也置于独立目录中，需指定其路径
 runtime autoload/pathogen.vim
@@ -36,11 +32,11 @@ execute pathogen#infect()
 
 
 
-""""""""""""""""" Section 显示""""""""""""""""""""
+""""""""""""""""" 显示 """"""""""""""""""""
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=Consolas:h24
+set guifont=Monospace\ 16
 
 """ 配色方案
 set background=dark
@@ -98,7 +94,7 @@ autocmd VimEnter * nested :call feedkeys(";m")
 
 
 
-""""""""""""""""""" Section 控制 Control""""""""""""""""""
+""""""""""""""""""" 控制 Control """"""""""""""""""
 
 " set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
 filetype on 			" 开启文件类型侦测
@@ -115,22 +111,20 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 
 """ Copy & Paste to system clipboard
 " 设置快捷键将选中文本块复制至系统剪贴板
-" vnoremap <Leader>y "+y
 vnoremap <Leader>y "*y
 " 设置快捷键将选中文本块剪切至系统剪贴板
-" vnoremap <Leader>x "+d
 vnoremap <Leader>x "*d
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
-" nmap <Leader>p "+p
 nmap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
-" nmap <Leader>P "+P
 nmap <Leader>P "*P
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-" Copy / cut current word to sys clipboard
-nmap <Leader>yiw viw<Leader>y
-nmap <Leader>xiw viw<Leader>x
+" Copy / cut to sys clipboard
+nmap <Leader>yiw "*yiw
+nmap <Leader>diw "*diw
+nmap <Leader>yy "*yy
+nmap <Leader>dd "*dd
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
@@ -219,7 +213,7 @@ nmap <C-n>  :lnext<CR>zz
 
 
 
-""""""""""""""""""" Section 查找替换 Find & Replace""""""""""""""""""
+""""""""""""""""""" 查找替换 Find & Replace """"""""""""""""""
 
 " 取消搜索结果高亮显示并刷新屏幕
 nnoremap <silent> <C-l> :nohl<CR><C-l>
@@ -273,7 +267,7 @@ nnoremap <leader>cq :ccl<CR>
 
 
 
-"""""""""""""""""""""""""" Section 代码导航 Code Nav""""""""""""""""""""""""""""
+"""""""""""""""""""""""""" 代码导航 Code Nav """"""""""""""""""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
 " *.cpp 和 *.h 间切换
@@ -404,7 +398,7 @@ set fdm=syntax
 
 
 
-""""""""""""""""""""""""""" Section 代码自动完成 Auto Complete"""""""""""""""""""""""""""
+""""""""""""""""""""""""""" 代码自动完成 Auto Complete """""""""""""""""""""""""""
 
 """ UltiSnips 的 tab 键与 YCM 冲突，重新设定
 let g:UltiSnipsSnippetDirectories="vim-snippets/UltiSnips/"
@@ -454,7 +448,7 @@ map <leader>dg :Dox<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""Section 代码排版""""""""""""""""""""""
+"""""""""""Chapter 代码排版""""""""""""""""""""""
 
 """""""Easy Align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -463,31 +457,6 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 """""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""" Section vim-bookmarks""""""""""""""""""
-
-nmap <Leader>mm <Plug>BookmarkToggle
-nmap <Leader>mi <Plug>BookmarkAnnotate
-nmap <Leader>ma <Plug>BookmarkShowAll
-nmap <Leader>mn <Plug>BookmarkNext
-nmap <Leader>mp <Plug>BookmarkPrev
-nmap <Leader>mc <Plug>BookmarkClear
-nmap <Leader>mx <Plug>BookmarkClearAll
-nmap <Leader>mkk <Plug>BookmarkMoveUp
-nmap <Leader>mjj <Plug>BookmarkMoveDown
-
-let g:bookmark_auto_save = 1
-let g:bookmark_save_per_working_dir = 1
-let g:bookmark_highlight_lines = 1
-" Turn off the warning when clearing all bookmarks
-let g:bookmark_show_warning = 0
-" Turn off the warning when toggling to clear a bookmark with annotation
-let g:bookmark_show_toggle_warning = 0
-" Turn on vertical line centering when jumping to bookmark
-let g:bookmark_center = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 " 替换
@@ -549,7 +518,7 @@ let g:disable_protodef_sorting=1
 source $VIMRUNTIME/ftplugin/man.vim
 
 " 定义:Man命令查看各类man信息的快捷键
-" nmap <Leader>man :Man 3 <cword><CR>
+nmap <Leader>man :Man 3 <cword><CR>
 
 " <<
 
