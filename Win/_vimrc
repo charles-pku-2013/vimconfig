@@ -251,9 +251,10 @@ noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> yiw:Ack! -rkw <cword><CR>/\<\><Left><Left><C-r>0<CR>
 vmap <S-F3> y:Ack! -rkw <C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sc :Ack! -w <cword> %<CR>
-" map <F3> <leader>sc
-nmap <F3> yiw:Grep -w <cword> %<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <F3> y:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+" nmap <F3> yiw:Grep -w <cword> %<CR>/\<\><Left><Left><C-r>0<CR>
+" vmap <F3> y:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <F3> yiw:Ack! -rkw <cword> %<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <F3> y:Ack! -rkw  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sd :Ack! -rkw <cword> %:h<CR>
 nmap <C-F3> yiw:Ack! -rkw <cword> %:h<CR>/\<\><Left><Left><C-r>0<CR>
 vmap <C-F3> y:Ack! -rkw  %:h<Left><Left><Left><Left><CR>/\<\><Left><Left><C-r>0<CR>
