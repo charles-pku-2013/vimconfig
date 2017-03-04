@@ -131,6 +131,8 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
 nmap <Leader>yiw "*yiw
 nmap <Leader>diw "*diw
+" Replace cword with clipboard
+nmap <Leader>riw diw"*P
 nmap <Leader>yy "*yy
 nmap <Leader>dd "*dd
 
