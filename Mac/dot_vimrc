@@ -361,17 +361,19 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 nnoremap <leader>ll :call ToggleLocationList()<CR>
 " s: Find this C symbol
-nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+nnoremap  <leader>fs yiw:call cscope#find('s', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " g: Find this definition
-nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+nnoremap  <leader>fg yiw:call cscope#find('g', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " d: Find functions called by this function
 nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
 " c: Find functions calling this function
 nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
 " t: Find this text string
-nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+nnoremap  <leader>ft yiw:call cscope#find('t', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+vnoremap  <leader>ft y:call cscope#find('t', expand(''))<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 " e: Find this egrep pattern
-nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+nnoremap  <leader>fe yiw:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+vnoremap  <leader>fe y:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " f: Find this file
 nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
 " i: Find files #including this file
