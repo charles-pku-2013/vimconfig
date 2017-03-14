@@ -118,7 +118,7 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 " 设置快捷键将选中文本块复制至系统剪贴板
 vnoremap <Leader>y "*y
 " 设置快捷键将选中文本块剪切至系统剪贴板
-vnoremap <Leader>x "*d
+vnoremap <Leader>d "*d
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
 nmap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
