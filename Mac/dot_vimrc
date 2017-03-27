@@ -462,11 +462,14 @@ let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/exam
 """ 注释 NERDCommenter
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
-map <F8> <leader>ci
-map <S-F8> <leader>cs
+nnoremap <F8> <leader>ci
+vnoremap <F8> <leader>ci
+nnoremap <S-F8> <leader>cs
+vnoremap <S-F8> <leader>cs
 
 """ doxygen
-map <leader>dg :Dox<CR>
+nnoremap <leader>dg :Dox<CR>
+vnoremap <leader>dg :Dox<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
