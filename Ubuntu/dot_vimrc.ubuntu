@@ -459,8 +459,8 @@ nmap <S-F8> <leader>cs
 vmap <S-F8> <leader>cs
 
 """ doxygen
-nnoremap <leader>dg :Dox<CR>
-vnoremap <leader>dg :Dox<CR>
+nnoremap <leader><leader>dox :Dox<CR>
+vnoremap <leader><leader>dox :Dox<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
