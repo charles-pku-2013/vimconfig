@@ -199,6 +199,7 @@ noremap <S-F4> :BufOnly<CR>
 
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR>
+nmap <leader>vs :vs<CR>
 
 " scroll horizontally
 nmap <S-C-Left> 5zh
@@ -254,6 +255,7 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 """ plugin: ack
 "" shift: search all in root dir recursively
 "" ctrl: search in the file dir recursively
+vmap * y/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> yiw:Ack! -rkw <cword><CR>/\<\><Left><Left><C-r>0<CR>
 vmap <S-F3> y:Ack! -rkw <C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
@@ -537,6 +539,8 @@ nnoremap <Leader>up :UnitePrevious<CR>
 
 """"""""""""""""""""""CtrlP"""""""""""""""""""""""""""""
 let g:ctrlp_cmd = 'CtrlP .'
+" Ctrl - z select multi files and ctrl - o open them in hidden buffers
+let g:ctrlp_open_multiple_files = 'i'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
