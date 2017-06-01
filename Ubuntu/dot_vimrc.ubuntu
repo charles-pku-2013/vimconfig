@@ -190,8 +190,8 @@ map <F4> <leader>ct
 noremap <S-F4> :BufOnly<CR>
 
 """ 分割窗口 split window
-nmap <leader>sp :sp<CR>
-nmap <leader>vs :vs<CR>
+nmap <leader>sp :sp<CR><C-w><Down>
+nmap <leader>vs :vs<CR><C-w><Right>
 
 " scroll horizontally
 nmap <S-C-Left> 5zh
