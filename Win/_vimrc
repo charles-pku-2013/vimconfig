@@ -1,4 +1,4 @@
-"""""""""""""""""""" original contents """"""""""""""""""""""""
+"""""""""""""""""""" original contents""""""""""""""""""""""""
 
 set nocompatible
 
@@ -582,6 +582,63 @@ let g:bookmark_show_warning = 0
 let g:bookmark_show_toggle_warning = 0
 " Turn on vertical line centering when jumping to bookmark
 let g:bookmark_center = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""" Section vim-bookmarks""""""""""""""""""
+
+nmap <Leader>mm <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mn <Plug>BookmarkNext
+nmap <Leader>mp <Plug>BookmarkPrev
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
+nmap <Leader>mkk <Plug>BookmarkMoveUp
+nmap <Leader>mjj <Plug>BookmarkMoveDown
+
+let g:bookmark_no_default_key_mappings = 1
+let g:bookmark_auto_save = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_highlight_lines = 1
+" Turn off the warning when clearing all bookmarks
+let g:bookmark_show_warning = 0
+" Turn off the warning when toggling to clear a bookmark with annotation
+let g:bookmark_show_toggle_warning = 0
+" Turn on vertical line centering when jumping to bookmark
+let g:bookmark_center = 1
+" use location list
+let g:bookmark_location_list = 1
+" highlight BookmarkSign ctermbg=NONE ctermfg=160
+" highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+
+call unite#custom#profile('source/vim_bookmarks', 'context', {
+    \   'winheight': 50,
+    \   'direction': 'botright',
+    \   'start_insert': 0,
+    \   'keep_focus': 1,
+    \   'no_quit': 1,
+    \ })
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""" Unite""""""""""""""""""""""""""""
+
+nnoremap <Leader>ub :Unite buffer<CR>
+nnoremap <Leader>uf :Unite file<CR>
+nnoremap <Leader>ur :Unite file_rec<CR>
+nnoremap <Leader>us :UniteResume<CR>
+nnoremap <Leader>un :UniteNext<CR>
+nnoremap <Leader>up :UnitePrevious<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""CtrlP"""""""""""""""""""""""""""""
+let g:ctrlp_cmd = 'CtrlP .'
+" Ctrl - z select multi files and ctrl - o open them in hidden buffers
+let g:ctrlp_open_multiple_files = 'i'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
