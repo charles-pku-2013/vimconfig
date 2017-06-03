@@ -183,6 +183,9 @@ let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
 
+" mru
+nnoremap <Leader>mru :MRU<CR>
+
 " F4 关闭当前标签
 map <F4> <leader>ct
 """ BufOnly.vim
