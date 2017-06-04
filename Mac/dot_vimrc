@@ -431,7 +431,6 @@ let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
-
 """ YouCompleteMe
 "" YCM 补全菜单配色
 " 菜单
@@ -541,6 +540,13 @@ nnoremap <Leader>up :UnitePrevious<CR>
 let g:ctrlp_cmd = 'CtrlP .'
 " Ctrl - z select multi files and ctrl - o open them in hidden buffers
 let g:ctrlp_open_multiple_files = 'i'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""Others""""""""""""""""""""""""
+" 切换路径到当前所编辑文件所在目录
+nnoremap <Leader>cwd :cd %:p:h<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
