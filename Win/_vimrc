@@ -207,8 +207,8 @@ nmap <S-Right> zL
 " Number of lines by Ctrl+u and Ctrl+d
 " set scroll=5
 """ change scroll to 5 line one time scroll step length 步长
-map <C-U> 7<C-Y>
-map <C-D> 7<C-E>
+nmap <C-U> 10<C-Y>
+nmap <C-D> 10<C-E>
 
 nmap <F9> :QFix<CR>
 nmap <S-F9> :call ToggleLocationList()<CR>
