@@ -139,6 +139,8 @@ vnoremap <Leader>rv "td"*P
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
+" 删除空行
+nnoremap <Leader>rel :g/^\s*$/d<CR>
 " 断行, split line
 nnoremap K i<CR><Esc>
 
