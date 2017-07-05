@@ -122,12 +122,16 @@ nmap <Leader>P "*P
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
 nmap <Leader>yiw "*yiw
+nmap <Leader>yiW "*yiW
 nmap <Leader>diw "*diw
+nmap <Leader>diW "*diW
 nmap <Leader>yy "*yy
 nmap <Leader>dd "*dd
 " Replace cword with clipboard
 nnoremap riw "tdiw"0P
+nnoremap riW "tdiW"0P
 nnoremap <Leader>riw "tdiw"*P
+nnoremap <Leader>riW "tdiW"*P
 " Replace selected with clipboard
 vnoremap rv "td"0P
 vnoremap <Leader>rv "td"*P
