@@ -20,6 +20,9 @@ set directory=$HOME/.vimswapfiles//
 " vim 自身命令行模式智能补全
 set wildmenu
 
+" 多字节字符显示
+set ambiwidth=double
+
 """" for Windows
 set backspace=2
 
