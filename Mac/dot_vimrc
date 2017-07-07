@@ -161,7 +161,7 @@ endf
 
 nmap <C-F11> :set wrap! linebreak nolist<CR>
 " 全屏开/关快捷键
-map <F11> :call ToggleFullscreen()<CR>
+nnoremap <F11> :call ToggleFullscreen()<CR>
 "autocmd VimEnter * call ToggleFullscreen() 		" 启动 vim 时自动全屏
 
 " inoremap <c-s> <c-o>:w<CR>			" ctrl-s Save 保存后返回原(插入)模式 only work in gvim
@@ -174,13 +174,13 @@ let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
 nmap <Leader>bl :MBEToggle<CR>
-map <S-F10> :MBEToggle<CR>
-map <C-F10> :TagbarToggle<CR>
+nnoremap <S-F10> :MBEToggle<CR>
+nnoremap <C-F10> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
-map <C-Tab> :MBEbn<cr>
-map <C-S-Tab> :MBEbp<cr>
+nnoremap <C-Tab> :MBEbn<cr>
+nnoremap <C-S-Tab> :MBEbp<cr>
 
 """ plugin: NERDTree 文件浏览器
 " autocmd VimEnter * nested :NERDTree				" 启动vim自动开启
@@ -202,7 +202,7 @@ let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
 
 " F4 关闭当前标签
-map <F4> <leader>ct
+nnoremap <F4> :MBEbd<CR> 
 """ BufOnly.vim
 " close all buffers except this
 noremap <S-F4> :BufOnly<CR>
@@ -397,7 +397,7 @@ nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR><CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
 " nmap <F12> :cs kill -1<CR>:!myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:!cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR><CR>
-map <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
+nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
 
 
 """ 代码收藏 vim-signature
@@ -611,31 +611,7 @@ let g:protodefprotogetter='~/.vim/bundle/vim-protodef/pullproto.pl'
 " 成员函数的实现顺序与声明顺序一致
 let g:disable_protodef_sorting=1
 
-" <<
 
-" >>
-" 库信息参考
-
-" 启用:Man命令查看各类man信息
-source $VIMRUNTIME/ftplugin/man.vim
-
-" 定义:Man命令查看各类man信息的快捷键
-" nmap <Leader>man :Man 3 <cword><CR>
-
-" <<
-
-" >>
-
-
-" <<
-
-" >>
-
-
-" <<
-
-
-" >>
 " 环境恢复
 
 " 设置环境保存项
@@ -646,30 +622,13 @@ set undodir=~/.undo_history/
 set undofile
 
 " 保存快捷键
-"map <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
-map <leader>ss :mksession! my.vim<cr>
+"nnoremap <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
+nnoremap <leader>ss :mksession! my.vim<cr>
 
 " 恢复快捷键
-"map <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
-map <leader>rs :source my.vim<cr>
+"nnoremap <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
+nnoremap <leader>rs :source my.vim<cr>
 
-" <<
-
-" 设置快捷键实现一键编译及运行
-nmap <Leader>m :wa<CR> :cd build/<CR> :!rm -rf main<CR> :!cmake CMakeLists.txt<CR>:make<CR><CR> :cw<CR> :cd ..<CR>
-nmap <Leader>g :wa<CR>:cd build/<CR>:!rm -rf main<CR>:!cmake CMakeLists.txt<CR>:make<CR><CR>:cw<CR>:cd ..<CR>:!build/main<CR>
-
-" >>
-" 快速选中结对符内的文本
-
-" 快捷键
-map <SPACE> <Plug>(wildfire-fuel)
-vmap <S-SPACE> <Plug>(wildfire-water)
-
-" 适用于哪些结对符
-let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "i>", "ip"]
-
-" <<
 
 " 调用 gundo 树
 nnoremap <Leader>ud :GundoToggle<CR>
@@ -678,19 +637,19 @@ nnoremap <Leader>ud :GundoToggle<CR>
 " web 前端
 
 " surrond 添加 <p> 元素的快捷键
-nmap <Leader>ap yss<p><CR>
+" nmap <Leader>ap yss<p><CR>
 
 " 对 HTML 元素进行转义：< -> &lt;、> -> &gt;、& -> &amp;、空格 -> &nbsp;、行尾添加 <br />
 " 先后顺序敏感
-function HtmlEscape()
-    retab<CR>
-    silent s/&/\&amp;/eg
-    silent s/</\&lt;/eg
-    silent s/>/\&gt;/eg
-    silent s/ /\&nbsp;/eg
-    silent s/$/<br \/>/eg
-endfunction
-vnoremap <Leader>he :call HtmlEscape()<CR>
+" function HtmlEscape()
+    " retab<CR>
+    " silent s/&/\&amp;/eg
+    " silent s/</\&lt;/eg
+    " silent s/>/\&gt;/eg
+    " silent s/ /\&nbsp;/eg
+    " silent s/$/<br \/>/eg
+" endfunction
+" vnoremap <Leader>he :call HtmlEscape()<CR>
 
 " <<
 
