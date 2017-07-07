@@ -561,6 +561,26 @@ nnoremap <Leader>cwd :cd %:p:h<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+"""""""""""""""""""""Unicode""""""""""""""""""""""
+" See https://en.wikipedia.org/wiki/Miscellaneous_Symbols
+" 
+" char ♥
+imap <Leader>ul <C-q>u2665
+" char 🔴
+imap <Leader>ur <C-q>U0001f534
+" char 🔵
+imap <Leader>ub <C-q>U0001f535
+" char ⭕
+imap <Leader>uhr <C-q>u2b55
+" char ★
+imap <Leader>u* <C-q>u2605
+" char ♬
+imap <Leader>um <C-q>u266c
+" char ⛩
+imap <Leader>uj <C-q>u26e9
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " 替换
 
 " 替换函数。参数说明：
