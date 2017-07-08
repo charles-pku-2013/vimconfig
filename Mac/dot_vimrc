@@ -574,6 +574,8 @@ imap <Leader>ub <C-q>U0001f535
 imap <Leader>uhr <C-q>u2b55
 " char ★
 imap <Leader>u* <C-q>u2605
+" char ☆
+imap <Leader>uh* <C-q>u2606
 " char ♬
 imap <Leader>um <C-q>u266c
 " char ⛩
