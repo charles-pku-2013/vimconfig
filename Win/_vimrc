@@ -124,8 +124,10 @@ vnoremap <Leader>y "*y
 vnoremap <Leader>d "*d
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
 nmap <Leader>p "*p
+vmap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 nmap <Leader>P "*P
+vmap <Leader>P "*P
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
@@ -135,14 +137,6 @@ nmap <Leader>diw "*diw
 nmap <Leader>diW "*diW
 nmap <Leader>yy "*yy
 nmap <Leader>dd "*dd
-" Replace cword with clipboard
-nnoremap riw "tdiw"0P
-nnoremap riW "tdiW"0P
-nnoremap <Leader>riw "tdiw"*P
-nnoremap <Leader>riW "tdiW"*P
-" Replace selected with clipboard
-vnoremap rv "td"0P
-vnoremap <Leader>rv "td"*P
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
