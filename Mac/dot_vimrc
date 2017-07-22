@@ -140,9 +140,6 @@ nmap <Leader>diw "*diw
 nmap <Leader>diW "*diW
 nmap <Leader>yy "*yy
 nmap <Leader>dd "*dd
-" Replace cword with clipboard
-nnoremap <Leader>riw viw"*p
-nnoremap <Leader>riW viW"*p
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
