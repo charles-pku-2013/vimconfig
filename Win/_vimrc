@@ -229,8 +229,8 @@ nmap <leader>lp  :lolder<CR>
 nmap <leader>ln  :lnewer<CR>
 nmap <C-k>  :cprev<CR>zz
 nmap <C-j>  :cnext<CR>zz
-nmap <C-,>  :lprev<CR>zz
-nmap <C-.>  :lnext<CR>zz
+nmap <C-a>  :lprev<CR>zz
+nmap <C-z>  :lnext<CR>zz
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
