@@ -258,16 +258,14 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 "" ctrl: search in the file dir recursively
 vmap * y/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sa :Ack! -rkw <cword><CR>
-nmap <S-F3> yiw:Ack! -rkw <cword><CR>/\<\><Left><Left><C-r>0<CR>
-vmap <S-F3> y:Ack! -rkw <C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sc :Ack! -w <cword> %<CR>
-" nmap <F3> yiw:Grep -w <cword> %<CR>/\<\><Left><Left><C-r>0<CR>
-" vmap <F3> y:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-nmap <F3> yiw:Ack! -rkw <cword> %<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <F3> y:Ack! -rkw  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <F3> yiw:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <F3> y:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sd :Ack! -rkw <cword> %:h<CR>
-nmap <C-F3> yiw:Ack! -rkw <cword> %:h<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <C-F3> y:Ack! -rkw  %:h<Left><Left><Left><Left><CR>/\<\><Left><Left><C-r>0<CR>
+nmap <C-F3> yiw:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <C-F3> y:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 " noremap <F2> :Ack! -i "" %<Left><Left><Left>
 nmap <F2> :Grep -iw  %<Left><Left>
 nmap <S-F2> :Ack! -rkiw ""<Left>
