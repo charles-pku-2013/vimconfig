@@ -393,9 +393,9 @@ nnoremap  <leader>fs yiw:call cscope#find('s', expand('<cword>'))<CR>/\<\><Left>
 " g: Find this definition
 nnoremap  <leader>fg yiw:call cscope#find('g', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " d: Find functions called by this function
-nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+nnoremap  <leader>fd yiw:call cscope#find('d', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " c: Find functions calling this function
-nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+nnoremap  <leader>fc yiw:call cscope#find('c', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " t: Find this text string
 nnoremap  <leader>ft yiw:call cscope#find('t', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 vnoremap  <leader>ft y:call cscope#find('t', expand(''))<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
@@ -403,9 +403,9 @@ vnoremap  <leader>ft y:call cscope#find('t', expand(''))<Left><Left><Left><C-r>0
 nnoremap  <leader>fe yiw:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 vnoremap  <leader>fe y:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " f: Find this file
-nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+nnoremap  <leader>ff yiw:call cscope#find('f', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " i: Find files #including this file
-nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+nnoremap  <leader>fi yiw:call cscope#find('i', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " 更新数据库
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR><CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
