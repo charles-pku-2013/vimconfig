@@ -306,6 +306,13 @@ nmap <Leader>ts yiw:ts <c-r>0<CR>/\<<C-r>0\><CR>
 vmap <Leader>ts y:ts /<c-r>0<CR>/\<<C-r>0\><CR>
 nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
+nmap <space> <Leader>lt
+vmap <space> <Leader>lt
+nmap <F1> :call ToggleLocationList()<CR>
+nmap <S-F1> :call ToggleQuickfixList()<CR>
+" location list 跳转到条目后自动关闭
+autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
+autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>
 """""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
