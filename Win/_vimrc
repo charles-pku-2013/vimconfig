@@ -198,7 +198,7 @@ let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
 
 " F4 关闭当前标签
-nnoremap <F4> :MBEbd<CR> 
+nnoremap <F4> :MBEbd<CR>
 """ BufOnly.vim
 " close all buffers except this
 noremap <S-F4> :BufOnly<CR>
@@ -300,20 +300,46 @@ nnoremap <leader>cq :ccl<CR>
 
 """""""""""""""""""""""""" Section 代码导航 Code Nav""""""""""""""""""""""""""""
 """"""" ctags
+set csto=1      " Search tag file before cscope
 " See http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set tags=tags;
-nmap <Leader>ts yiw:ts <c-r>0<CR>/\<<C-r>0\><CR>
-vmap <Leader>ts y:ts /<c-r>0<CR>/\<<C-r>0\><CR>
+nmap <Leader>ts yiw:ts <c-r>0<CR>
+vmap <Leader>ts y:ts /<c-r>0<CR>
 nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 nmap <space> <Leader>lt
 vmap <space> <Leader>lt
 nmap <F1> :call ToggleLocationList()<CR>
 nmap <S-F1> :call ToggleQuickfixList()<CR>
-" location list 跳转到条目后自动关闭
-autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
-autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>
+" location list 和 quickfix 按空格跳转到条目后自动关闭
+" autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
+autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>:ccl<cr>
 """""""""""""
+
+""""""" cscope
+" 自动寻找并添加当前目录下的数据库
+autocmd VimEnter * nested :cs add .
+" 将结果显示于quickfix window
+set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+" find symbol
+nnoremap  <leader>fs yiw:cs find s <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" find definition
+nnoremap  <leader>fg yiw:cs find g <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" called by this
+nnoremap  <leader>fd yiw:cs find d <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" call this
+nnoremap  <leader>fc yiw:cs find c <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" text
+nnoremap  <leader>ft yiw:cs find t <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+vnoremap  <leader>ft y:cs find t <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" grep
+nnoremap  <leader>fe yiw:cs find e <C-r>0<CR>:copen<CR>/<C-r>0<CR>
+vnoremap  <leader>fe y:cs find e <C-r>0<CR>:copen<CR>/<C-r>0<CR>
+" this file
+nnoremap  <leader>ff yiw:cs find f <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+" including this file
+nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+"""""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
 " *.cpp 和 *.h 间切换
@@ -386,26 +412,26 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 """ cscope
 " set cst					" 用cscope实现ctags功能 cscopetag
 " autocmd VimEnter * nested :silent cs add cscope.out
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+" nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 nnoremap <leader>ll :call ToggleLocationList()<CR>
 " s: Find this C symbol
-nnoremap  <leader>fs yiw:call cscope#find('s', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fs yiw:call cscope#find('s', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " g: Find this definition
-nnoremap  <leader>fg yiw:call cscope#find('g', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fg yiw:call cscope#find('g', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " d: Find functions called by this function
-nnoremap  <leader>fd yiw:call cscope#find('d', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fd yiw:call cscope#find('d', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " c: Find functions calling this function
-nnoremap  <leader>fc yiw:call cscope#find('c', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fc yiw:call cscope#find('c', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " t: Find this text string
-nnoremap  <leader>ft yiw:call cscope#find('t', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
-vnoremap  <leader>ft y:call cscope#find('t', expand(''))<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>ft yiw:call cscope#find('t', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" vnoremap  <leader>ft y:call cscope#find('t', expand(''))<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 " e: Find this egrep pattern
-nnoremap  <leader>fe yiw:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
-vnoremap  <leader>fe y:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fe yiw:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" vnoremap  <leader>fe y:call cscope#find('e', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " f: Find this file
-nnoremap  <leader>ff yiw:call cscope#find('f', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>ff yiw:call cscope#find('f', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " i: Find files #including this file
-nnoremap  <leader>fi yiw:call cscope#find('i', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
+" nnoremap  <leader>fi yiw:call cscope#find('i', expand('<cword>'))<CR>/\<\><Left><Left><C-r>0<CR>
 " 更新数据库
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR><CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
@@ -677,7 +703,7 @@ nnoremap <Leader>cwd :cd %:p:h<CR>
 
 """""""""""""""""""""Unicode""""""""""""""""""""""
 " See https://en.wikipedia.org/wiki/Miscellaneous_Symbols
-" 
+"
 " char ♥
 imap <Leader>ul <C-q>u2665
 " char 🔴
