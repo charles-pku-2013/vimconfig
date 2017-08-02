@@ -14,6 +14,9 @@ set enc=utf-8
 set nobackup
 let mapleader=";"
 
+" swp文件单独存放
+set directory=$HOME/.vimswapfiles//
+
 " vim 自身命令行模式智能补全
 set wildmenu
 
@@ -272,9 +275,7 @@ nmap <S-F2> :Ack! -rkiw ""<Left>
 nmap <C-F2> :Ack! -rkiw "" %:h<Left><Left><Left><Left><Left>
 nmap <leader>gr :Rgrep -wi  *<Left><Left>
 nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
-nmap <leader>cgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-nmap <leader>jgr :Rgrep -wi  *.java<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-" nmap <leader>pgr :Rgrep -wi  *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+nmap <leader>lgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx *.java *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 nmap <leader>/ /\<\><Left><Left>
 " 搜索当前选中文本 search selected
 vmap <Leader>/ y/\<\><Left><Left><C-r>0<CR>
@@ -283,9 +284,6 @@ vnoremap <F5> :s/<C-r>///g<Left><Left>
 nnoremap <F5> :s/<C-r>///g<Left><Left>
 vnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
-
-" close quickfix window
-nnoremap <leader>cq :ccl<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -332,6 +330,8 @@ vnoremap  <leader>fe y:cs find e <C-r>0<CR>:copen<CR>/<C-r>0<CR>
 nnoremap  <leader>ff yiw:cs find f <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
 " including this file
 nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
+
+nmap <S-space> <leader>fc
 """""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
