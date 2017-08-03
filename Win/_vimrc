@@ -296,6 +296,15 @@ nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 set csto=1      " Search tag file before cscope
 " See http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set tags=tags;
+
+" 自动加载tags路径设置
+function! SetTags()
+   if filereadable("tags.vim")
+       execute 'source! tags.vim'
+   endif
+endfunction
+autocmd VimEnter * nested :silent! call SetTags()<CR>
+
 nmap <Leader>ts yiw:ts <c-r>0<CR>
 vmap <Leader>ts y:ts /<c-r>0<CR>
 nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
