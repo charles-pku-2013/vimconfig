@@ -218,7 +218,7 @@ let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffe
 autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 
 " F4 关闭当前标签
-nnoremap <F4> :MBEbd<CR>
+nnoremap <F4> :bd<CR>
 """ BufOnly.vim
 " close all buffers except this
 noremap <S-F4> :BufOnly<CR>
@@ -255,6 +255,7 @@ nmap <C-z>  :lnext<CR>zz
 autocmd FileType qf nmap <silent><buffer> <space> <cr>:lcl<cr>:ccl<cr>
 " Esc for close
 autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
+autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -590,7 +591,7 @@ let g:bookmark_center = 1
 " let g:bookmark_location_list = 1
 " highlight BookmarkSign ctermbg=NONE ctermfg=160
 " highlight BookmarkLine ctermbg=194 ctermfg=NONE
-let g:bookmark_sign = '♥'
+let g:bookmark_sign = '🍎'
 let g:bookmark_highlight_lines = 1
 
 call unite#custom#profile('source/vim_bookmarks', 'context', {
