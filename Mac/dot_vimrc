@@ -39,6 +39,16 @@ execute pathogen#infect()
 
 
 
+""""""""""""""" Helper Functions""""""""""""""""""
+" 校准光标，从tagbar移动到主窗口
+function! AdjustCursor()
+    if (&ft=='tagbar')
+        call feedkeys("\<C-w>\<Right>")
+    endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 """"""""""""""""" Section 显示""""""""""""""""""""
 " Maximize gvim window.
 if has("gui_running")
@@ -199,7 +209,7 @@ let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 " let NERDTreeShowHidden=1				" 显示隐藏文件
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
-autocmd FileType nerdtree nmap <buffer> <Esc> :q<CR>
+autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 
 " F4 关闭当前标签
 nnoremap <F4> :MBEbd<CR>
@@ -236,9 +246,9 @@ nmap <C-z>  :lnext<CR>zz
 
 " For QuickFix and Locationlist window
 " Space jump to item and close
-autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>:ccl<cr>
+autocmd FileType qf nmap <silent><buffer> <space> <cr>:lcl<cr>:ccl<cr>
 " Esc for close
-autocmd FileType qf nmap <buffer> <Esc> :q<CR>
+autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -597,7 +607,7 @@ nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
 " In unite window, press Esc to quit
-autocmd FileType unite nmap <buffer> <Esc> :UniteClose<CR>
+autocmd FileType unite nmap <silent><buffer> <Esc> :UniteClose<CR>:call AdjustCursor()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
