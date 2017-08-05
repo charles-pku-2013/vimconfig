@@ -199,6 +199,7 @@ let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 " let NERDTreeShowHidden=1				" 显示隐藏文件
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
+autocmd FileType nerdtree nmap <buffer> <Esc> :q<CR>
 
 " F4 关闭当前标签
 nnoremap <F4> :MBEbd<CR>
@@ -233,6 +234,11 @@ nmap <C-j>  :cnext<CR>zz
 nmap <C-a>  :lprev<CR>zz
 nmap <C-z>  :lnext<CR>zz
 
+" For QuickFix and Locationlist window
+" Space jump to item and close
+autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>:ccl<cr>
+" Esc for close
+autocmd FileType qf nmap <buffer> <Esc> :q<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -319,7 +325,6 @@ nmap <F1> :call ToggleLocationList()<CR>
 nmap <S-F1> :call ToggleQuickfixList()<CR>
 " location list 和 quickfix 按空格跳转到条目后自动关闭
 " autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
-autocmd FileType qf nmap <buffer> <space> <cr>:lcl<cr>:ccl<cr>
 """""""""""""
 
 """"""" cscope
@@ -444,7 +449,8 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR><CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
 " nmap <F12> :cs kill -1<CR>:!myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:!cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR><CR>
-nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
+" nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
+nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkq -i cscope.files<CR>:cs kill -1:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
@@ -566,7 +572,7 @@ let g:bookmark_show_toggle_warning = 0
 " Turn on vertical line centering when jumping to bookmark
 let g:bookmark_center = 1
 " use location list
-let g:bookmark_location_list = 1
+" let g:bookmark_location_list = 1
 " highlight BookmarkSign ctermbg=NONE ctermfg=160
 " highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
@@ -574,10 +580,10 @@ let g:bookmark_highlight_lines = 1
 
 call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'winheight': 50,
-    \   'direction': 'botright',
+    \   'direction': 'belowright',
     \   'start_insert': 0,
     \   'keep_focus': 1,
-    \   'no_quit': 1,
+    \   'no_quit': 0,
     \ })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -590,6 +596,8 @@ nnoremap <Leader>ur :Unite file_rec<CR>
 nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
+" In unite window, press Esc to quit
+autocmd FileType unite nmap <buffer> <Esc> :UniteClose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
