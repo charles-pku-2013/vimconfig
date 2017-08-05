@@ -49,6 +49,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+
 """"""""""""""""" Section 显示""""""""""""""""""""
 " Maximize gvim window.
 if has("gui_running")
@@ -131,6 +132,11 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 " 不做任何保存，直接退出 vim
 " nmap <Leader>Q :qa!<CR>
 
+" Highlight without moving cursor
+nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+vnoremap <silent>* y:let @/='\<<C-r>0\>'<CR>:set hls<CR>
+" vmap * y/\<\><Left><Left><C-r>0<CR>
+
 """ Copy & Paste to system clipboard
 " 设置快捷键将选中文本块复制至系统剪贴板
 " vnoremap <Leader>y "+y
@@ -195,7 +201,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 " autocmd VimEnter * nested :NERDTree				" 启动vim自动开启
 
 """ Move cursor to Main window
-autocmd VimEnter * nested :wincmd h 				" left to main window
+" autocmd VimEnter * nested :wincmd h 				" left to main window
 " autocmd VimEnter * nested :wincmd j 				" down to main
 
 
@@ -280,7 +286,6 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 """ plugin: ack
 "" shift: search all in root dir recursively
 "" ctrl: search in the file dir recursively
-vmap * y/\<\><Left><Left><C-r>0<CR>
 noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 vmap <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
