@@ -241,8 +241,8 @@ nmap <C-D> 10<C-E>
 
 nmap <leader>qf :call ToggleQuickfixList()<CR>
 
-nmap <leader>qp  :colder<CR>
-nmap <leader>qn  :cnewer<CR>
+nmap <leader>cp  :colder<CR>
+nmap <leader>cn  :cnewer<CR>
 nmap <leader>lp  :lolder<CR>
 nmap <leader>ln  :lnewer<CR>
 nmap <C-k>  :cprev<CR>zz
