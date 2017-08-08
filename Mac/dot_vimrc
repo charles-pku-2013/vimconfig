@@ -208,7 +208,6 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 """ 工程文件浏览 plugin: NERDTree
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
-nmap <Leader><Leader>fl :NERDTree .<CR>
 nmap <F10> :NERDTreeToggle<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
@@ -216,11 +215,6 @@ let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
 autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
-" 上一层目录
-autocmd FileType nerdtree nmap <buffer> [ u
-" 进入该目录替换root，默认是C，与CD冲突，需要修改插件 
-" call s:initVariable("g:NERDTreeMapChangeRoot", cr)
-autocmd FileType nerdtree nmap <buffer> ] cr
 
 " F4 关闭当前标签
 nnoremap <F4> :bd<CR>
