@@ -199,9 +199,18 @@ snippet try
 	} catch (${1:const std::exception &ex}) {
 		
 	} // try
+##
+snippet try2
+	try {
+		
+	} catch (${1:const std::exception &ex}) {
+		
+	} catch (...) {
 
+	} // try
+##
 # main function
-snippet main
+snippet tmain
 	int main(int argc, char **argv)
 	try {
 		${0:using namespace std;}

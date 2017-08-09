@@ -24,8 +24,9 @@ snippet Inc
 # ifndef...define...endif
 snippet ndef
 	#ifndef $1
-	#define ${1:SYMBOL} ${2:value}
-	#endif /* ifndef $1 */
+	#define ${1:SYMBOL}
+
+	#endif /* $1 */
 # define
 snippet def
 	#define
@@ -54,13 +55,13 @@ snippet once
 snippet if
 	if (${1:true}) {
 		${0:${VISUAL}}
-	}
+	} // if
 snippet ife
 	if (${1:true}) {
 		${2:${VISUAL}}
 	} else {
 		${0}
-	}
+	} // if
 # else
 snippet el
 	else {
@@ -103,20 +104,24 @@ snippet ret
 ##
 ## Loops
 # for
-snippet for
-	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
-		${4}
-	}
+# snippet for
+	# for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+		# ${4}
+	# } // for
 # for (custom)
-snippet forr
-	for (int ${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
-		${5}
-	}
+# snippet forr
+	# for (int ${1:i} = ${2:0}; ${3:$1 < 10}; $1${4:++}) {
+		# ${5}
+	# } // for
+snippet for
+	for (${1}) {
+		${2}
+	} // for
 # while
 snippet wh
 	while (${1:/* condition */}) {
 		${0:${VISUAL}}
-	}
+	} // while
 # do... while
 snippet do
 	do {
