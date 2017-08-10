@@ -137,21 +137,27 @@ nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 vnoremap <silent>* y:let @/='\<<C-r>0\>'<CR>:set hls<CR>
 " vmap * y/\<\><Left><Left><C-r>0<CR>
 
-""" Copy & Paste to system clipboard
+" 复制选区后光标不动
+vmap y ygv<ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
 " vnoremap <Leader>y "+y
-vnoremap <Leader>y "*y
+vmap <Leader>y "*ygv<ESC>
 " 设置快捷键将选中文本块剪切至系统剪贴板
 " vnoremap <Leader>x "+d
-vnoremap <Leader>d "*d
+vmap <Leader>d "*d
+" 粘贴后光标在末尾
+nmap p pgp<ESC>
+vmap p pgp<ESC>
+nmap P Pgp<ESC>
+vmap P Pgp<ESC>
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
 " nmap <Leader>p "+p
-nmap <Leader>p "*p
-vmap <Leader>p "*p
+nmap <Leader>p "*pgp<ESC>
+vmap <Leader>p "*pgp<ESC>
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 " nmap <Leader>P "+P
-nmap <Leader>P "*P
-vmap <Leader>P "*P
+nmap <Leader>P "*Pgp<ESC>
+vmap <Leader>P "*Pgp<ESC>
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
