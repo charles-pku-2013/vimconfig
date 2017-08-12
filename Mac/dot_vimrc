@@ -594,7 +594,7 @@ nmap <Leader>ma :BookmarkShowAll<CR>
 nmap <Leader>mn :BookmarkNext<CR>
 nmap <Leader>mp :BookmarkPrev<CR>
 nmap <Leader>mc :BookmarkClear<CR>
-nmap <Leader>mx :BookmarkClearAll<CR>
+" nmap <Leader>mx :BookmarkClearAll<CR>
 nmap <Leader>mkk :BookmarkMoveUp<CR>
 nmap <Leader>mjj :BookmarkMoveDown<CR>
 
