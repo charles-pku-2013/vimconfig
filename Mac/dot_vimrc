@@ -628,6 +628,7 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer<CR>
+nnoremap <F9> :Unite buffer<CR>
 nnoremap <Leader>uf :Unite file<CR>
 nnoremap <Leader>ur :Unite file_rec<CR>
 nnoremap <Leader>us :UniteResume<CR>
