@@ -636,6 +636,7 @@ nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
 " In unite window, press Esc to quit
 autocmd FileType unite nmap <silent><buffer> <Esc> :UniteClose<CR>:call AdjustCursor()<CR>
+autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCursor()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
