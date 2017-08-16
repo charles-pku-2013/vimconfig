@@ -270,7 +270,7 @@ nmap <C-z>  :lnext<CR>zz
 
 " For QuickFix and Locationlist window
 " Space jump to item and close
-autocmd FileType qf nmap <silent><buffer> <space> <cr>:lcl<cr>:ccl<cr>
+autocmd FileType qf nmap <silent><buffer> <space> <CR>:q<CR>:call AdjustCursor()<CR>
 " Enter jump but not move out the window
 autocmd FileType qf nnoremap <silent><buffer> <CR> <CR><C-W><C-P>
 " Esc for close
