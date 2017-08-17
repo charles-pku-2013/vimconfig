@@ -213,6 +213,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 """ 工程文件浏览 plugin: NERDTree
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
+nmap <Leader>lf :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
 nnoremap <S-F10> :Unite file_rec<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
@@ -655,7 +656,7 @@ let g:ctrlp_open_multiple_files = 'i'
 
 """""""""""""""""""""Others""""""""""""""""""""""""
 " 切换路径到当前所编辑文件所在目录
-nnoremap <Leader>cwd :cd %:p:h<CR>
+nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
