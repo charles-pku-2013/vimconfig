@@ -195,7 +195,6 @@ let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
 nmap <Leader>bl :MBEToggle<CR>
-nnoremap <S-F10> :MBEToggle<CR>
 nnoremap <C-F10> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
@@ -215,6 +214,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
 nmap <F10> :NERDTreeToggle<CR>
+nnoremap <S-F10> :Unite file_rec<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 " let NERDTreeShowHidden=1				" 显示隐藏文件
@@ -630,6 +630,7 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <F9> :Unite buffer<CR>
+nnoremap <S-F9> :MBEToggle<CR>
 nnoremap <Leader>uf :Unite file<CR>
 nnoremap <Leader>ur :Unite file_rec<CR>
 nnoremap <Leader>us :UniteResume<CR>
