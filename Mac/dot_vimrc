@@ -591,10 +591,10 @@ nmap ga <Plug>(EasyAlign)
 
 nmap <Leader>mm :BookmarkToggle<CR>
 nmap <Leader>mi :BookmarkAnnotate<CR>
-nmap <Leader>ma :BookmarkShowAll<CR>
+nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>mn :BookmarkNext<CR>
 nmap <Leader>mp :BookmarkPrev<CR>
-nmap <Leader>mc :BookmarkClear<CR>
+" nmap <Leader>mc :BookmarkClear<CR>
 " nmap <Leader>mx :BookmarkClearAll<CR>
 nmap <Leader>mkk :BookmarkMoveUp<CR>
 nmap <Leader>mjj :BookmarkMoveDown<CR>
@@ -628,6 +628,8 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
+" 设置默认窗口高度
+let g:unite_winheight = 10
 nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <F9> :Unite buffer<CR>
 nnoremap <S-F9> :MBEToggle<CR>
@@ -642,6 +644,7 @@ autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCur
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""CtrlP""""""""""""""""""""""""
 let g:ctrlp_cmd = 'CtrlP .'
 " Ctrl - z select multi files and ctrl - o open them in hidden buffers
@@ -654,28 +657,6 @@ let g:ctrlp_open_multiple_files = 'i'
 " 切换路径到当前所编辑文件所在目录
 nnoremap <Leader>cwd :cd %:p:h<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""Unicode""""""""""""""""""""""
-" See https://en.wikipedia.org/wiki/Miscellaneous_Symbols
-"
-" char ♥
-imap <Leader>ul <C-q>u2665
-" char 🔴
-imap <Leader>ur <C-q>U0001f534
-" char 🔵
-imap <Leader>ub <C-q>U0001f535
-" char ⭕
-imap <Leader>uhr <C-q>u2b55
-" char ★
-imap <Leader>u* <C-q>u2605
-" char ☆
-imap <Leader>uh* <C-q>u2606
-" char ♬
-imap <Leader>um <C-q>u266c
-" char ⛩
-imap <Leader>uj <C-q>u26e9
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
