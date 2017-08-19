@@ -571,10 +571,6 @@ vmap <F8> <leader>ci
 nmap <S-F8> <leader>cs
 vmap <S-F8> <leader>cs
 
-""" doxygen
-nnoremap <leader><leader>dox :Dox<CR>
-vnoremap <leader><leader>dox :Dox<CR>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
