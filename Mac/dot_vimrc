@@ -194,7 +194,8 @@ let g:miniBufExplorerAutoStart = 0
 let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
-nmap <Leader>bl :MBEToggle<CR>
+nnoremap <silent><Leader>bl :MBEToggle<CR>
+nnoremap <silent><S-F9> :MBEToggle<CR>
 nnoremap <C-F10> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
@@ -215,7 +216,6 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 nmap <Leader>fl :NERDTreeToggle<CR>
 nmap <Leader>lf :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
-nnoremap <S-F10> :Unite file_rec<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 " let NERDTreeShowHidden=1				" 显示隐藏文件
@@ -279,6 +279,7 @@ autocmd FileType qf nnoremap <silent><buffer> <CR> <CR><C-W><C-P>
 autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
+nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -360,7 +361,6 @@ nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 nmap <space> <Leader>lt
 vmap <space> <Leader>lt
-nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>
 nmap <silent><F1> :call ToggleQuickfixList()<CR>:call AdjustCursor()<CR>
 nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
 " location list 和 quickfix 按空格跳转到条目后自动关闭
@@ -626,12 +626,12 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
-" 设置默认窗口高度
-nnoremap <Leader>ub :Unite buffer<CR>
-nnoremap <F9> :Unite buffer<CR>
-nnoremap <silent><S-F9> :MBEToggle<CR>
-nnoremap <Leader>uf :Unite file<CR>
-nnoremap <Leader>ur :Unite file_rec<CR>
+nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
+nnoremap <F9> :Unite buffer -direction=belowright<CR>
+nnoremap <silent><C-b> :Unite buffer -direction=belowright<CR>
+nnoremap <Leader>uf :Unite file -direction=belowright<CR>
+nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
+nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
 nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
@@ -644,9 +644,9 @@ autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCur
 
 """"""""""""""""""""""CtrlP""""""""""""""""""""""""
 let g:ctrlp_cmd = 'CtrlP .'
-" Ctrl - z select multi files and ctrl - o open them in hidden buffers
 let g:ctrlp_open_multiple_files = 'i'
-nnoremap <silent><C-b> :CtrlPBuffer<CR>
+""" ctrlp-bdelete
+call ctrlp_bdelete#init()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -656,8 +656,6 @@ nnoremap <silent><C-b> :CtrlPBuffer<CR>
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 """ airline
 let g:airline#extensions#tagbar#enabled = 1
-""" ctrlp-bdelete
-call ctrlp_bdelete#init()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
