@@ -620,17 +620,16 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'direction': 'belowright',
     \   'start_insert': 0,
     \   'keep_focus': 1,
-    \   'no_quit': 0,
+    \   'no_quit': 1,
     \ })
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 " 设置默认窗口高度
-let g:unite_winheight = 10
 nnoremap <Leader>ub :Unite buffer<CR>
 nnoremap <F9> :Unite buffer<CR>
-nnoremap <S-F9> :MBEToggle<CR>
+nnoremap <silent><S-F9> :MBEToggle<CR>
 nnoremap <Leader>uf :Unite file<CR>
 nnoremap <Leader>ur :Unite file_rec<CR>
 nnoremap <Leader>us :UniteResume<CR>
@@ -647,6 +646,7 @@ autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCur
 let g:ctrlp_cmd = 'CtrlP .'
 " Ctrl - z select multi files and ctrl - o open them in hidden buffers
 let g:ctrlp_open_multiple_files = 'i'
+nnoremap <silent><C-b> :CtrlPBuffer<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -654,6 +654,10 @@ let g:ctrlp_open_multiple_files = 'i'
 """""""""""""""""""""Others""""""""""""""""""""""""
 " 切换路径到当前所编辑文件所在目录
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
+""" airline
+let g:airline#extensions#tagbar#enabled = 1
+""" ctrlp-bdelete
+call ctrlp_bdelete#init()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
