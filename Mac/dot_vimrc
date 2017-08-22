@@ -257,14 +257,10 @@ nmap <C-D> :call ScrollDown()<CR>
 
 nmap <leader>qf :call ToggleQuickfixList()<CR>
 
-nmap <leader>cp  :colder<CR>
-nmap <leader>cn  :cnewer<CR>
-nmap <leader>lp  :lolder<CR>
-nmap <leader>ln  :lnewer<CR>
-autocmd FileType qf nmap <buffer> [ :colder<CR>
-autocmd FileType qf nmap <buffer> ] :cnewer<CR>
-autocmd FileType qf nmap <buffer> { :lolder<CR>
-autocmd FileType qf nmap <buffer> } :lnewer<CR>
+autocmd FileType qf nmap <buffer> 1 :colder<CR>
+autocmd FileType qf nmap <buffer> 2 :cnewer<CR>
+autocmd FileType qf nmap <buffer> ! :lolder<CR>
+autocmd FileType qf nmap <buffer> @ :lnewer<CR>
 nmap <C-k>  :cprev<CR>zz
 nmap <C-j>  :cnext<CR>zz
 nmap <C-a>  :lprev<CR>zz
@@ -627,7 +623,7 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
-nnoremap <F9> :Unite buffer -direction=belowright<CR>
+nnoremap <F9> ::UniteResume<CR>
 nnoremap <silent><C-b> :Unite buffer -direction=belowright<CR>
 nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
