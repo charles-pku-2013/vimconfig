@@ -13,8 +13,8 @@ set enc=utf-8
 " 不自动备份，生成讨厌的~
 set nobackup
 
-" swp文件单独存放
-set directory=$HOME/.vimswapfiles//
+" swp文件单独存放, NOTE!!! 这个目录要手动建立
+set directory=${HOME}/.vimswapfiles//
 
 let mapleader=";"
 
@@ -651,7 +651,10 @@ call ctrlp_bdelete#init()
 " 切换路径到当前所编辑文件所在目录
 nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 """ airline
+" tagbar
 let g:airline#extensions#tagbar#enabled = 1
+" tab
+" let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
