@@ -111,7 +111,7 @@ let g:ycm_enable_diagnostic_highlighting = 0
 
 """ Enable multiple highlights at startup 用不同颜色高亮不同单词 highlights.vim
 " 模拟键盘按键，这里不知如何引用<leader>
-autocmd VimEnter * nested :call feedkeys(";m")
+autocmd VimEnter * nested :call feedkeys(";hi")
 
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -284,6 +284,7 @@ nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
 
 " 取消搜索结果高亮显示并刷新屏幕
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-h> :nohl<CR>
 set incsearch 	" 开启实时搜索功能
 set ignorecase 	" 搜索时大小写不敏感
 set hlsearch 	" 高亮显示搜索结果
@@ -351,8 +352,8 @@ function! SetTags()
 endfunction
 autocmd VimEnter * nested :silent! call SetTags()<CR>
 
-nmap <Leader>ts yiw:ts <c-r>0<CR>
-vmap <Leader>ts y:ts /<c-r>0<CR>
+" nmap <Leader>ts yiw:ts <c-r>0<CR>
+" vmap <Leader>ts y:ts /<c-r>0<CR>
 nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 nmap <space> <Leader>lt
@@ -623,7 +624,7 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
-nnoremap <F9> ::UniteResume<CR>
+nnoremap <silent> <F9> ::UniteResume<CR>
 nnoremap <silent><C-b> :Unite buffer -direction=belowright<CR>
 nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
