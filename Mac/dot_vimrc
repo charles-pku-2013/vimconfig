@@ -196,7 +196,7 @@ let g:miniBufExplMaxSize = 1
 " 显示/隐藏 MiniBufExplorer 窗口
 nnoremap <silent><Leader>bl :MBEToggle<CR>
 nnoremap <silent><S-F9> :MBEToggle<CR>
-nnoremap <C-F10> :TagbarToggle<CR>
+nnoremap <F7> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
@@ -215,6 +215,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
 nmap <Leader>lf :NERDTreeFind<CR>
+nmap <C-F10> :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
@@ -311,10 +312,11 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 vmap <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-nmap <F3> yiw:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <F3> y:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+" nmap <F3> yiw:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <F3> yiw:Grep  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
 nnoremap <leader>ack :Ack! -rkwi ""<Left>
-noremap <leader>sd :Ack! -rkw <cword> %:h<CR>
+noremap <leader>sd :Ack! -rkw <cword> %:p:h<CR>
 " nmap <C-F3> yiw:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 " vmap <C-F3> y:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 " noremap <F2> :Ack! -i "" %<Left><Left><Left>
@@ -644,6 +646,7 @@ let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_open_multiple_files = 'i'
 """ ctrlp-bdelete
 call ctrlp_bdelete#init()
+nnoremap <C-F9> :CtrlP %:p:h<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
