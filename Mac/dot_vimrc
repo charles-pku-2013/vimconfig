@@ -196,7 +196,7 @@ let g:miniBufExplMaxSize = 1
 " 显示/隐藏 MiniBufExplorer 窗口
 nnoremap <silent><Leader>bl :MBEToggle<CR>
 nnoremap <silent><S-F9> :MBEToggle<CR>
-nnoremap <F7> :TagbarToggle<CR>
+nnoremap <F12> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
@@ -312,17 +312,17 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 noremap <leader>sa :Ack! -rkw <cword><CR>
 nmap <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 vmap <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-" nmap <F3> yiw:Ack! -rkw "" %<Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-nmap <F3> yiw:Grep  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <F3> yiw:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
 vmap <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
 nnoremap <leader>ack :Ack! -rkwi ""<Left>
-noremap <leader>sd :Ack! -rkw <cword> %:p:h<CR>
-" nmap <C-F3> yiw:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-" vmap <C-F3> y:Ack! -rkw "" %:h<Left><Left><Left><Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-" noremap <F2> :Ack! -i "" %<Left><Left><Left>
-nmap <F2> :Grep -iw  %<Left><Left>
-nmap <S-F2> :Ack! -rkiw ""<Left>
-nmap <C-F2> :Ack! -rkiw "" %:h<Left><Left><Left><Left><Left>
+nmap <leader>sd *:Ack! -rkw <cword> %:p:h<CR>
+vmap <leader>sd *y:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>0<CR>
+nnoremap <Leader>isd :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
+nmap <F8> <Leader>sd
+vmap <F8> <Leader>sd
+nmap <S-F8> <Leader>isd
+nmap <F2> :Grep -wi  %<Left><Left>
+nmap <S-F2> <Leader>ack
 nmap <leader>gr :Rgrep -wi  *<Left><Left>
 nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
 nmap <leader>lgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx *.java *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
@@ -489,7 +489,7 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
 " nmap <F12> :cs kill -1<CR>:!myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:!cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR><CR>
 " nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
-nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkq -i cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+nnoremap <C-F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkq -i cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
@@ -565,10 +565,10 @@ let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/exam
 """ 注释 NERDCommenter
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
-nmap <F8> <leader>ci
-vmap <F8> <leader>ci
-nmap <S-F8> <leader>cs
-vmap <S-F8> <leader>cs
+nmap <F7> <leader>ci
+vmap <F7> <leader>ci
+nmap <S-F7> <leader>cs
+vmap <S-F7> <leader>cs
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
