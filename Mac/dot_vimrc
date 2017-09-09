@@ -294,6 +294,13 @@ function! AutoSaveSession()
 endfunction
 autocmd VimLeave * :call AutoSaveSession()
 
+function! AutoLoadSession()
+   if filereadable("session.vim")
+       execute 'Ls'
+   endif
+endfunction
+autocmd VimEnter * nested :call AutoLoadSession()
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -641,6 +648,8 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 command Sm :BookmarkSave bookmark.vim
 command Lm :BookmarkLoad bookmark.vim
+command Bmc :BookmarkClear
+command Bmca :BookmarkClearAll
 
 function! AutoSaveBookmark()
    if filereadable("bookmark.vim")
