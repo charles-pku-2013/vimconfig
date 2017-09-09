@@ -277,6 +277,11 @@ autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
+
+""" Session
+autocmd VimEnter * nested :let PrjHome = getcwd()
+nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -285,7 +290,7 @@ nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
 
 " 取消搜索结果高亮显示并刷新屏幕
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-nnoremap <silent> <C-h> :nohl<CR>
+" nnoremap <silent> <C-h> :nohl<CR>
 set incsearch 	" 开启实时搜索功能
 set ignorecase 	" 搜索时大小写不敏感
 set hlsearch 	" 高亮显示搜索结果
