@@ -301,6 +301,9 @@ function! AutoLoadSession()
 endfunction
 autocmd VimEnter * nested :call AutoLoadSession()
 
+nmap <C-ScrollWheelDown> 9zl
+nmap <C-ScrollWheelUp> 9zh
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
