@@ -279,8 +279,19 @@ autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR
 nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
 
 """ Session
+" goto home
 autocmd VimEnter * nested :let PrjHome = getcwd()
 nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
+" save session (buffer list)
+command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
+command Ls :source session.vim
+
+function! AutoSaveSession()
+   if filereadable("session.vim")
+       execute 'Ss'
+   endif
+endfunction
+autocmd VimLeave * :call AutoSaveSession()
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
