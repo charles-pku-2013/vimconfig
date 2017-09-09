@@ -238,8 +238,8 @@ nmap <leader>sp :sp<CR><C-w><Down>
 nmap <leader>vs :vs<CR><C-w><Right>
 
 " scroll horizontally
-nmap <S-C-Left> 5zh
-nmap <S-C-Right> 5zl
+nmap <S-C-Left> 9zh
+nmap <S-C-Right> 9zl
 nmap <S-Left> zH
 nmap <S-Right> zL
 
