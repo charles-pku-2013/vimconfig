@@ -224,6 +224,8 @@ let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
 autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
+" filter
+let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.']
 
 " F4 关闭当前标签
 nnoremap <F4> :bd<CR>
