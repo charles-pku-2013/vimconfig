@@ -278,7 +278,7 @@ autocmd FileType qf nnoremap <silent><buffer> <CR> <CR><C-W><C-P>
 autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
-nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
+nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:silent UniteClose<CR>
 
 """ Session
 " goto home
