@@ -282,6 +282,7 @@ nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:UniteClose<CR>
 " goto home
 autocmd VimEnter * nested :let PrjHome = getcwd()
 nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
+
 " save session (buffer list)
 command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
 command Ls :source session.vim
@@ -637,6 +638,16 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'keep_focus': 1,
     \   'no_quit': 1,
     \ })
+
+command Sm :BookmarkSave bookmark.vim
+command Lm :BookmarkLoad bookmark.vim
+
+function! AutoSaveBookmark()
+   if filereadable("bookmark.vim")
+       execute 'Sm'
+   endif
+endfunction
+autocmd VimLeave * :call AutoSaveBookmark()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
