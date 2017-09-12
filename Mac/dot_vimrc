@@ -113,6 +113,26 @@ let g:ycm_enable_diagnostic_highlighting = 0
 " 模拟键盘按键，这里不知如何引用<leader>
 autocmd VimEnter * nested :call feedkeys(";hi")
 
+function! SaveHighlights(target_file, silent)
+    Hsave xx
+    execute "redir! > " . a:target_file
+    execute "silent echo g:HI_SAVE_XX" 
+    execute "redir END"
+    if (!a:silent)
+        echo "Highlights saved"
+    endif
+endfunction
+command! -nargs=1 Hs call SaveHighlights(<f-args>, 0)
+
+function! RestoreHighlights(target_file, silent)
+    let g:HI_SAVE_XX = system("cat " . a:target_file)
+    Hrestore xx
+    if (!a:silent)
+        echo "Highlights restored"
+    endif
+endfunction
+command! -nargs=1 Hr call RestoreHighlights(<f-args>, 0)
+
 """"""""""""""""""""""""""""""""""""""""""""
 
 
