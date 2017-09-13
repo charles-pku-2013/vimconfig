@@ -640,6 +640,8 @@ nmap <Leader>mi :BookmarkAnnotate<CR>
 nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>mn :BookmarkNext<CR>
 nmap <Leader>mp :BookmarkPrev<CR>
+nmap <F6> <Leader>mn
+nmap <S-F6> <Leader>mp
 " nmap <Leader>mc :BookmarkClear<CR>
 " nmap <Leader>mx :BookmarkClearAll<CR>
 nmap <Leader>mkk :BookmarkMoveUp<CR>
