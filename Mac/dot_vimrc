@@ -676,13 +676,13 @@ command Lm :BookmarkLoad bookmark.vim
 command Bmc :BookmarkClear
 command Bmca :BookmarkClearAll
 
-function! AutoSaveBookmark()
-   if filereadable("bookmark.vim")
-       execute "!cp bookmark.vim bookmark.vim~"
-       execute 'Sm'
-   endif
-endfunction
-autocmd VimLeave * :call AutoSaveBookmark()
+" function! AutoSaveBookmark()
+   " if filereadable("bookmark.vim")
+       " execute "!cp bookmark.vim bookmark.vim~"
+       " execute 'Sm'
+   " endif
+" endfunction
+" autocmd VimLeave * :call AutoSaveBookmark()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
