@@ -376,8 +376,7 @@ nmap <leader>gr :Rgrep -wi  *<Left><Left>
 nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
 nmap <leader>lgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx *.java *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 nmap <leader>/ /\<\><Left><Left>
-" 搜索当前选中文本 search selected
-vmap <Leader>/ y/\<\><Left><Left><C-r>0<CR>
+vmap <leader>/ /\<\><Left><Left>
 
 """ 替换
 vnoremap <F5> :s/<C-r>///g<Left><Left>
