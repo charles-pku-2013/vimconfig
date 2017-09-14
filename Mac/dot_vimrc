@@ -122,7 +122,7 @@ function! SaveHighlights(target_file, silent)
         echo "Highlights saved"
     endif
 endfunction
-command! -nargs=1 Hs call SaveHighlights(<f-args>, 0)
+command -nargs=1 -complete=file Hs call SaveHighlights(<f-args>, 0)
 
 function! RestoreHighlights(target_file, silent)
     let g:HI_SAVE_XX = system("cat " . a:target_file)
@@ -131,7 +131,7 @@ function! RestoreHighlights(target_file, silent)
         echo "Highlights restored"
     endif
 endfunction
-command! -nargs=1 Hr call RestoreHighlights(<f-args>, 0)
+command -nargs=1 -complete=file Hr call RestoreHighlights(<f-args>, 0)
 
 """"""""""""""""""""""""""""""""""""""""""""
 
