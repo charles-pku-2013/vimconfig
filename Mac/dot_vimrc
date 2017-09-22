@@ -59,7 +59,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=Consolas:h24
+set guifont=Consolas:h22.5
 
 """ 配色方案
 set background=dark
@@ -325,6 +325,10 @@ autocmd VimEnter * nested :call AutoLoadSession()
 
 nmap <C-ScrollWheelDown> 9zl
 nmap <C-ScrollWheelUp> 9zh
+
+" Run shell cmd and read results
+command! -nargs=* -complete=file ShellRead new | setlocal buftype=nofile bufhidden=hide noswapfile | read !<args>
+cabbrev Sh ShellRead
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
