@@ -59,7 +59,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=Consolas:h22.5
+set guifont=Consolas:h22
 
 """ 配色方案
 set background=dark
@@ -330,6 +330,12 @@ nmap <C-ScrollWheelUp> 9zh
 command! -nargs=* -complete=file ShellRead new | setlocal buftype=nofile bufhidden=hide noswapfile | read !<args>
 cabbrev Sh ShellRead
 
+" 显示当前文件全路径
+command Cf :echo @%
+
+" airline
+nnoremap <silent> <S-F12> :AirlineToggle<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -447,9 +453,9 @@ nmap <S-space> <leader>fc
 
 """ 接口与实现快速切换 plugin: a.vim
 " *.cpp 和 *.h 间切换
-nmap <Leader>ch :A<CR>
+nmap <silent> <Leader>ch :A<CR>
 " 子窗口中显示 *.cpp 或 *.h
-nmap <Leader>sch :AS<CR>
+nmap <silent> <Leader>sch :AS<CR>
 
 """ 这两个功能是vim tag功能一部分
 " 正向遍历同名标签
@@ -673,7 +679,7 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
     \   'direction': 'belowright',
     \   'start_insert': 0,
     \   'keep_focus': 1,
-    \   'no_quit': 1,
+    \   'no_quit': 0,
     \ })
 
 command Sm :BookmarkSave bookmark.vim
