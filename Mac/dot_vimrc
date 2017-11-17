@@ -316,12 +316,12 @@ function! AutoSaveSession()
 endfunction
 autocmd VimLeave * :call AutoSaveSession()
 
-function! AutoLoadSession()
-   if filereadable("session.vim")
-       execute 'Ls'
-   endif
-endfunction
-autocmd VimEnter * nested :call AutoLoadSession()
+" function! AutoLoadSession()
+   " if filereadable("session.vim")
+       " execute 'Ls'
+   " endif
+" endfunction
+" autocmd VimEnter * nested :call AutoLoadSession()
 
 nmap <C-ScrollWheelDown> 9zl
 nmap <C-ScrollWheelUp> 9zh
