@@ -309,12 +309,12 @@ nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
 command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
 command Ls :source session.vim
 
-function! AutoSaveSession()
-   if filereadable("session.vim")
-       execute 'Ss'
-   endif
-endfunction
-autocmd VimLeave * :call AutoSaveSession()
+" function! AutoSaveSession()
+   " if filereadable("session.vim")
+       " execute 'Ss'
+   " endif
+" endfunction
+" autocmd VimLeave * :call AutoSaveSession()
 
 " function! AutoLoadSession()
    " if filereadable("session.vim")
