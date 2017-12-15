@@ -258,6 +258,8 @@ nnoremap <silent> <S-D-F4> :q!<CR>
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR><C-w><Down>
 nmap <leader>vs :vs<CR><C-w><Right>
+"" New tab
+nnoremap <Leader>tb :tabe %<CR>
 
 " scroll horizontally
 nmap <S-C-Left> 9zh
