@@ -259,7 +259,8 @@ nnoremap <silent> <S-D-F4> :q!<CR>
 nmap <leader>sp :sp<CR><C-w><Down>
 nmap <leader>vs :vs<CR><C-w><Right>
 "" New tab
-nnoremap <Leader>tb :tabe %<CR>
+" nnoremap <Leader>tb :tabe %<CR>
+nmap <Leader>tb :sp<CR><C-w>T
 
 " scroll horizontally
 nmap <S-C-Left> 9zh
