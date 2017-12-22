@@ -172,12 +172,16 @@ nmap P Pgp<ESC>
 vmap P Pgp<ESC>
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
 " nmap <Leader>p "+p
-nmap <Leader>p "*pgp<ESC>
-vmap <Leader>p "*pgp<ESC>
+" nmap <Leader>p "*pgp<ESC>
+" vmap <Leader>p "*pgp<ESC>
+nmap <Leader>p "*p
+vmap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 " nmap <Leader>P "+P
-nmap <Leader>P "*Pgp<ESC>
-vmap <Leader>P "*Pgp<ESC>
+" nmap <Leader>P "*Pgp<ESC>
+" vmap <Leader>P "*Pgp<ESC>
+nmap <Leader>P "*P
+vmap <Leader>P "*P
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
