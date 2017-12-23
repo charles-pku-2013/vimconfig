@@ -319,9 +319,23 @@ autocmd FileType qf nmap <buffer> <Leader>qr <Plug>QFRestore
 autocmd VimEnter * nested :let PrjHome = getcwd()
 nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
 
+function SaveSession(...)
+    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    set sessionoptions=buffers
+    execute "mksession! " . a:fname
+    echo "session saved to " . a:fname
+endfunction
+
+function LoadSession(...)
+    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    execute "source " . a:fname
+endfunction
+
 " save session (buffer list)
-command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
-command Ls :source session.vim
+command -nargs=* -complete=file Ss call SaveSession(<f-args>)
+command -nargs=* -complete=file Ls call LoadSession(<f-args>)
+" command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
+" command Ls :source session.vim
 
 " function! AutoSaveSession()
    " if filereadable("session.vim")
@@ -811,12 +825,12 @@ set undodir=~/.undo_history/
 set undofile
 
 " 保存快捷键
-"nnoremap <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
-nnoremap <leader>ss :mksession! my.vim<cr>
+" nnoremap <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
+" nnoremap <leader>ss :mksession! my.vim<cr>
 
 " 恢复快捷键
 "nnoremap <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
-nnoremap <leader>rs :source my.vim<cr>
+" nnoremap <leader>rs :source my.vim<cr>
 
 
 " 调用 gundo 树
