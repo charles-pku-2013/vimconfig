@@ -59,7 +59,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=Consolas:h22
+set guifont=Consolas:h21
 
 """ 配色方案
 set background=dark
@@ -432,7 +432,7 @@ set csto=1      " Search tag file before cscope
 " See http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set tags=tags;
 
-" 自动加载tags路径设置
+" 自动加载tags路径设置 tags.vim ':set tags+=../../search_sf/sf/tags,../public/index_query/tags'
 function! SetTags()
    if filereadable("tags.vim")
        execute 'source! tags.vim'
@@ -450,6 +450,14 @@ nmap <silent><F1> :call ToggleQuickfixList()<CR>:call AdjustCursor()<CR>
 nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
 " location list 和 quickfix 按空格跳转到条目后自动关闭
 " autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
+
+" jump in new tab
+nmap <C-\> "tyiw:tab ts <C-r>t<CR>
+vmap <C-\> "ty:tab ts <C-r>t<CR>
+" jump in new split
+nmap <D-\> "tyiw:sts <C-r>t<CR>
+vmap <D-\> "ty:sts <C-r>t<CR>
+
 """""""""""""
 
 """"""" cscope
@@ -545,6 +553,10 @@ let g:tagbar_type_cpp = {
 " autocmd VimEnter * nested :TagbarOpen				" 启动vim自动开启
 " 启动vim自动开启仅对所支持文件类型
 autocmd VimEnter * nested :call tagbar#autoopen(1)
+" 在vim窗口打开支持的文件
+autocmd FileType * nested :call tagbar#autoopen(0)
+" tabs
+autocmd BufEnter * nested :call tagbar#autoopen(0)
 " nmap <Tab> <Return>                            " 防止鼠标双击导致程序崩溃Ctrl-I 不能工作
 
 """ cscope
