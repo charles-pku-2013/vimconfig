@@ -158,39 +158,38 @@ vnoremap <silent>* y:let @/='<C-r>0'<CR>:set hls<CR>
 " vmap * y/\<\><Left><Left><C-r>0<CR>
 
 " 复制选区后光标不动
-vmap y ygv<ESC>
+" vmap y ygv<ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
-" vnoremap <Leader>y "+y
-vmap <Leader>y "*ygv<ESC>
+vnoremap <Leader>y "*y
+" vmap <Leader>y "*ygv<ESC>
 " 设置快捷键将选中文本块剪切至系统剪贴板
-" vnoremap <Leader>x "+d
-vmap <Leader>d "*d
+vnoremap <Leader>d "*d
 " 粘贴后光标在末尾
-nmap p pgp<ESC>
-vmap p pgp<ESC>
-nmap P Pgp<ESC>
-vmap P Pgp<ESC>
+" nmap p pgp<ESC>
+" vmap p pgp<ESC>
+" nmap P Pgp<ESC>
+" vmap P Pgp<ESC>
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之后
 " nmap <Leader>p "+p
 " nmap <Leader>p "*pgp<ESC>
 " vmap <Leader>p "*pgp<ESC>
-nmap <Leader>p "*p
-vmap <Leader>p "*p
+nnoremap <Leader>p "*p
+vnoremap <Leader>p "*p
 " 设置快捷键将系统剪贴板内容粘贴至vim 在光标之前
 " nmap <Leader>P "+P
 " nmap <Leader>P "*Pgp<ESC>
 " vmap <Leader>P "*Pgp<ESC>
-nmap <Leader>P "*P
-vmap <Leader>P "*P
+nnoremap <Leader>P "*P
+vnoremap <Leader>P "*P
 " 选中刚刚更改的如粘贴, select just changed as paste
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
-nmap <Leader>yiw "*yiw
-nmap <Leader>yiW "*yiW
-nmap <Leader>diw "*diw
-nmap <Leader>diW "*diW
-nmap <Leader>yy "*yy
-nmap <Leader>dd "*dd
+nnoremap <Leader>yiw "*yiw
+nnoremap <Leader>yiW "*yiW
+nnoremap <Leader>diw "*diw
+nnoremap <Leader>diW "*diW
+nnoremap <Leader>yy "*yy
+nnoremap <Leader>dd "*dd
 
 " 删除行尾空格
 nnoremap <Leader>rtw :%s/\s\+$//<CR>
@@ -220,7 +219,7 @@ let g:miniBufExplMaxSize = 1
 " 显示/隐藏 MiniBufExplorer 窗口
 nnoremap <silent><Leader>bl :MBEToggle<CR>
 nnoremap <silent><S-F9> :MBEToggle<CR>
-nnoremap <F12> :TagbarToggle<CR>
+nnoremap <silent><F12> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
@@ -263,17 +262,18 @@ nnoremap <silent> <S-D-F4> :q!<CR>
 nmap <leader>sp :sp<CR><C-w><Down>
 nmap <leader>vs :vs<CR><C-w><Right>
 
-let t:splitSize = "small"
+let g:splitSize = "small"
 function! ResizeSplit()
-    if t:splitSize == "small"
+    if g:splitSize == "small"
         call feedkeys("\<C-w>_")
-        let t:splitSize = "big"
+        let g:splitSize = "big"
     else
         call feedkeys("\<C-w>=")
-        let t:splitSize = "small"
+        let g:splitSize = "small"
     endif
 endfunction
-nnoremap <silent> <D-1> :call ResizeSplit()<CR>
+nnoremap <silent> <D-1> <C-w>_
+nnoremap <silent> <D-2> <C-w>=
 
 nmap <D-j> <C-w>j
 nmap <D-k> <C-w>k
