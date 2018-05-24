@@ -192,9 +192,11 @@ nnoremap <Leader>yy "*yy
 nnoremap <Leader>dd "*dd
 
 " 删除行尾空格
-nnoremap <Leader>rtw :%s/\s\+$//<CR>
+nnoremap <Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
+vnoremap <Leader>rtw :s/\s\+$//<CR>:nohl<CR>
 " 删除空行
-nnoremap <Leader>rel :g/^\s*$/d<CR>
+nnoremap <Leader>rel :g/^\s*$/d<CR>:nohl<CR>
+vnoremap <Leader>rel :g/^\s*$/d<CR>:nohl<CR>
 " 断行, split line
 nnoremap K i<CR><Esc>
 
@@ -388,7 +390,8 @@ nnoremap <silent> <S-F12> :AirlineToggle<CR>
 """"""""""""""""""" Section 查找替换 Find & Replace""""""""""""""""""
 
 " 取消搜索结果高亮显示并刷新屏幕
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+" nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <C-l> :nohl<CR>
 " nnoremap <silent> <C-h> :nohl<CR>
 set incsearch 	" 开启实时搜索功能
 set ignorecase 	" 搜索时大小写不敏感
