@@ -192,11 +192,11 @@ nnoremap <Leader>yy "*yy
 nnoremap <Leader>dd "*dd
 
 " 删除行尾空格
-nnoremap <Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
-vnoremap <Leader>rtw :s/\s\+$//<CR>:nohl<CR>
+nnoremap <silent><Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
+vnoremap <silent><Leader>rtw :s/\s\+$//<CR>:nohl<CR>
 " 删除空行
-nnoremap <Leader>rel :g/^\s*$/d<CR>:nohl<CR>
-vnoremap <Leader>rel :g/^\s*$/d<CR>:nohl<CR>
+nnoremap <silent><Leader>rel :g/^\s*$/d<CR>:nohl<CR>
+vnoremap <silent><Leader>rel :g/^\s*$/d<CR>:nohl<CR>
 " 断行, split line
 nnoremap K i<CR><Esc>
 
@@ -283,7 +283,11 @@ nmap <D-<> <C-w>h
 nmap <D->> <C-w>l
 "" New tab
 nmap <Leader>tb :sp<CR><C-w>T
-
+" Move tab
+nnoremap <silent> <D-F1> :tabm +1<CR>
+nnoremap <silent> <D-S-F1> :tabm -1<CR>
+nnoremap <silent> <D-PageDown> :tabm +1<CR>
+nnoremap <silent> <D-PageUp> :tabm -1<CR>
 
 " scroll horizontally
 nmap <S-C-Left> 9zh
