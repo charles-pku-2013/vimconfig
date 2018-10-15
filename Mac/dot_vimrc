@@ -101,6 +101,12 @@ let g:indent_guides_guide_size=1					" 色块宽度
 " 快捷键 im 开/关缩进可视化
 nmap <silent> <Leader>im <Plug>IndentGuidesToggle
 
+"" DetectIndent
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 4
+let g:detectindent_preferred_when_mixed = 1
+let g:detectindent_max_lines_to_analyse = 1024
+
 """ 代码折叠
 set foldmethod=syntax 		" 基于缩进或语法进行代码折叠
 set nofoldenable 			" 启动 vim 时关闭折叠代码
