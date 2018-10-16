@@ -790,8 +790,12 @@ let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_open_multiple_files = 'i'
 """ ctrlp-bdelete
 " call ctrlp_bdelete#init()
-" nnoremap <C-F9> :CtrlP %:p:h<CR>
-
+nnoremap <C-F9> :CtrlP %:p:h<CR>
+"" open in new tab
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': [],
+    \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+    \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
