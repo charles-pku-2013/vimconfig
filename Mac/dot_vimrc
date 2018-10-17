@@ -351,7 +351,7 @@ nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
 
 function SaveSession(...)
     let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    set sessionoptions=buffers
+    set sessionoptions="tabpages,curdir,buffers"
     execute "mksession! " . a:fname
     echo "session saved to " . a:fname
 endfunction
@@ -364,8 +364,6 @@ endfunction
 " save session (buffer list)
 command -nargs=* -complete=file Ss call SaveSession(<f-args>)
 command -nargs=* -complete=file Ls call LoadSession(<f-args>)
-" command Ss :set sessionoptions=buffers | :mksession! session.vim | :echo "session saved"
-" command Ls :source session.vim
 
 " function! AutoSaveSession()
    " if filereadable("session.vim")
@@ -581,13 +579,15 @@ let g:tagbar_type_cpp = {
      \ }
 \ }
 
+"" tagbar auto open
 " autocmd VimEnter * nested :TagbarOpen				" 启动vim自动开启
 " 启动vim自动开启仅对所支持文件类型
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+" autocmd VimEnter * nested :call tagbar#autoopen(1)
 " 在vim窗口打开支持的文件
 autocmd FileType * nested :call tagbar#autoopen(0)
 " tabs
 autocmd BufEnter * nested :call tagbar#autoopen(0)
+
 " nmap <Tab> <Return>                            " 防止鼠标双击导致程序崩溃Ctrl-I 不能工作
 
 """ cscope
@@ -865,7 +865,7 @@ let g:disable_protodef_sorting=1
 " 环境恢复
 
 " 设置环境保存项
-set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
+" set sessionoptions="blank,globals,localoptions,tabpages,sesdir,folds,help,options,resize,winpos,winsize"
 
 " 保存 undo 历史
 set undodir=~/.undo_history/
