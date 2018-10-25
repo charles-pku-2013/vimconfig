@@ -122,7 +122,7 @@ autocmd VimEnter * nested :call feedkeys(";hi")
 function! SaveHighlights(target_file, silent)
     Hsave xx
     execute "redir! > " . a:target_file
-    execute "silent echo g:HI_SAVE_XX" 
+    execute "silent echo g:HI_SAVE_XX"
     execute "redir END"
     if (!a:silent)
         echo "Highlights saved"
@@ -219,7 +219,7 @@ nnoremap K i<CR><Esc>
 
 " 将外部命令 wmctrl 控制窗口最大化的命令行参数封装成一个 vim 的函数
 fun! ToggleFullscreen()
-	call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
+    call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 
 nmap <C-F11> :set wrap! linebreak nolist<CR>
