@@ -197,6 +197,17 @@ nnoremap <Leader>diW "*diW
 nnoremap <Leader>yy "*yy
 nnoremap <Leader>dd "*dd
 
+" 文本移动
+" ∆ = Alt-j ˚ = Alt-k
+" To get the special char, in insert mode, press Ctrl-v,
+" then press the shortcut key
+nnoremap <silent> ∆ :m .+1<CR>==
+nnoremap <silent> ˚ :m .-2<CR>==
+inoremap <silent> ∆ <Esc>:m .+1<CR>==gi
+inoremap <silent> ˚ <Esc>:m .-2<CR>==gi
+vnoremap <silent> ∆ :m '>+1<CR>gv=gv
+vnoremap <silent> ˚ :m '<-2<CR>gv=gv
+
 " 删除行尾空格
 nnoremap <silent><Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
 vnoremap <silent><Leader>rtw :s/\s\+$//<CR>:nohl<CR>
