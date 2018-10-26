@@ -274,9 +274,12 @@ let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.', '\~$']
 nnoremap <F4> :bd<CR>
 """ BufOnly.vim
 " close all buffers except this
-noremap <S-F4> :BufOnly<CR>
+nnoremap <S-F4> :BufOnly<CR>
 nnoremap <silent> <D-F4> :q<CR>
 nnoremap <silent> <S-D-F4> :q!<CR>
+
+" Closes the duplicate tabs
+command Cdt :CloseDupTabs
 
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR><C-w><Down>
