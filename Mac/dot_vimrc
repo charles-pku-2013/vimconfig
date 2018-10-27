@@ -302,6 +302,10 @@ nmap <D-j> <C-w>j
 nmap <D-k> <C-w>k
 nmap <D-<> <C-w>h
 nmap <D->> <C-w>l
+nnoremap ≤ 5<C-w><
+nnoremap ≥ 5<C-w>>
+nnoremap – 5<C-w>-
+nnoremap ≠ 5<C-w>+
 "" New tab
 nmap <Leader>tb :sp<CR><C-w>T
 " Move tab
