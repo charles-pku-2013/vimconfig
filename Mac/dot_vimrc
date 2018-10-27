@@ -379,6 +379,8 @@ endfunction
 " save session (buffer list)
 command -nargs=* -complete=file Ss call SaveSession(<f-args>)
 command -nargs=* -complete=file Ls call LoadSession(<f-args>)
+" Session mgr vim-session
+let g:session_autosave = 'no'
 
 " function! AutoSaveSession()
    " if filereadable("session.vim")
@@ -409,6 +411,12 @@ nnoremap <silent> <S-F12> :AirlineToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+
+""""""""""""""""""" Section 文本编辑 Text edit"""""""""""
+" 插入时间日期
+command Date :r !LANG=en_US.UTF-8 date
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""" Section 查找替换 Find & Replace""""""""""""""""""
