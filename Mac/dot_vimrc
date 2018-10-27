@@ -396,8 +396,10 @@ let g:session_autosave = 'no'
 " endfunction
 " autocmd VimEnter * nested :call AutoLoadSession()
 
-nmap <C-ScrollWheelDown> 9zl
-nmap <C-ScrollWheelUp> 9zh
+nnoremap <C-ScrollWheelDown> 9zl
+nnoremap <C-ScrollWheelUp> 9zh
+inoremap <C-ScrollWheelDown> <C-o>9zl
+inoremap <C-ScrollWheelUp> <C-o>9zh
 
 " Run shell cmd and read results
 command! -nargs=* -complete=file ShellRead new | setlocal buftype=nofile bufhidden=hide noswapfile | read !<args>
