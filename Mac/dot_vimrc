@@ -511,6 +511,9 @@ vmap <C-\> "ty:tab ts <C-r>t<CR>
 " jump in new split
 nmap <D-\> "tyiw:sts <C-r>t<CR>
 vmap <D-\> "ty:sts <C-r>t<CR>
+" A-\ jump in new vsplit
+nmap « :vs<CR><C-w><Right>:exec("ts ".expand("<cword>"))<CR>
+vmap « "ty:vs<CR><C-w><Right>:ts <C-r>t<CR>
 
 """""""""""""
 
