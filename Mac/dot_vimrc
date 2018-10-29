@@ -298,14 +298,20 @@ endfunction
 nnoremap <silent> <D-1> <C-w>_
 nnoremap <silent> <D-2> <C-w>=
 
-nmap <D-j> <C-w>j
-nmap <D-k> <C-w>k
-nmap <D-<> <C-w>h
-nmap <D->> <C-w>l
-nnoremap ≤ 5<C-w><
-nnoremap ≥ 5<C-w>>
-nnoremap – 5<C-w>-
-nnoremap ≠ 5<C-w>+
+" Move among splits
+nnoremap <D-j> <C-w>j
+nnoremap <D-k> <C-w>k
+nnoremap <D-<> <C-w>h
+nnoremap <D->> <C-w>l
+" split resize
+nnoremap ≤  <C-w><
+nnoremap ≥ <C-w>>
+nnoremap ¯  7<C-w><
+nnoremap ˘ 7<C-w>>
+nnoremap – <C-w>-
+nnoremap ≠ <C-w>+
+nnoremap — 5<C-w>-
+nnoremap ± 5<C-w>+
 "" New tab
 nmap <Leader>tb :sp<CR><C-w>T
 " Move tab
@@ -903,15 +909,6 @@ let g:disable_protodef_sorting=1
 " 保存 undo 历史
 set undodir=~/.undo_history/
 set undofile
-
-" 保存快捷键
-" nnoremap <leader>ss :mksession! my.vim<cr> :wviminfo! my.viminfo<cr>
-" nnoremap <leader>ss :mksession! my.vim<cr>
-
-" 恢复快捷键
-"nnoremap <leader>rs :source my.vim<cr> :rviminfo my.viminfo<cr>
-" nnoremap <leader>rs :source my.vim<cr>
-
 
 " 调用 gundo 树
 nnoremap <Leader>ud :GundoToggle<CR>
