@@ -140,7 +140,7 @@ endfunction
 command -nargs=1 -complete=file Hr call RestoreHighlights(<f-args>, 0)
 
 " rainbow plugin, bracket color
-let g:rainbow_active = 1
+" let g:rainbow_active = 1
 """"""""""""""""""""""""""""""""""""""""""""
 
 
