@@ -139,6 +139,8 @@ function! RestoreHighlights(target_file, silent)
 endfunction
 command -nargs=1 -complete=file Hr call RestoreHighlights(<f-args>, 0)
 
+" rainbow plugin, bracket color
+let g:rainbow_active = 1
 """"""""""""""""""""""""""""""""""""""""""""
 
 
@@ -315,8 +317,8 @@ nnoremap ± 5<C-w>+
 "" New tab
 nmap <Leader>tb :sp<CR><C-w>T
 " Move tab
-nnoremap <silent> <D-F1> :tabm +1<CR>
-nnoremap <silent> <D-S-F1> :tabm -1<CR>
+nnoremap <silent> ’ :tabm +1<CR>
+nnoremap <silent> ” :tabm -1<CR>
 nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
 
