@@ -351,8 +351,9 @@ autocmd FileType qf nmap <buffer> ! :lolder<CR>
 autocmd FileType qf nmap <buffer> @ :lnewer<CR>
 nmap <C-k>  :cprev<CR>zz
 nmap <C-j>  :cnext<CR>zz
-nmap <C-a>  :lprev<CR>zz
-nmap <C-z>  :lnext<CR>zz
+" S-A-j/k jump between locationlist items
+nnoremap  :lprev<CR>zz
+nnoremap Ô :lnext<CR>zz
 
 " For QuickFix and Locationlist window
 " Space jump to item and close
@@ -392,7 +393,7 @@ endfunction
 command -nargs=* -complete=file Ss call SaveSession(<f-args>)
 command -nargs=* -complete=file Ls call LoadSession(<f-args>)
 " Session mgr vim-session
-let g:session_autosave = 'no'
+" let g:session_autosave = 'no'
 
 " function! AutoSaveSession()
    " if filereadable("session.vim")
@@ -658,7 +659,7 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
 " nmap <F12> :cs kill -1<CR>:!myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:!cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR><CR>
 " nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
-nnoremap <C-F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkq -i cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+nnoremap <C-F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
