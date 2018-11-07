@@ -321,6 +321,14 @@ nnoremap <silent> ’ :tabm +1<CR>
 nnoremap <silent> ” :tabm -1<CR>
 nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
+" Last active tab
+if !exists('g:Lasttab')
+    let g:Lasttab = 1
+    let g:Lasttab_backup = 1
+endif
+autocmd! TabLeave * let g:Lasttab_backup = g:Lasttab | let g:Lasttab = tabpagenr()
+autocmd! TabClosed * let g:Lasttab = g:Lasttab_backup
+nnoremap <silent> <Leader>lt :exe "tabn " . g:Lasttab<CR>
 
 " scroll horizontally
 nmap <S-C-Left> 9zh
@@ -509,8 +517,8 @@ autocmd VimEnter * nested :silent! call SetTags()<CR>
 
 " nmap <Leader>ts yiw:ts <c-r>0<CR>
 " vmap <Leader>ts y:ts /<c-r>0<CR>
-nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
-vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
+" nmap <Leader>lt yiw:ltag <c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
+" vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 " nmap <space> <Leader>lt
 " vmap <space> <Leader>lt
 nmap <silent><F1> :call ToggleQuickfixList()<CR>:call AdjustCursor()<CR>
@@ -834,6 +842,7 @@ let g:ctrlp_extensions = ['smarttabs']
 """ ctrlp-bdelete
 " call ctrlp_bdelete#init()
 nnoremap <C-F9> :CtrlP %:p:h<CR>
+nnoremap <D-F9> :CtrlPSmartTabs<CR>
 "" open in new tab
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': [],
