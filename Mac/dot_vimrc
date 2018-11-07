@@ -856,6 +856,7 @@ autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCur
 let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_open_multiple_files = 'i'
 let g:ctrlp_extensions = ['smarttabs']
+let g:ctrlp_match_window = 'results:100'
 """ ctrlp-bdelete
 " call ctrlp_bdelete#init()
 nnoremap <C-F9> :CtrlP %:p:h<CR>
