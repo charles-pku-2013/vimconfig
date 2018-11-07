@@ -384,11 +384,28 @@ autocmd FileType qf nmap <buffer> <Leader>qr <Plug>QFRestore
 autocmd VimEnter * nested :let PrjHome = getcwd()
 nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
 
+" function SaveSession(...)
+    " let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
+    " set sessionoptions="tabpages,curdir,buffers"
+    " set sessionoptions="tabpages,curdir"
+    " execute "mksession! " . a:fname
+    " echo "session saved to " . a:fname
+" endfunction
+
 function SaveSession(...)
     let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    set sessionoptions="tabpages,curdir,buffers"
-    " set sessionoptions="tabpages"
-    execute "mksession! " . a:fname
+    let l:tabnumbers = range(1, tabpagenr("$"))
+    let l:cur_tab_num = tabpagenr()
+    tabfirst
+    silent execute "!echo \\\" saved session  > " . a:fname
+    for tabno in l:tabnumbers
+        silent execute "!echo tabe " . expand("%:p") . " >> " . a:fname
+        tabn
+    endfor
+    " alternative for feedkeys
+    silent execute "normal " . l:cur_tab_num . "gt"
+    redraw
+    sleep 100m
     echo "session saved to " . a:fname
 endfunction
 
