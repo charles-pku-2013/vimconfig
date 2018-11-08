@@ -359,11 +359,11 @@ autocmd FileType qf nmap <buffer> 1 :colder<CR>
 autocmd FileType qf nmap <buffer> 2 :cnewer<CR>
 autocmd FileType qf nmap <buffer> ! :lolder<CR>
 autocmd FileType qf nmap <buffer> @ :lnewer<CR>
-nmap <C-k>  :cprev<CR>zz
-nmap <C-j>  :cnext<CR>zz
+nmap <silent> <C-k>  :cprev<CR>zz
+nmap <silent> <C-j>  :cnext<CR>zz
 " S-A-j/k jump between locationlist items
-nnoremap  :lprev<CR>zz
-nnoremap Ô :lnext<CR>zz
+nnoremap <silent>  :lprev<CR>zz
+nnoremap <silent> Ô :lnext<CR>zz
 
 " For QuickFix and Locationlist window
 " Space jump to item and close
@@ -491,10 +491,10 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 "" shift: search all in root dir recursively
 "" ctrl: search in the file dir recursively
 noremap <leader>sa :Ack! -rkw <cword><CR>
-nmap <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-nmap <F3> yiw:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
+nmap <silent> <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <silent> <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+nmap <silent> <F3> yiw:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+vmap <silent> <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
 nnoremap <leader>ack :Ack! -rkwi ""<Left>
 nmap <leader>sd *:Ack! -rkw <cword> %:p:h<CR>
 vmap <leader>sd *y:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>0<CR>
