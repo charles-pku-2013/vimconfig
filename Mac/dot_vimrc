@@ -100,6 +100,7 @@ let g:indent_guides_start_level=2					" 从第二层开始可视化显示缩进
 let g:indent_guides_guide_size=1					" 色块宽度
 " 快捷键 im 开/关缩进可视化
 nmap <silent> <Leader>im <Plug>IndentGuidesToggle
+nmap <silent> <M-F12> <Plug>IndentGuidesToggle
 
 "" DetectIndent
 let g:detectindent_preferred_expandtab = 1
@@ -763,10 +764,10 @@ let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/exam
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
 let g:NERDAltDelims_python = 1
-nmap <F7> <leader>ci
-vmap <F7> <leader>ci
-nmap <S-F7> <leader>cs
-vmap <S-F7> <leader>cs
+" nmap <F7> <leader>ci
+" vmap <F7> <leader>ci
+" nmap <S-F7> <leader>cs
+" vmap <S-F7> <leader>cs
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
