@@ -864,6 +864,7 @@ let g:ctrlp_match_window = 'max:20,results:100'
 " call ctrlp_bdelete#init()
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
+nnoremap <M-F9> :CtrlPMRU<CR>
 "" open in new tab
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': [],
