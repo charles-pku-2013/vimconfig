@@ -841,7 +841,7 @@ command Bmca :BookmarkClearAll
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
-nnoremap <silent> <F9> ::UniteResume<CR>
+nnoremap <silent> <M-F9> ::UniteResume<CR>
 nnoremap <silent><C-b> :Unite buffer -direction=belowright<CR>
 nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
@@ -865,7 +865,7 @@ let g:ctrlp_match_window = 'max:20,results:100'
 " call ctrlp_bdelete#init()
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
-nnoremap <M-F9> :CtrlPMRU<CR>
+nnoremap <F9> :CtrlPMRU<CR>
 "" open in new tab
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': [],
@@ -931,10 +931,10 @@ let g:syntastic_warning_symbol = '⚠'
 " 由接口快速生成实现框架
 
 " 设置 pullproto.pl 脚本路径
-let g:protodefprotogetter='~/.vim/bundle/vim-protodef/pullproto.pl'
+" let g:protodefprotogetter='~/.vim/bundle/vim-protodef/pullproto.pl'
 
 " 成员函数的实现顺序与声明顺序一致
-let g:disable_protodef_sorting=1
+" let g:disable_protodef_sorting=1
 
 
 " 环境恢复
