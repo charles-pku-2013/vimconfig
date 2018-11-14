@@ -256,7 +256,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 " autocmd VimEnter * nested :wincmd j 				" down to main
 autocmd TabEnter * :call AdjustCursor()
 
-""" 工程文件浏览 plugin: NERDTree
+""" 文件管理 plugin: NERDTree
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <Leader>fl :NERDTreeToggle<CR>
 nmap <Leader>lf :NERDTreeFind<CR>
@@ -272,6 +272,15 @@ autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
 " filter
 let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.', '\~$']
+
+function OpenExplorer(...)
+    let a:dirname = (a:0 >= 1) ? a:1 : getcwd()
+    silent execute "!open " . a:dirname
+endfunction
+
+command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
+nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
+nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p:h'))<CR>
 
 " F4 关闭当前标签
 nnoremap <F4> :bd<CR>
