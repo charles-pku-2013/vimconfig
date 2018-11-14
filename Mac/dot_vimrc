@@ -402,8 +402,14 @@ autocmd FileType qf nmap <buffer> <Leader>qr <Plug>QFRestore
 
 """ Session
 " goto home
-autocmd VimEnter * nested :let PrjHome = getcwd()
-nnoremap <C-h> :cd `=PrjHome`<CR>:pwd<CR>
+function SetHomeDir(...)
+    let g:_home_directory = (a:0 >= 1) ? a:1 : getcwd()
+    echo 'HomeDir=' . g:_home_directory
+endfunction
+
+autocmd VimEnter * nested :let g:_home_directory = getcwd()
+command -nargs=* -complete=file SetHomeDir call SetHomeDir(<f-args>)
+nnoremap <C-h> :cd `=g:_home_directory`<CR>:pwd<CR>
 
 " function SaveSession(...)
     " let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
