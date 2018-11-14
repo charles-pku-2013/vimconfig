@@ -254,7 +254,7 @@ nnoremap <C-S-Tab> :MBEbp<cr>
 """ Move cursor to Main window
 " autocmd VimEnter * nested :wincmd h 				" left to main window
 " autocmd VimEnter * nested :wincmd j 				" down to main
-
+autocmd TabEnter * :call AdjustCursor()
 
 """ 工程文件浏览 plugin: NERDTree
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
@@ -798,7 +798,7 @@ nmap <Leader>mkk :BookmarkMoveUp<CR>
 nmap <Leader>mjj :BookmarkMoveDown<CR>
 
 " let g:bookmark_auto_save = 0
-" let g:bookmark_save_per_working_dir = 1
+let g:bookmark_save_per_working_dir = 1
 let g:bookmark_no_default_key_mappings = 1
 let g:bookmark_highlight_lines = 1
 " Turn off the warning when clearing all bookmarks
