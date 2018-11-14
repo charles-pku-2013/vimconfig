@@ -282,6 +282,15 @@ command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
 nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
 nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p:h'))<CR>
 
+function OpenTerminal(...)
+    let a:dirname = (a:0 >= 1) ? a:1 : getcwd()
+    silent execute "!open -a iTerm " . a:dirname
+endfunction
+
+command -nargs=* -complete=file OpenTerminal call OpenTerminal(<f-args>)
+nnoremap <silent> <M-F10> :call OpenTerminal()<CR>
+nnoremap <silent> <M-S-F10> :call OpenTerminal(expand('%:p:h'))<CR>
+
 " F4 关闭当前标签
 nnoremap <F4> :bd<CR>
 """ BufOnly.vim
