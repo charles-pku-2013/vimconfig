@@ -892,9 +892,12 @@ nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
 nnoremap <silent><C-b> :CtrlPBookmark<CR>
 "" open in new tab
+" let g:ctrlp_prompt_mappings = {
+    " \ 'AcceptSelection("e")': [],
+    " \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+    " \ }
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': [],
-    \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+    \ 'AcceptSelection("t")': ['<c-t>', '<space>'],
     \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
