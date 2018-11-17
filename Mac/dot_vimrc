@@ -320,15 +320,15 @@ nnoremap <silent> <D-1> <C-w>_
 nnoremap <silent> <D-2> <C-w>=
 
 " Move among splits
-nnoremap <D-j> <C-w>j
-nnoremap <D-k> <C-w>k
+nnoremap <D-J> <C-w>j
+nnoremap <D-K> <C-w>k
 nnoremap <D-<> <C-w>h
 nnoremap <D->> <C-w>l
-" split resize
+" split resize Alt <> +-
 nnoremap ≤  <C-w><
 nnoremap ≥ <C-w>>
-nnoremap ¯  7<C-w><
-nnoremap ˘ 7<C-w>>
+nnoremap ¯  9<C-w><
+nnoremap ˘ 9<C-w>>
 nnoremap – <C-w>-
 nnoremap ≠ <C-w>+
 nnoremap — 5<C-w>-
