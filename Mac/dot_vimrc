@@ -130,6 +130,7 @@ function! SaveHighlights(target_file, silent)
     endif
 endfunction
 command -nargs=1 -complete=file Hs call SaveHighlights(<f-args>, 0)
+nnoremap <Leader>hs :Hsave xx<CR>
 
 function! RestoreHighlights(target_file, silent)
     let g:HI_SAVE_XX = system("cat " . a:target_file)
@@ -139,6 +140,7 @@ function! RestoreHighlights(target_file, silent)
     endif
 endfunction
 command -nargs=1 -complete=file Hr call RestoreHighlights(<f-args>, 0)
+nnoremap <Leader>hr :Hrestore xx<CR>
 
 " rainbow plugin, bracket color
 " let g:rainbow_active = 1
@@ -890,7 +892,9 @@ let g:ctrlp_match_window = 'max:20,results:100'
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
-nnoremap <silent><C-b> :CtrlPBookmark<CR>
+nnoremap <silent> <C-b> :CtrlPBookmark<CR>
+nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
+nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
 "" open in new tab
 " let g:ctrlp_prompt_mappings = {
     " \ 'AcceptSelection("e")': [],
