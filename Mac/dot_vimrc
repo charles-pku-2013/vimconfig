@@ -316,10 +316,12 @@ nnoremap <D-K> <C-w>k
 nnoremap <D-H> <C-w>h
 nnoremap <D-L> <C-w>l
 " split resize Alt <> +-
-nnoremap ≤  <C-w><
+nnoremap ≤ <C-w><
 nnoremap ≥ <C-w>>
 nnoremap ¯  9<C-w><
 nnoremap ˘ 9<C-w>>
+nnoremap <D-<> 9<C-w><
+nnoremap <D->> 9<C-w>>
 nnoremap – <C-w>-
 nnoremap ≠ <C-w>+
 nnoremap — 5<C-w>-
