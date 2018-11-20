@@ -324,8 +324,8 @@ nnoremap <silent> <D-2> <C-w>=
 " Move among splits
 nnoremap <D-J> <C-w>j
 nnoremap <D-K> <C-w>k
-nnoremap <D-<> <C-w>h
-nnoremap <D->> <C-w>l
+nnoremap <D-H> <C-w>h
+nnoremap <D-L> <C-w>l
 " split resize Alt <> +-
 nnoremap ≤  <C-w><
 nnoremap ≥ <C-w>>
@@ -887,8 +887,10 @@ let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_open_multiple_files = 'i'
 let g:ctrlp_extensions = ['smarttabs']
 let g:ctrlp_match_window = 'max:20,results:100'
+
 """ ctrlp-bdelete
-" call ctrlp_bdelete#init()
+call ctrlp_bdelete#init()
+
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
