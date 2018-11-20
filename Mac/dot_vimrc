@@ -389,9 +389,9 @@ autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR
 nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:silent UniteClose<CR>
 
 " For QFgrep
-autocmd FileType qf nmap <buffer> <Leader>qg :QFGrep<CR>
-autocmd FileType qf nmap <buffer> <Leader>qv <Plug>QFGrepV
-autocmd FileType qf nmap <buffer> <Leader>qr <Plug>QFRestore
+autocmd FileType qf nmap <buffer> <Leader>ge :QFGrep<CR>
+autocmd FileType qf nmap <buffer> <Leader>gv <Plug>QFGrepV
+autocmd FileType qf nmap <buffer> <Leader>gr <Plug>QFRestore
 
 """ Session
 " goto home
