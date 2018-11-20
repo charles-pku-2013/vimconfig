@@ -310,19 +310,6 @@ command Cdt :CloseDupTabs
 nmap <leader>sp :sp<CR><C-w><Down>
 nmap <leader>vs :vs<CR><C-w><Right>
 
-let g:splitSize = "small"
-function! ResizeSplit()
-    if g:splitSize == "small"
-        call feedkeys("\<C-w>_")
-        let g:splitSize = "big"
-    else
-        call feedkeys("\<C-w>=")
-        let g:splitSize = "small"
-    endif
-endfunction
-nnoremap <silent> <D-1> <C-w>_
-nnoremap <silent> <D-2> <C-w>=
-
 " Move among splits
 nnoremap <D-J> <C-w>j
 nnoremap <D-K> <C-w>k
@@ -792,11 +779,6 @@ let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/exam
 """ 注释 NERDCommenter
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
-let g:NERDAltDelims_python = 1
-" nmap <F7> <leader>ci
-" vmap <F7> <leader>ci
-" nmap <S-F7> <leader>cs
-" vmap <S-F7> <leader>cs
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
