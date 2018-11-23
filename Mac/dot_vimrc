@@ -348,7 +348,7 @@ function! OnTabLeave()
         if (bufloaded(l:bufnumber) && buflisted(l:bufnumber))
             call add(g:mru_tabepage_list, expand("%:p"))
             if (len(g:mru_tabepage_list) > g:mru_tabepage_list_size)
-                remove(g:mru_tabepage_list, 0)
+                call remove(g:mru_tabepage_list, 0)
             endif
         endif
     endif
