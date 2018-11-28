@@ -922,6 +922,7 @@ let g:ctrlp_cmd = 'CtrlP .'
 let g:ctrlp_open_multiple_files = 'i'
 let g:ctrlp_extensions = ['smarttabs']
 let g:ctrlp_match_window = 'max:20,results:100'
+let g:ctrlp_mruf_max = 500
 
 """ ctrlp-bdelete
 call ctrlp_bdelete#init()
