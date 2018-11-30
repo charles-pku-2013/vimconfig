@@ -95,12 +95,20 @@ set tabstop=4 		" 设置编辑时制表符占用空格数
 set shiftwidth=4 	" 设置格式化时制表符占用空格数
 set softtabstop=4 	" 让 vim 把连续数量的空格视为一个制表符
 
-function! SetIndent(tabstop)
-    execute 'set tabstop=' . a:tabstop
-    execute 'set shiftwidth=' . a:tabstop
-    execute 'set softtabstop=' . a:tabstop
+function! SetIndent(...)
+    let a:width = get(a:, 1, 4)
+    let a:is_local = get(a:, 2, 0)
+    if (a:is_local)
+        let &l:tabstop = a:width
+        let &l:shiftwidth = a:width
+        let &l:softtabstop = a:width
+    else
+        execute 'set tabstop=' . a:width
+        execute 'set shiftwidth=' . a:width
+        execute 'set softtabstop=' . a:width
+    endif 
 endfunction
-command -nargs=1 SetIndent call SetIndent(<f-args>)
+command -nargs=* SetIndent call SetIndent(<f-args>)
 
 "" 缩进可视化插件 Indent Guides
 let g:indent_guides_enable_on_vim_startup=1 		" 随 vim 自启动
