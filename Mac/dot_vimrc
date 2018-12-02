@@ -596,6 +596,7 @@ nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
 nmap <leader>lgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx *.java *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 nmap <leader>/ /\<\><Left><Left>
 vmap <leader>/ /\<\><Left><Left>
+nmap <leader><leader>/ :vimgrep /\<\>/j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 """ 替换
 vnoremap <F5> :s/<C-r>///g<Left><Left>
