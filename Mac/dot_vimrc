@@ -106,7 +106,7 @@ function! SetIndent(...)
         execute 'set tabstop=' . a:width
         execute 'set shiftwidth=' . a:width
         execute 'set softtabstop=' . a:width
-    endif 
+    endif
 endfunction
 command -nargs=* SetIndent call SetIndent(<f-args>)
 
@@ -575,18 +575,21 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 "" shift: search all in root dir recursively
 "" ctrl: search in the file dir recursively
 noremap <leader>sa :Ack! -rkw <cword><CR>
-nmap <silent> <S-F3> yiw:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <silent> <S-F3> y:Ack! -rkw ""<Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-nmap <silent> <F3> yiw:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
-vmap <silent> <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
+nmap <silent> <S-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
+vmap <silent> <S-F3> "ty:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
+nmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
+vmap <silent> <F3> *:vimgrep /\<<C-r>/\>/j %<CR>:copen<CR>
+" nmap <silent> <F3> yiw:Grep -w  %<Left><Left><C-r>0<CR>/\<\><Left><Left><C-r>0<CR>
+" vmap <silent> <F3> y:Grep  %<Left><Left><C-r>0<CR>/<C-r>0<CR>
 nnoremap <leader>ack :Ack! -rkwi ""<Left>
 nmap <leader>sd *:Ack! -rkw <cword> %:p:h<CR>
-vmap <leader>sd *y:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>0<CR>
+vmap <leader>sd *"ty:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
 nnoremap <Leader>isd :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
 nmap <F8> <Leader>sd
 vmap <F8> <Leader>sd
 nmap <S-F8> <Leader>isd
-nmap <F2> :Grep -wi  %<Left><Left>
+" nmap <F2> :Grep -wi  %<Left><Left>
+nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nmap <S-F2> <Leader>ack
 nmap <leader>gr :Rgrep -wi  *<Left><Left>
 nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
