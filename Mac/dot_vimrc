@@ -604,6 +604,24 @@ nnoremap <F5> :s/<C-r>///g<Left><Left>
 vnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 
+""" Search all open buffers
+function GetBuffersList()
+    let l:all = range(0, bufnr('$'))
+    let l:res = []
+    for b in l:all
+        if buflisted(b)
+            call add(l:res, bufname(b))
+        endif
+    endfor
+    return l:res
+endfunction
+
+function GrepAllBuffers(expression)
+    exec 'vimgrep /' . a:expression . '/j '.join(GetBuffersList())
+    exec 'copen'
+endfunction
+command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 
