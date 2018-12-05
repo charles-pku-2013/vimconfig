@@ -432,6 +432,8 @@ nmap <C-D> :call ScrollDown()<CR>
 
 nmap <leader>qf :call ToggleQuickfixList()<CR>
 
+" Span multi vertical splits
+autocmd FileType qf :wincmd J
 autocmd FileType qf nmap <buffer> 1 :colder<CR>
 autocmd FileType qf nmap <buffer> 2 :cnewer<CR>
 autocmd FileType qf nmap <buffer> ! :lolder<CR>
@@ -585,9 +587,9 @@ nnoremap <leader>ack :Ack! -rkwi ""<Left>
 nmap <leader>sd *:Ack! -rkw <cword> %:p:h<CR>
 vmap <leader>sd *"ty:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
 nnoremap <Leader>isd :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
-nmap <F8> <Leader>sd
-vmap <F8> <Leader>sd
-nmap <S-F8> <Leader>isd
+nmap <M-F3> <Leader>sd
+vmap <M-F3> <Leader>sd
+nmap <M-F2> <Leader>isd
 " nmap <F2> :Grep -wi  %<Left><Left>
 nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nmap <S-F2> <Leader>ack
@@ -606,7 +608,7 @@ nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 
 """ Search all open buffers
 function GetBuffersList()
-    let l:all = range(0, bufnr('$'))
+    let l:all = range(1, bufnr('$'))
     let l:res = []
     for b in l:all
         if buflisted(b)
@@ -621,6 +623,9 @@ function GrepAllBuffers(expression)
     exec 'copen'
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
+nmap <silent> <F8> *:SearchBuffers <C-r>/<CR>
+vmap <silent> <F8> *:SearchBuffers \<<C-r>/\><CR>
+nmap <S-F8> :SearchBuffers \<\><Left><Left>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
