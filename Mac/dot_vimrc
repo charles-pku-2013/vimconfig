@@ -24,6 +24,9 @@ set wildmenu
 " 多字节字符显示
 set ambiwidth=double
 
+" vsplit always on right
+set splitright
+
 """"""""""""""""""""""""""""""""""""""""""
 
 
