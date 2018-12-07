@@ -619,7 +619,12 @@ function GetBuffersList()
 endfunction
 
 function GrepAllBuffers(expression)
-    exec 'vimgrep /' . a:expression . '/j '.join(GetBuffersList())
+    try
+        exec 'vimgrep /' . a:expression . '/j '.join(GetBuffersList())
+    catch
+        echo "No match found!"
+        return
+    endtry
     exec 'copen'
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
@@ -983,7 +988,7 @@ nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
     " \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
     " \ }
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("t")': ['<c-t>', '<space>'],
+    \ 'AcceptSelection("t")': ['<c-t>', '<Tab>'],
     \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
