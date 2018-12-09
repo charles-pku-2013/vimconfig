@@ -314,8 +314,9 @@ command -nargs=* -complete=file OpenTerminal call OpenTerminal(<f-args>)
 nnoremap <silent> <M-F10> :call OpenTerminal()<CR>
 nnoremap <silent> <M-S-F10> :call OpenTerminal(expand('%:p:h'))<CR>
 
-" F4 关闭当前标签
-nnoremap <silent> <F4> :bd<CR>
+" F4 buffer-manager
+nnoremap <silent> <F4> :call CloseBufOrWin()<CR>
+" nnoremap <silent> <F4> :bd<CR>
 """ BufOnly.vim
 " close all buffers except this
 nnoremap <S-F4> :BufOnly<CR>
