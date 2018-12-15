@@ -186,7 +186,7 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 
 " Highlight without moving cursor
 nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-vnoremap <silent>* y:let @/='<C-r>0'<CR>:set hls<CR>
+vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
 " vmap * y/\<\><Left><Left><C-r>0<CR>
 
 " 复制选区后光标不动
@@ -910,17 +910,15 @@ call unite#custom#profile('source/vim_bookmarks', 'context', {
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
 nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
-nnoremap <silent> <M-F9> ::UniteResume<CR>
-" nnoremap <silent><C-b> :Unite buffer -direction=belowright<CR>
 nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
 nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
+nnoremap <silent> <M-F9> ::UniteResume<CR>
 nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
 " In unite window, press Esc to quit
 autocmd FileType unite nmap <silent><buffer> <Esc> :UniteClose<CR>:call AdjustCursor()<CR>
-autocmd FileType unite nmap <silent><buffer> <F9> :UniteClose<CR>:call AdjustCursor()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
