@@ -287,14 +287,17 @@ nmap <C-F10> :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
-" let NERDTreeShowHidden=1				" 显示隐藏文件
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
 let NERDTreeAutoDeleteBuffer=1			" 删除文件时自动删除文件对应 buffer
+let NERDTreeMapPreview='<CR>'        " open in current buffer
 let NERDTreeMapOpenInTab='<Tab>'        " open in new tab
+let NERDTreeMapPreviewSplit='<C-s>'        " open in h-split
+let NERDTreeMapPreviewVSplit='<C-v>'        " open in v-split
 autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
-autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
+" autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
 " filter
-let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.', '\~$']
+" let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.', '\~$']
+let NERDTreeIgnore=['^tags$', '^cscope\.', '\~$']
 
 function OpenExplorer(...)
     let a:dirname = (a:0 >= 1) ? a:1 : getcwd()
