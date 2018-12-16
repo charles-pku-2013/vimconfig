@@ -281,8 +281,6 @@ autocmd TabEnter * :call AdjustCursor()
 
 """ 文件管理 plugin: NERDTree
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
-nmap <Leader>fl :NERDTreeToggle<CR>
-nmap <Leader>lf :NERDTreeFind<CR>
 nmap <C-F10> :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
@@ -325,9 +323,6 @@ nnoremap <silent> <F4> :call CloseBufOrWin()<CR>
 nnoremap <S-F4> :BufOnly<CR>
 nnoremap <silent> <D-F4> :q<CR>
 nnoremap <silent> <S-D-F4> :q!<CR>
-
-" Closes the duplicate tabs
-command Cdt :CloseDupTabs
 
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR><C-w><Down>
@@ -942,6 +937,7 @@ nnoremap <F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-b> :CtrlPBookmark<CR>
 nnoremap <silent> <C-f> :CtrlPBuffer<CR>
 nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
+nnoremap <silent> <S-D-F1> :CtrlPBufTagAll<CR>
 nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
 "" open in new tab
 " let g:ctrlp_prompt_mappings = {
