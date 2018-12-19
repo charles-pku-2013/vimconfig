@@ -96,7 +96,7 @@ brew link --overwrite python
 brew install macvim --with-cscope --with-lua --with-python --override-system-vim
 
 # current version 自编译版
-https://github.com/macvim-dev/homebrew-macvim
+https://github.com/macvim-dev/macvim
 ## work with python3
 brew tap macvim-dev/macvim
 brew install --HEAD macvim-dev/macvim/macvim
