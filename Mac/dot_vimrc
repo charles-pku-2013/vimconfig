@@ -437,48 +437,6 @@ autocmd VimEnter * nested :let g:_home_directory = getcwd()
 command -nargs=* -complete=file SetHomeDir call SetHomeDir(<f-args>)
 nnoremap <C-h> :cd `=g:_home_directory`<CR>:pwd<CR>
 
-function SaveSession(...)
-    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    let l:tabnumbers = range(1, tabpagenr("$"))
-    let l:cur_tab_num = tabpagenr()
-    tabfirst
-    silent execute "!echo \\\" saved session  > " . a:fname
-    for tabno in l:tabnumbers
-        silent execute "!echo tabe " . expand("%:p") . " >> " . a:fname
-        tabn
-    endfor
-    " alternative for feedkeys
-    silent execute "normal " . l:cur_tab_num . "gt"
-    redraw
-    sleep 100m
-    echo "session saved to " . a:fname
-endfunction
-
-function LoadSession(...)
-    let a:fname = (a:0 >= 1) ? a:1 : "session.vim"
-    execute "source " . a:fname
-endfunction
-
-" save session (buffer list)
-command -nargs=* -complete=file Ss call SaveSession(<f-args>)
-command -nargs=* -complete=file Ls call LoadSession(<f-args>)
-" Session mgr vim-session
-" let g:session_autosave = 'no'
-
-" function! AutoSaveSession()
-   " if filereadable("session.vim")
-       " execute 'Ss'
-   " endif
-" endfunction
-" autocmd VimLeave * :call AutoSaveSession()
-
-" function! AutoLoadSession()
-   " if filereadable("session.vim")
-       " execute 'Ls'
-   " endif
-" endfunction
-" autocmd VimEnter * nested :call AutoLoadSession()
-
 nnoremap <C-ScrollWheelDown> 9zl
 nnoremap <C-ScrollWheelUp> 9zh
 inoremap <C-ScrollWheelDown> <C-o>9zl
