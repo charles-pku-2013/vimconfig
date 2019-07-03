@@ -27,6 +27,9 @@ set ambiwidth=double
 " vsplit always on right
 set splitright
 
+" 在新tab或已有tab中打开文档
+set switchbuf+=usetab,newtab
+
 """"""""""""""""""""""""""""""""""""""""""
 
 
@@ -283,6 +286,8 @@ autocmd TabEnter * :call AdjustCursor()
 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 nmap <C-F10> :NERDTreeFind<CR>
 nmap <F10> :NERDTreeToggle<CR>
+" 在新tab或已有tab中打开文档
+let NERDTreeCustomOpenArgs={'file': {'reuse':'all', 'where':'t'}}
 let NERDTreeWinSize=40					" 设置 NERDTree 子窗口宽度
 let NERDTreeWinPos="right"				" 设置 NERDTree 子窗口位置
 let NERDTreeMinimalUI=1					" NERDTree 子窗口中不显示冗余帮助信息
@@ -894,9 +899,11 @@ nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-b> :CtrlPBookmark<CR>
 nnoremap <silent> <C-f> :CtrlPBuffer<CR>
+nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 nnoremap <silent> <S-D-F1> :CtrlPBufTagAll<CR>
 nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
+nmap <silent> <C-F1> <C-f><CR>
 "" open in new tab
 " let g:ctrlp_prompt_mappings = {
     " \ 'AcceptSelection("e")': [],
