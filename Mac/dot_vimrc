@@ -296,6 +296,7 @@ let NERDTreeMapPreview='<CR>'        " open in current buffer
 let NERDTreeMapOpenInTab='<Tab>'        " open in new tab
 let NERDTreeMapPreviewSplit='<C-s>'        " open in h-split
 let NERDTreeMapPreviewVSplit='<C-v>'        " open in v-split
+let NERDTreeQuitOnOpen=3                " close after open file
 autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 " autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
 " filter
@@ -356,6 +357,8 @@ nnoremap <silent> ’ :tabm +1<CR>
 nnoremap <silent> ” :tabm -1<CR>
 nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
+nnoremap <silent> <S-D-PageDown> :tabmove<CR>
+nnoremap <silent> <S-D-PageUp> :0tabmove<CR>
 " Last active tab
 " if !exists('g:Lasttab')
     " let g:Lasttab = 1
