@@ -359,6 +359,8 @@ nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
 nnoremap <silent> <S-D-PageDown> :tabmove<CR>
 nnoremap <silent> <S-D-PageUp> :0tabmove<CR>
+nnoremap <silent> <S-C-PageUp> :tabfirst<CR>
+nnoremap <silent> <S-C-PageDown> :tablast<CR>
 " Last active tab
 " if !exists('g:Lasttab')
     " let g:Lasttab = 1
