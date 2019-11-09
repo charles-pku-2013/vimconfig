@@ -102,16 +102,16 @@ set shiftwidth=4 	" 设置格式化时制表符占用空格数
 set softtabstop=4 	" 让 vim 把连续数量的空格视为一个制表符
 
 function! SetIndent(...)
-    let a:width = get(a:, 1, 4)
-    let a:is_local = get(a:, 2, 0)
-    if (a:is_local)
-        let &l:tabstop = a:width
-        let &l:shiftwidth = a:width
-        let &l:softtabstop = a:width
+    let l:width = get(a:, 1, 4)
+    let l:is_local = get(a:, 2, 0)
+    if (l:is_local)
+        let &l:tabstop = l:width
+        let &l:shiftwidth = l:width
+        let &l:softtabstop = l:width
     else
-        execute 'set tabstop=' . a:width
-        execute 'set shiftwidth=' . a:width
-        execute 'set softtabstop=' . a:width
+        execute 'set tabstop=' . l:width
+        execute 'set shiftwidth=' . l:width
+        execute 'set softtabstop=' . l:width
     endif
 endfunction
 command -nargs=* SetIndent call SetIndent(<f-args>)
@@ -304,8 +304,8 @@ autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 let NERDTreeIgnore=['^tags$', '^cscope\.', '\~$']
 
 function OpenExplorer(...)
-    let a:dirname = (a:0 >= 1) ? a:1 : getcwd()
-    silent execute "!open " . a:dirname
+    let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
+    silent execute "!open " . l:dirname
 endfunction
 
 command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
@@ -313,8 +313,8 @@ nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
 nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p:h'))<CR>
 
 function OpenTerminal(...)
-    let a:dirname = (a:0 >= 1) ? a:1 : getcwd()
-    silent execute "!open -a iTerm " . a:dirname
+    let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
+    silent execute "!open -a iTerm " . l:dirname
 endfunction
 
 command -nargs=* -complete=file OpenTerminal call OpenTerminal(<f-args>)
