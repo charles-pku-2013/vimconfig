@@ -190,6 +190,7 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 " Highlight without moving cursor
 nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
+nmap <silent># *
 " vmap * y/\<\><Left><Left><C-r>0<CR>
 
 " 复制选区后光标不动
