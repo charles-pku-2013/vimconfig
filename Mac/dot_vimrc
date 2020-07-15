@@ -417,7 +417,7 @@ nnoremap <silent> Ô :lnext<CR>zz
 autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
-nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:silent UniteClose<CR>
+nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:silent UniteClose<CR>:pwd<CR>
 
 " For QFgrep
 autocmd FileType qf nmap <buffer> <F2> :QFGrep<CR>
@@ -918,6 +918,31 @@ nmap <silent> <C-F1> <C-f><CR>
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-t>', '<Tab>'],
     \ }
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""fzf""""""""""""""""""""""""""
+" set rtp+=~/.fzf
+let g:fzf_buffers_jump = 1
+
+function! s:GotoOrOpen(command, ...)
+    for file in a:000
+        if a:command == 'e'
+            exec 'e ' . file
+        else
+            exec "tab drop " . file
+        endif
+    endfor
+endfunction
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'Tab': 'GotoOrOpen tab',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+nnoremap <F7> :Tags<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
