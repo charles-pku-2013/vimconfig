@@ -906,7 +906,7 @@ nnoremap <F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-b> :CtrlPBookmark<CR>
 nnoremap <silent> <C-f> :CtrlPBuffer<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
-nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
+" nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 nnoremap <silent> <S-D-F1> :CtrlPBufTagAll<CR>
 nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
 nmap <silent> <C-F1> <C-f><CR>
@@ -928,7 +928,7 @@ let g:fzf_buffers_jump = 1
 function! s:GotoOrOpen(command, ...)
     for file in a:000
         if a:command == 'e'
-            exec 'e ' . file
+            exec 'tabe ' . file
         else
             exec "tab drop " . file
         endif
@@ -943,6 +943,9 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 nnoremap <F7> :Tags<CR>
+nnoremap <D-F1> :BTags<CR>
+nnoremap <M-F7> :Lines<CR>
+nnoremap <D-F7> :Buffers<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
