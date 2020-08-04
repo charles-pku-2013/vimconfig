@@ -904,7 +904,7 @@ nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-b> :CtrlPBookmark<CR>
-nnoremap <silent> <C-f> :CtrlPBuffer<CR>
+nnoremap <silent> <C-f> :FZF<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 nnoremap <silent> <S-D-F1> :CtrlPBufTagAll<CR>
@@ -938,7 +938,7 @@ command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'Tab': 'GotoOrOpen tab',
+  \ 'Tab': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
