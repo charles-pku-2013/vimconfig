@@ -948,7 +948,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-nnoremap <F7> :Tags<CR>
+nnoremap <F7> "tyiw:Tags <C-r>t<CR>
 vnoremap <F7> "ty:Tags <C-r>t<CR>
 nnoremap <D-F1> :BTags<CR>
 nnoremap <M-F7> :Lines<CR>
