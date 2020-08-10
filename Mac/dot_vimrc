@@ -515,9 +515,9 @@ nnoremap <Leader>isd :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Le
 nmap <M-F3> <Leader>sd
 vmap <M-F3> <Leader>sd
 " RipGrep
-let g:rg_highlight = 1
-nmap <silent> <D-F3> :Rg<CR>
-vmap <silent> <D-F3> "ty:Rg <C-r>t<CR>
+" let g:rg_highlight = 1
+nmap <silent> <D-F3> *"tyiw:Rg -w <C-r>t<CR>
+vmap <silent> <D-F3> *"ty:Rg ''<Left><C-r>t<CR>
 nmap <M-F2> <Leader>isd
 " nmap <F2> :Grep -wi  %<Left><Left>
 nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
@@ -733,7 +733,9 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nmap <F12> :cs kill -1<CR>:silent !myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:silent !cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR>:silent !cat cscope.files \| xargs ctags --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q<CR>:NeoCompleteTagMakeCache<CR>
 " nmap <F12> :cs kill -1<CR>:!myfind *.h*.hpp*.c*.cc*.cpp > cscope.files<CR>:!cscope -bkq -i cscope.files<CR>:cs add cscope.out<CR><CR>
 " nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
-nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+" use universal-ctags instead of exuberant ctags
+" brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
