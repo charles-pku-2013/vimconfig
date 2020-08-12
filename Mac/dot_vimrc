@@ -518,6 +518,17 @@ vmap <M-F3> <Leader>sd
 " let g:rg_highlight = 1
 nmap <silent> <D-F3> *"tyiw:Rg -w <C-r>t<CR>
 vmap <silent> <D-F3> *"ty:Rg ''<Left><C-r>t<CR>
+command! -bang -nargs=* FzfRg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview('right:50%:hidden', 'F1'), <bang>0)
+command! -bang -nargs=* FzfRgw
+    \ call fzf#vim#grep(
+    \   'rg -w --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview('right:50%:hidden', 'F1'), <bang>0)
+nmap <silent> <S-D-F3> "tyiw:FzfRgw <C-r>t<CR>
+vmap <silent> <S-D-F3> "ty:FzfRg <C-r>t<CR>
+
 nmap <M-F2> <Leader>isd
 " nmap <F2> :Grep -wi  %<Left><Left>
 nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
@@ -735,7 +746,8 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nnoremap <F12> :silent !ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q .<CR>
 " use universal-ctags instead of exuberant ctags
 " brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+" nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=combine . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
@@ -929,6 +941,7 @@ let g:ctrlp_prompt_mappings = {
 
 """"""""""""""""""""""fzf""""""""""""""""""""""""""
 " set rtp+=~/.fzf
+" let g:fzf_preview_window = 'right:60%'
 let g:fzf_buffers_jump = 1
 
 function! s:GotoOrOpen(command, ...)
@@ -948,8 +961,10 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-nnoremap <F7> "tyiw:Tags <C-r>t<CR>
-vnoremap <F7> "ty:Tags <C-r>t<CR>
+nnoremap <F7> "tyiw:FZFTags <C-r>t<CR>
+vnoremap <F7> "ty:FZFTags <C-r>t<CR>
+nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
+vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
 nnoremap <D-F1> :BTags<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
