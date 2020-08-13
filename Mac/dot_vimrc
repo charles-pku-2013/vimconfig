@@ -604,8 +604,8 @@ nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
 " autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 
 " jump in new tab
-nmap <C-\> "tyiw:tab ts <C-r>t<CR>
-vmap <C-\> "ty:tab ts <C-r>t<CR>
+" nmap <C-\> "tyiw:tab ts <C-r>t<CR>
+" vmap <C-\> "ty:tab ts <C-r>t<CR>
 " jump in new split
 nmap <D-\> "tyiw:sts <C-r>t<CR>
 vmap <D-\> "ty:sts <C-r>t<CR>
@@ -749,7 +749,7 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " use universal-ctags instead of exuberant ctags
 " brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
-nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=combine . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
 """ 代码收藏 vim-signature
@@ -967,6 +967,8 @@ nnoremap <F7> "tyiw:FZFTags <C-r>t<CR>
 vnoremap <F7> "ty:FZFTags <C-r>t<CR>
 nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
 vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
+nmap <C-\> <F7>
+vmap <C-\> <F7>
 nnoremap <D-F1> :BTags<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
