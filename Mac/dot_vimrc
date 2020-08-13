@@ -504,20 +504,22 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|ex
 let g:ack_apply_qmappings = 0
 let g:ack_apply_lmappings = 0
 noremap <leader>sa :Ack! -rkw <cword><CR>
-nmap <silent> <S-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
-vmap <silent> <S-F3> "ty:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
+nmap <silent> <D-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
+vmap <silent> <D-F3> "ty:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
 nmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 vmap <silent> <F3> *:vimgrep /\<<C-r>/\>/j %<CR>:copen<CR>
 nnoremap <leader>ack :Ack! -rkwi ""<Left>
 nmap <leader>sd *:Ack! -rkw <cword> %:p:h<CR>
 vmap <leader>sd *"ty:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
 nnoremap <Leader>isd :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
-nmap <M-F3> <Leader>sd
-vmap <M-F3> <Leader>sd
+nmap <M-D-F3> <Leader>sd
+vmap <M-D-F3> <Leader>sd
 " RipGrep
 " let g:rg_highlight = 1
-nmap <silent> <D-F3> *"tyiw:Rg -w <C-r>t<CR>
-vmap <silent> <D-F3> *"ty:Rg ''<Left><C-r>t<CR>
+nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t<CR>
+vmap <silent> <S-F3> *"ty:Rg ''<Left><C-r>t<CR>
+nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
+vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 command! -bang -nargs=* FzfRg
     \ call fzf#vim#grep(
     \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
