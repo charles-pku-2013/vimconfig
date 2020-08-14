@@ -462,6 +462,8 @@ command Cf :echo @%
 
 " airline
 nnoremap <silent> <S-F12> :AirlineToggle<CR>
+nnoremap <silent> <D-F12> :echo expand('%')<CR>
+nnoremap <silent> <S-D-F12> :echo expand('%:p')<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
