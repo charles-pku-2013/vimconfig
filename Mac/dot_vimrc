@@ -251,7 +251,7 @@ fun! ToggleFullscreen()
     call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")
 endf
 
-nmap <C-F11> :set wrap! linebreak nolist<CR>
+nmap <silent><C-F11> :set wrap! linebreak nolist<CR>
 " 全屏开/关快捷键
 nnoremap <F11> :call ToggleFullscreen()<CR>
 "autocmd VimEnter * call ToggleFullscreen() 		" 启动 vim 时自动全屏
