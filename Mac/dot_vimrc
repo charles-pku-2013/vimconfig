@@ -582,7 +582,7 @@ set csto=1      " Search tag file before cscope
 " See http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set tags=.tags;
 
-" 自动加载tags路径设置 tags.vim ':set tags+=../../search_sf/sf/tags,../public/index_query/tags'
+" 自动加载tags路径设置 tags.vim ':set tags+=../../search_sf/sf/.tags,../public/index_query/.tags'
 function! SetTags()
    if filereadable("tags.vim")
        execute 'source! tags.vim'
@@ -605,11 +605,11 @@ nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
 " nmap <C-\> "tyiw:tab ts <C-r>t<CR>
 " vmap <C-\> "ty:tab ts <C-r>t<CR>
 " jump in new split
-nmap <D-\> "tyiw:sts <C-r>t<CR>
-vmap <D-\> "ty:sts <C-r>t<CR>
+" nmap <D-\> "tyiw:sts <C-r>t<CR>
+" vmap <D-\> "ty:sts <C-r>t<CR>
 " A-\ jump in new vsplit
-nmap « :vs<CR><C-w><Right>:exec("ts ".expand("<cword>"))<CR>
-vmap « "ty:vs<CR><C-w><Right>:ts <C-r>t<CR>
+" nmap « :vs<CR><C-w><Right>:exec("ts ".expand("<cword>"))<CR>
+" vmap « "ty:vs<CR><C-w><Right>:ts <C-r>t<CR>
 
 """""""""""""
 
@@ -642,11 +642,14 @@ nmap <S-space> <leader>fc
 
 """ 接口与实现快速切换 plugin: a.vim
 " *.cpp 和 *.h 间切换
-nmap <silent> <Leader>ch :A<CR>
+" nmap <silent> <Leader>ch :A<CR>
 " 子窗口中显示 *.cpp 或 *.h
-nmap <silent> <Leader>sch :AS<CR>
-nmap <silent> <Leader>vch :AV<CR>
-nmap <silent> <Leader>tch :AT<CR>
+" nmap <silent> <Leader>sch :AS<CR>
+" nmap <silent> <Leader>vch :AV<CR>
+" nmap <silent> <Leader>tch :AT<CR>
+nmap <silent> <D-\> :CppSwitchHdrSrc<CR>
+" Alt + \
+nmap <silent> « :CppSwitchHdrSrc s<CR>
 
 """ 这两个功能是vim tag功能一部分
 " 正向遍历同名标签
