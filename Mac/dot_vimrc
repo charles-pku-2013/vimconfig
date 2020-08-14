@@ -341,23 +341,27 @@ nnoremap <D-L> <C-w>l
 " split resize Alt <> +-
 nnoremap ≤ <C-w><
 nnoremap ≥ <C-w>>
-nnoremap ¯  9<C-w><
-nnoremap ˘ 9<C-w>>
-nnoremap <D-<> 9<C-w><
-nnoremap <D->> 9<C-w>>
+nnoremap ¯  12<C-w><
+nnoremap ˘ 12<C-w>>
+nnoremap <D-<> 12<C-w><
+nnoremap <D->> 12<C-w>>
 nnoremap – <C-w>-
 nnoremap ≠ <C-w>+
 nnoremap — 5<C-w>-
 nnoremap ± 5<C-w>+
-"" New tab
-nmap <Leader>tb :sp<CR><C-w>T
+"" Reopen file in new tab
+" nmap <Leader>tb :sp<CR><C-w>T
 " Move tab
-nnoremap <silent> ’ :tabm +1<CR>
-nnoremap <silent> ” :tabm -1<CR>
 nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
+"" Alt + []
+nmap “ <D-PageUp>
+nmap ‘ <D-PageDown>
 nnoremap <silent> <S-D-PageDown> :tabmove<CR>
 nnoremap <silent> <S-D-PageUp> :0tabmove<CR>
+" Alt + {}
+nmap ” <S-D-PageUp>
+nmap ’ <S-D-PageDown>
 nnoremap <silent> <S-C-PageUp> :tabfirst<CR>
 nnoremap <silent> <S-C-PageDown> :tablast<CR>
 " Last active tab
