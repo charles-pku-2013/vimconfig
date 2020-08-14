@@ -122,7 +122,6 @@ let g:indent_guides_start_level=2					" 从第二层开始可视化显示缩进
 let g:indent_guides_guide_size=1					" 色块宽度
 " 快捷键 im 开/关缩进可视化
 nmap <silent> <Leader>im <Plug>IndentGuidesToggle
-nmap <silent> <M-F12> <Plug>IndentGuidesToggle
 
 "" DetectIndent
 let g:detectindent_preferred_expandtab = 1
@@ -268,7 +267,6 @@ let g:miniBufExplMaxSize = 1
 " 显示/隐藏 MiniBufExplorer 窗口
 nnoremap <silent><Leader>bl :MBEToggle<CR>
 nnoremap <silent><S-F9> :MBEToggle<CR>
-nnoremap <silent><F12> :TagbarToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
@@ -461,9 +459,10 @@ cabbrev Sh ShellRead
 command Cf :echo @%
 
 " airline
-nnoremap <silent> <S-F12> :AirlineToggle<CR>
-nnoremap <silent> <D-F12> :echo expand('%')<CR>
-nnoremap <silent> <S-D-F12> :echo expand('%:p')<CR>
+nnoremap <silent> <F12> :echo expand('%')<CR>
+nnoremap <silent> <S-F12> :echo expand('%:p')<CR>
+nnoremap <silent> <D-F12> :TagbarToggle<CR>
+nnoremap <silent> <M-F12> :AirlineToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
