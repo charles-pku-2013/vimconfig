@@ -933,7 +933,7 @@ nnoremap <silent> <C-f> :FZF<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
-nnoremap <silent> <S-M-F1> :CtrlPBufTagAll<CR>
+nnoremap <silent> <C-D-F1> :CtrlPBufTagAll<CR>
 nmap <silent> <C-F1> <C-f><CR>
 "" open in new tab
 " let g:ctrlp_prompt_mappings = {
