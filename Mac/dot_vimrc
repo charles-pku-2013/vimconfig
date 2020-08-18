@@ -641,7 +641,7 @@ nnoremap  <leader>ff yiw:cs find f <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<C
 " including this file
 nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<CR>
 
-nmap <S-space> <leader>fc
+" nmap <S-space> <leader>fc
 """""""""""""""
 
 """ 接口与实现快速切换 plugin: a.vim
@@ -754,6 +754,8 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " use universal-ctags instead of exuberant ctags
 " brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 " nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+" check cscope status :cs show
+" kill all connections  :cs kill -1
 nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 
 
