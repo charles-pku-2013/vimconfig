@@ -512,15 +512,17 @@ let g:ack_apply_lmappings = 0
 nmap <silent> <D-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
 vmap <silent> <D-F3> "ty:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
 nmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
-vmap <silent> <F3> *:vimgrep /\<<C-r>/\>/j %<CR>:copen<CR>
+vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 nmap <M-D-F3> *:Ack! -rkw <cword> %:p:h<CR>
 vmap <M-D-F3> *"ty:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
 " RipGrep
 " let g:rg_highlight = 1
 nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t<CR>
-vmap <silent> <S-F3> *"ty:Rg ''<Left><C-r>t<CR>
+" vmap <silent> <S-F3> *"ty:Rg ''<Left><C-r>t<CR>
+vmap <silent> <S-F3> "tygv*:EscapeStr t<CR>:Rg ''<Left><C-r>t<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
-vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
+" vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
+vmap <silent> <M-F3> "tygv*:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 command! -bang -nargs=* FzfRg
     \ call fzf#vim#grep(
     \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
