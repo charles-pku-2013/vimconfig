@@ -590,12 +590,19 @@ nmap <S-F8> :SearchBuffers \<\><Left><Left>
 set csto=1      " Search tag file before cscope
 " See http://vim.wikia.com/wiki/Single_tags_file_for_a_source_tree
 set tags=.tags;
-
-" 自动加载tags路径设置 tags.vim ':set tags+=../../search_sf/sf/.tags,../public/index_query/.tags'
+" 引用其他工程的tags，生成tags要用当前工程为相对路径基础，或用绝对路径
+" 自动加载tags路径设置 .tags.vim ':set tags+=../../search_sf/sf/.tags,../public/index_query/.tags'
+" check: echo &tags
+" function! SetTags()
+   " if filereadable(".tags.vim")
+       " execute 'source! .tags.vim'
+   " endif
+" endfunction
+" ctags -f .absl.tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number ../abseil-cpp/absl
+" :set tags+=.absl.tags   格式 .xxx.tags
 function! SetTags()
-   if filereadable("tags.vim")
-       execute 'source! tags.vim'
-   endif
+    let l:tags_file = glob("`ls -a | grep '^\\\.\.\\+\.tags$'`")
+    execute 'set tags+=' . substitute(l:tags_file, "\n", ",", "g")
 endfunction
 autocmd VimEnter * nested :silent! call SetTags()<CR>
 
