@@ -995,12 +995,11 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-nnoremap <F7> "tyiw:FZFTags <C-r>t<CR>
-vnoremap <F7> "ty:FZFTags <C-r>t<CR>
+nnoremap <F7> :FZFTags<CR>
+nnoremap <C-\> "tyiw:FZFTags <C-r>t<CR>
+vnoremap <C-\> "ty:FZFTags <C-r>t<CR>
 nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
 vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
-nmap <C-\> <F7>
-vmap <C-\> <F7>
 nnoremap <silent> <D-F1> :BTags<CR>
 nnoremap <silent> <S-D-F1> :BTags!<CR>
 nnoremap <M-F7> :Lines<CR>
