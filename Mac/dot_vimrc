@@ -958,7 +958,7 @@ nnoremap <silent> <C-b> :CtrlPBookmark<CR>
 nnoremap <silent> <C-f> :FZF<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
-nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
+" nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
 nnoremap <silent> <C-D-F1> :CtrlPBufTagAll<CR>
 nmap <silent> <C-F1> <C-f><CR>
 "" open in new tab
@@ -1002,6 +1002,8 @@ nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
 vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
 nnoremap <silent> <D-F1> :BTags<CR>
 nnoremap <silent> <S-D-F1> :BTags!<CR>
+nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
+vnoremap <M-F1> "ty:BTags <C-r>t<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
