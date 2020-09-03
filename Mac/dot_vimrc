@@ -995,7 +995,7 @@ command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'Tab': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 nnoremap <F7> :FZFTags<CR>
