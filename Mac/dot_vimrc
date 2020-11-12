@@ -136,6 +136,7 @@ set nofoldenable 			" 启动 vim 时关闭折叠代码
 """ 禁止 plugin: YouCompleteMe 语法错误高亮显示
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
+" let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 
 """ Enable multiple highlights at startup 用不同颜色高亮不同单词 highlights.vim
 " 模拟键盘按键，这里不知如何引用<leader>
@@ -934,7 +935,8 @@ nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
 nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
 nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
-nnoremap <silent> <M-F9> ::UniteResume<CR>
+" nnoremap <silent> <M-F9> :UniteResume<CR>
+nnoremap <silent> <M-F9> :FZF %:p:h<CR>
 nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
@@ -1009,7 +1011,7 @@ nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
 vnoremap <M-F1> "ty:BTags <C-r>t<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
-nnoremap <M-S-F1> :FZFQuickFix<CR>
+autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
