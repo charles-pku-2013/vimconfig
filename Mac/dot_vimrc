@@ -305,13 +305,17 @@ autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
 let NERDTreeIgnore=['^tags$', '^cscope\.', '\~$']
 
 function OpenExplorer(...)
-    let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
-    silent execute "!open " . l:dirname
+    let l:path = (a:0 >= 1) ? a:1 : getcwd()
+    if isdirectory(l:path)
+        silent execute "!open " . l:path
+    else
+        silent execute "!open -R " . l:path
+    endif
 endfunction
 
 command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
 nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
-nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p:h'))<CR>
+nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p'))<CR>
 
 function OpenTerminal(...)
     let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
