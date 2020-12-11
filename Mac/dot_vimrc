@@ -777,7 +777,8 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 " check cscope status :cs show
 " kill all connections  :cs kill -1
-nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+" nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
+nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number .<CR>
 
 
 """ 代码收藏 vim-signature
