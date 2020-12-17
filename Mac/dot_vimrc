@@ -1024,12 +1024,19 @@ autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
 
 """""""""""""""""""""Others""""""""""""""""""""""""
 " 切换路径到当前所编辑文件所在目录
-nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
+" nnoremap <Leader>cwd :cd %:p:h<CR>:pwd<CR>
 """ airline
 " tagbar
 let g:airline#extensions#tagbar#enabled = 1
 " tab
 " let g:airline#extensions#tabline#enabled = 1
+
+function! GenBazelStr()
+    let l:bazelStr = "//" . expand('%:h') . ":" . expand('<cword>')
+    call setreg("*", l:bazelStr, "c")
+    echo "Saved bazel item " . l:bazelStr . " to clipboard"
+endfunction
+command! Bazel call GenBazelStr()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
