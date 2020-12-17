@@ -427,6 +427,7 @@ autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 " nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:silent UniteClose<CR>:pwd<CR>
 nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:pwd<CR>
+" nnoremap <silent><Esc> :lcl<CR>:ccl<CR>:pc<CR>:pwd<CR>
 
 " For QFgrep
 autocmd FileType qf nmap <buffer> <F2> :QFGrep<CR>
@@ -467,7 +468,7 @@ command! -nargs=* -complete=file ShellRead new | setlocal buftype=nofile bufhidd
 cabbrev Sh ShellRead
 
 " 显示当前文件全路径
-command Cf :echo @%
+" command Cf :echo @%
 
 " airline
 nnoremap <silent> <F12> :echo expand('%')<CR>
@@ -588,6 +589,7 @@ command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
 nmap <silent> <F8> *:SearchBuffers <C-r>/<CR>
 vmap <silent> <F8> *:SearchBuffers \<<C-r>/\><CR>
 nmap <S-F8> :SearchBuffers \<\><Left><Left>
+nmap <D-F8> :CtrlPBufTagAll<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
