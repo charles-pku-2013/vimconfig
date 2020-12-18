@@ -440,17 +440,15 @@ autocmd FileType qf nmap <buffer> <F5> <Plug>QFRestore
 
 """ Session
 " goto home
-function SetHomeDir(...)
-    if a:0 < 1
-        echo 'HomeDir=' . g:_home_directory
-        return
-    elseif a:1 == '.'
-        let g:_home_directory = getcwd()
-    elseif a:1 == ','
-        let g:_home_directory = expand('%:p:h')
-    else
-        let g:_home_directory = a:1
+function! SetHomeDir(...)
+    if a:0 >= 1
+        try
+            execute "cd " . a:1
+        catch
+            echoerr "Cannot change cwd to " . a:1
+        endtry
     endif
+    let g:_home_directory = getcwd()
     echo 'HomeDir=' . g:_home_directory
 endfunction
 
