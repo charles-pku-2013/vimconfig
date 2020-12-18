@@ -695,7 +695,8 @@ let g:tagbar_sort = 0
 let g:tagbar_position = 'left'
 " 设置显示／隐藏标签列表子窗口的快捷键。速记：tag list
 " 设置标签子窗口的宽度
-let g:tagbar_width = winwidth(0) / 7
+let g:my_screen_width = winwidth(0)
+let g:tagbar_width = g:my_screen_width / 7
 " tagbar 子窗口中不显示冗余帮助信息
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
