@@ -298,7 +298,8 @@ let NERDTreeMapOpenInTab='<Tab>'        " open in new tab
 let NERDTreeMapPreviewSplit='<C-s>'        " open in h-split
 let NERDTreeMapPreviewVSplit='<C-v>'        " open in v-split
 let NERDTreeQuitOnOpen=3                " close after open file
-autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
+" autocmd FileType nerdtree nmap <silent><buffer> <Esc> :q<CR>
+autocmd FileType nerdtree nnoremap <silent><buffer> <Esc> :wincmd p<CR>:NERDTreeClose<CR>
 " autocmd FileType nerdtree nmap <silent><buffer> <Space> <CR>:NERDTreeToggle<CR>
 " filter
 " let NERDTreeIgnore=['\.vim$', '^tags$', '^cscope\.', '\~$']
