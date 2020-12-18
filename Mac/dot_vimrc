@@ -453,7 +453,7 @@ function! SetHomeDir(...)
 endfunction
 
 autocmd VimEnter * nested :let g:_home_directory = getcwd()
-command -nargs=* -complete=dir SetHomeDir call SetHomeDir(<f-args>)
+command! -nargs=* -complete=dir CD call SetHomeDir(<f-args>)
 nnoremap <C-h> :cd `=g:_home_directory`<CR>:pwd<CR>
 
 nnoremap <C-ScrollWheelDown> 9zl
