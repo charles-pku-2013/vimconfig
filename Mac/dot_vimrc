@@ -48,8 +48,9 @@ execute pathogen#infect()
 """"""""""""""" Helper Functions""""""""""""""""""
 " 校准光标，从tagbar移动到主窗口
 function! AdjustCursor()
-    if (&ft=='tagbar')
-        call feedkeys("\<C-w>\<Right>")
+    if (&ft == 'tagbar')
+        " call feedkeys("\<C-w>\<Right>")
+        execute "wincmd p"
     endif
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -423,7 +424,8 @@ nnoremap <silent> Ô :lnext<CR>zz
 " Enter jump but not move out the window
 " autocmd FileType qf nnoremap <silent><buffer> <CR> <CR><C-W><C-P>
 " Esc for close
-autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
+" autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
+autocmd FileType qf nmap <silent><buffer> <Esc> :wincmd p<CR>:ccl<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 " nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:silent UniteClose<CR>:pwd<CR>
