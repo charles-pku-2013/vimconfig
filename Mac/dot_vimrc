@@ -52,6 +52,10 @@ function! AdjustCursor()
         " call feedkeys("\<C-w>\<Right>")
         execute "wincmd p"
     endif
+    " check again, move cursor to right
+    if (&ft == 'tagbar')
+        execute "wincmd l"
+    endif
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -346,6 +350,12 @@ nnoremap <D-J> <C-w>j
 nnoremap <D-K> <C-w>k
 nnoremap <D-H> <C-w>h
 nnoremap <D-L> <C-w>l
+" S - A h/l
+nnoremap Ó <C-w>h
+nnoremap Ò <C-w>l
+" S - A j/k
+nnoremap Ô <C-w>j
+nnoremap  <C-w>k
 " split resize Alt <> +-
 nnoremap ≤ <C-w><
 nnoremap ≥ <C-w>>
@@ -415,8 +425,8 @@ autocmd FileType qf nmap <buffer> @ :lnewer<CR>
 nmap <silent> <C-k>  :cprev<CR>zz
 nmap <silent> <C-j>  :cnext<CR>zz
 " S-A-j/k jump between locationlist items
-nnoremap <silent>  :lprev<CR>zz
-nnoremap <silent> Ô :lnext<CR>zz
+" nnoremap <silent>  :lprev<CR>zz
+" nnoremap <silent> Ô :lnext<CR>zz
 
 " For QuickFix and Locationlist window
 " Space jump to item and close
@@ -425,7 +435,7 @@ nnoremap <silent> Ô :lnext<CR>zz
 " autocmd FileType qf nnoremap <silent><buffer> <CR> <CR><C-W><C-P>
 " Esc for close
 " autocmd FileType qf nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
-autocmd FileType qf nmap <silent><buffer> <Esc> :wincmd p<CR>:ccl<CR>
+autocmd FileType qf nmap <silent><buffer> <Esc> :wincmd p<CR>:ccl<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 " nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:silent UniteClose<CR>:pwd<CR>
@@ -579,7 +589,7 @@ endfunction
 
 function GrepAllBuffers(expression)
     try
-        exec 'vimgrep /' . a:expression . '/j '.join(GetBuffersList())
+        exec 'vimgrep /' . a:expression . '/j ' . join(GetBuffersList())
     catch
         echo "No match found!"
         return
