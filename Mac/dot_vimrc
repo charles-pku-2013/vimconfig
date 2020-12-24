@@ -580,12 +580,10 @@ nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 
 """ Search all open buffers
 function GetBuffersList()
-    let l:all = range(1, bufnr('$'))
+    let l:all = filter(range(1, bufnr('$')), 'buflisted(v:val)')
     let l:res = []
     for b in l:all
-        if buflisted(b)
-            call add(l:res, bufname(b))
-        endif
+        call add(l:res, bufname(b))
     endfor
     return l:res
 endfunction
