@@ -685,7 +685,9 @@ nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<C
 " nmap <silent> <Leader>sch :AS<CR>
 " nmap <silent> <Leader>vch :AV<CR>
 " nmap <silent> <Leader>tch :AT<CR>
-nmap <silent> <D-\> :CppSwitchHdrSrc<CR>
+nnoremap <silent> <D-\> :CppSwitchHdrSrc<CR>
+" <S-D-\> = <D-\><Alt-m> switch and set to main window
+nmap <silent> <D-Bar> <D-\>µ
 " Alt + \
 nmap <silent> « :CppSwitchHdrSrc s<CR>
 
