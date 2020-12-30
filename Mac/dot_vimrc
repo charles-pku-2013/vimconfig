@@ -899,7 +899,8 @@ nmap ga <Plug>(EasyAlign)
 
 nmap <Leader>mm :BookmarkToggle<CR>
 nmap <Leader>mi :BookmarkAnnotate<CR>
-nmap <Leader>m/ :BookmarkShowAll<CR>
+" nmap <Leader>m/ :BookmarkShowAll<CR>
+nmap <Leader>m/ :CtrlPBookmark<CR>
 nmap <Leader>mn :BookmarkNext<CR>
 nmap <Leader>mp :BookmarkPrev<CR>
 nmap <F6> <Leader>mn
@@ -979,7 +980,6 @@ call ctrlp_bdelete#init()
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <F9> :CtrlPMRU<CR>
-nnoremap <silent> <C-b> :CtrlPBookmark<CR>
 nnoremap <silent> <C-f> :FZF<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
