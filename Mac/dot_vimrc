@@ -622,11 +622,18 @@ set tags=.tags;
 " endfunction
 " ctags -f .absl.tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number ../abseil-cpp/absl
 " :set tags+=.absl.tags   格式 .xxx.tags
+" check: echo &tags
 function! SetTags()
     let l:tags_file = glob("`ls -a | grep '^\\\.\.\\+\.tags$'`")
     execute 'set tags+=' . substitute(l:tags_file, "\n", ",", "g")
 endfunction
 autocmd VimEnter * nested :silent! call SetTags()<CR>
+
+function! ResetTags()
+    execute 'set tags=.tags;'
+    call SetTags()
+endfunction
+command! ResetTags call ResetTags()
 
 " nmap <Leader>ts yiw:ts <c-r>0<CR>
 " vmap <Leader>ts y:ts /<c-r>0<CR>
