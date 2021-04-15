@@ -910,14 +910,14 @@ nmap <Leader>mm :BookmarkToggle<CR>
 nmap <Leader>mi :BookmarkAnnotate<CR>
 " nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>m/ :CtrlPBookmark<CR>
-nmap <Leader>mn :BookmarkNext<CR>
-nmap <Leader>mp :BookmarkPrev<CR>
-nmap <F6> <Leader>mn
-nmap <S-F6> <Leader>mp
+nmap <F6> :BookmarkNext<CR>
+nmap <S-F6> :BookmarkPrev<CR>
+nmap <M-F6> :BookmarkMoveDown<CR>
+nmap <M-S-F6> :BookmarkMoveUp<CR>
 " nmap <Leader>mc :BookmarkClear<CR>
 " nmap <Leader>mx :BookmarkClearAll<CR>
-nmap <Leader>mkk :BookmarkMoveUp<CR>
-nmap <Leader>mjj :BookmarkMoveDown<CR>
+" nmap <Leader>mkk :BookmarkMoveUp<CR>
+" nmap <Leader>mjj :BookmarkMoveDown<CR>
 
 " let g:bookmark_auto_save = 0
 let g:bookmark_save_per_working_dir = 1
