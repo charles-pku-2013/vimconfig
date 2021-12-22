@@ -1054,11 +1054,13 @@ let g:airline#extensions#tagbar#enabled = 1
 " let g:airline#extensions#tabline#enabled = 1
 
 function! GenBazelStr()
+    normal! vi""ty
+    let l:cur_word = getreg('t')
     let l:cur_dir = expand('%:h')
     if l:cur_dir == '.'
         let l:cur_dir = ''
     endif
-    let l:bazelStr = "//" . l:cur_dir . ":" . expand('<cword>')
+    let l:bazelStr = "//" . l:cur_dir . ":" . l:cur_word
     call setreg("*", l:bazelStr, "c")
     echo "Saved bazel item " . l:bazelStr . " to clipboard"
 endfunction
