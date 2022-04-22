@@ -892,6 +892,13 @@ augroup END
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
 
+""" vim-go
+"" first make sure env vars were set
+" export GOROOT=/usr/local/Cellar/go/1.17.2/libexec
+" export GOPATH=/Users/sunchao11/go
+"" then in vim run GoInstallBinaries or only run 'GoUpdateBinaries gopls'
+let g:go_fmt_fail_silently = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
