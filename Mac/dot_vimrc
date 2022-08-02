@@ -573,10 +573,10 @@ vmap <leader>/ /\<\><Left><Left>
 nmap <leader><leader>/ :vimgrep /\<\>/j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 """ 替换
-vnoremap <F5> :s/<C-r>///g<Left><Left>
 nnoremap <F5> :s/<C-r>///g<Left><Left>
-vnoremap <S-F5> :%s/<C-r>///g<Left><Left>
+vnoremap <F5> :s/\%V<C-r>///g<Left><Left>
 nnoremap <S-F5> :%s/<C-r>///g<Left><Left>
+" vnoremap <S-F5> :%s/<C-r>///g<Left><Left>
 
 """ Search all open buffers
 function GetBuffersList()
