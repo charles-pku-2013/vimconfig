@@ -921,6 +921,7 @@ nmap <Leader>mm :BookmarkToggle<CR>
 nmap <Leader>mi :BookmarkAnnotate<CR>
 " nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>m/ :CtrlPBookmark<CR>
+nnoremap <C-b> :FZFBookmarks<CR>
 nmap <F6> :BookmarkNext<CR>
 nmap <S-F6> :BookmarkPrev<CR>
 nmap <M-F6> :BookmarkMoveDown<CR>
