@@ -534,12 +534,12 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 
 """ plugin: ack
 " Disable result window key mapping
-let g:ack_apply_qmappings = 0
-let g:ack_apply_lmappings = 0
-nmap <silent> <D-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
-vmap <silent> <D-F3> *:Ack! -rkw ""<Left><C-r>t<CR>
-nmap <M-D-F3> *:Ack! -rkw <cword> %:p:h<CR>
-vmap <M-D-F3> *:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
+" let g:ack_apply_qmappings = 0
+" let g:ack_apply_lmappings = 0
+" nmap <silent> <D-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
+" vmap <silent> <D-F3> *:Ack! -rkw ""<Left><C-r>t<CR>
+" nmap <M-D-F3> *:Ack! -rkw <cword> %:p:h<CR>
+" vmap <M-D-F3> *:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
 " RipGrep
 " let g:rg_highlight = 1
 "" NOTE v模式下 * 高亮已经将文本复制到t寄存器中
@@ -565,8 +565,8 @@ vmap <silent> <S-D-F3> "ty:FzfRg <C-r>t<CR>
 nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nmap <S-F2> :Rg ''<Left>
 nmap <M-F2> :Rg '' %:p:h<Left><Left><Left><Left><Left><Left><Left>
-nmap <D-F2> :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
-nmap <S-D-F2> :Ack! -rkwi ""<Left>
+" nmap <D-F2> :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
+" nmap <S-D-F2> :Ack! -rkwi ""<Left>
 " nmap <leader>gr :Rgrep -wi  *<Left><Left>
 " nmap <leader>ga :RgrepAdd -wi  *<Left><Left>
 " nmap <leader>lgr :Rgrep -wi  *.h *.hpp *.cpp *.cc *.c *.cxx *.java *.py<Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
@@ -949,13 +949,13 @@ let g:bookmark_sign = '🍎'
 let g:bookmark_annotation_sign = '🍏'
 let g:bookmark_highlight_lines = 1
 
-call unite#custom#profile('source/vim_bookmarks', 'context', {
-    \   'winheight': 50,
-    \   'direction': 'belowright',
-    \   'start_insert': 0,
-    \   'keep_focus': 1,
-    \   'no_quit': 0,
-    \ })
+" call unite#custom#profile('source/vim_bookmarks', 'context', {
+    " \   'winheight': 50,
+    " \   'direction': 'belowright',
+    " \   'start_insert': 0,
+    " \   'keep_focus': 1,
+    " \   'no_quit': 0,
+    " \ })
 
 " command Sm :BookmarkSave bookmark.vim
 " command Lm :BookmarkLoad bookmark.vim
@@ -1036,6 +1036,7 @@ endfunction
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 let g:fzf_action = {
+  \ 'Enter': 'tab drop',
   \ 'ctrl-t': 'tab split',
   \ 'Tab': 'tab split',
   \ 'ctrl-s': 'split',
