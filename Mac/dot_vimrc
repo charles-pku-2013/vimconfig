@@ -315,9 +315,9 @@ let NERDTreeIgnore=['^tags$', '^cscope\.', '\~$']
 function OpenExplorer(...)
     let l:path = (a:0 >= 1) ? a:1 : getcwd()
     if isdirectory(l:path)
-        silent execute "!open " . l:path
+        silent execute "!open \"" . l:path . "\""
     else
-        silent execute "!open -R " . l:path
+        silent execute "!open -R \"" . l:path . "\""
     endif
 endfunction
 
@@ -327,7 +327,7 @@ nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p'))<CR>
 
 function OpenTerminal(...)
     let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
-    silent execute "!open -a iTerm " . l:dirname
+    silent execute "!open -a iTerm \"" . l:dirname . "\""
 endfunction
 
 command -nargs=* -complete=file OpenTerminal call OpenTerminal(<f-args>)
