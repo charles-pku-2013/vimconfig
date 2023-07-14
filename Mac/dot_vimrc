@@ -1036,9 +1036,9 @@ endfunction
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 let g:fzf_action = {
-  \ 'Enter': 'tab drop',
+  \ 'Enter': 'tab split',
   \ 'ctrl-t': 'tab split',
-  \ 'Tab': 'tab split',
+  \ 'Tab': 'tab drop',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
