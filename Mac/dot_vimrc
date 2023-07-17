@@ -1037,7 +1037,6 @@ command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 " TabDrop in vim-buffer-manager
 let g:fzf_action = {
-  \ 'Enter': 'tab split',
   \ 'ctrl-t': 'tab split',
   \ 'Tab': 'TabDrop',
   \ 'ctrl-s': 'split',
