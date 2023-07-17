@@ -334,12 +334,12 @@ command -nargs=* -complete=file OpenTerminal call OpenTerminal(<f-args>)
 nnoremap <silent> <M-F10> :call OpenTerminal()<CR>
 nnoremap <silent> <M-S-F10> :call OpenTerminal(expand('%:p:h'))<CR>
 
-" F4 buffer-manager
+" F4 vim-buffer-manager
 nnoremap <silent> <F4> :call CloseBufOrWin()<CR>
 " nnoremap <silent> <F4> :bd<CR>
 """ BufOnly.vim
-" close all buffers except this
-nnoremap <S-F4> :BufOnly<CR>
+" close all buffers except this vim-tab-manager
+nnoremap <S-F4> :TabBufOnly<CR>
 nnoremap <silent> <D-F4> :q<CR>
 nnoremap <silent> <S-D-F4> :q!<CR>
 
@@ -1035,10 +1035,11 @@ function! s:GotoOrOpen(command, ...)
 endfunction
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
+" TabDrop in vim-buffer-manager
 let g:fzf_action = {
   \ 'Enter': 'tab split',
   \ 'ctrl-t': 'tab split',
-  \ 'Tab': 'tab drop',
+  \ 'Tab': 'TabDrop',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
