@@ -630,6 +630,9 @@ function! SetTags()
     execute 'set tags+=' . substitute(l:tags_file, "\n", ",", "g")
 endfunction
 autocmd VimEnter * nested :silent! call SetTags()<CR>
+" NOTE 在工程目录下建立.gen_tags.sh 内容如下:
+" ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number .
+" ctags -f .tfs.tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number ../tensorflow_serving_lib
 
 function! ResetTags()
     execute 'set tags=.tags;'
