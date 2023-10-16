@@ -640,22 +640,26 @@ function! ResetTags()
 endfunction
 command! ResetTags call ResetTags()
 
-function! AddTag(path)
-    if len(a:path) > 0
+" Usagee :AddTag path [.tag_name.tags]
+function! AddTag(path, ...)
+    if len(a:path) <= 0
+        echo "wrong usage!"
+        return
+    endif
+    let l:fname = (a:0 >= 1) ? a:1 : ""
+    if len(l:fname) == 0
         let l:fname = fnamemodify(a:path, ':t')
-        if len(l:fname) == 0 || l:fname == "."
+        if len(l:fname) <= 0 || l:fname == "."
             echo "Invalid path!"
             return
         endif
         let l:fname = "." . l:fname . ".tags"
-        silent execute "!ctags -f " . l:fname . " -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . a:path
-        execute 'set tags+=' . l:fname
-        echo &tags
-    else
-        echo "wrong usage!"
     endif
+    silent execute "!ctags -f " . l:fname . " -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . a:path
+    execute 'set tags+=' . l:fname
+    echo &tags
 endfunction
-command! -nargs=1 -complete=dir AddTag call AddTag(<f-args>)
+command! -nargs=+ -complete=dir AddTag call AddTag(<f-args>)
 
 " nmap <Leader>ts yiw:ts <c-r>0<CR>
 " vmap <Leader>ts y:ts /<c-r>0<CR>
