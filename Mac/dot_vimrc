@@ -72,7 +72,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=YaHei-Consolas-Hybrid:h21
+set guifont=YaHei-Consolas-Hybrid:h24
 
 """ 配色方案
 set background=dark
@@ -600,9 +600,10 @@ function GrepAllBuffers(expression)
     exec 'copen'
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
-nmap <silent> <F8> *:SearchBuffers <C-r>/<CR>
-vmap <silent> <F8> *:SearchBuffers \<<C-r>/\><CR>
-nmap <S-F8> :SearchBuffers \<\><Left><Left>
+nmap <silent> <S-F8> *:SearchBuffers <C-r>/<CR>
+vmap <silent> <S-F8> *:SearchBuffers \<<C-r>/\><CR>
+" Alt + F8
+nmap <M-F8> :SearchBuffers \<\><Left><Left>
 nmap <D-F8> :CtrlPBufTagAll<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
