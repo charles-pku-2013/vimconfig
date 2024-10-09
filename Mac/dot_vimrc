@@ -497,6 +497,11 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""" Section vim-highlighter""""""""""""""
+let HiSet   = '\<CR>'
+let HiErase = '\<BS>'
+let HiClear = '\<C-L>'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section 文本编辑 Text edit"""""""""""
 " 插入时间日期
@@ -550,7 +555,11 @@ nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t<CR>
 vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<CR>
 " find function call
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\('
+" Shift + Alt + ]
+nmap ’ *"tyiw:Rg -s '\b<C-r>t\('<CR>
 nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\('
+" Shift + Alt + \
+nmap » *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\('<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 vmap <silent> <M-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
