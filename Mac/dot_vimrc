@@ -277,8 +277,8 @@ let g:miniBufExplorerAutoStart = 0
 let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
-nnoremap <silent><Leader>bl :MBEToggle<CR>
-nnoremap <silent><S-F9> :MBEToggle<CR>
+" nnoremap <silent><Leader>bl :MBEToggle<CR>
+" nnoremap <silent><S-F9> :MBEToggle<CR>
 " close tab
 nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
@@ -498,9 +498,7 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section vim-highlighter""""""""""""""
-let HiSet   = '\<CR>'
-let HiErase = '\<BS>'
-let HiClear = '\<C-L>'
+let HiSet   = '<S-F9>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section 文本编辑 Text edit"""""""""""
