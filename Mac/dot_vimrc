@@ -549,15 +549,15 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 " RipGrep
 " let g:rg_highlight = 1
 "" NOTE v模式下 * 高亮已经将文本复制到t寄存器中
-nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t<CR>
-vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<CR>
+nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t <C-r>w<CR>
+vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> <C-r>w<CR>
 " find function call
-nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\('
+nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w<CR>
 " Shift + Alt + ]
-nmap ’ *"tyiw:Rg -s '\b<C-r>t\('<CR>
-nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\('
+nmap ’ <Leader>fc
+nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w<CR>
 " Shift + Alt + \
-nmap » *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\('<CR>
+nmap » <Leader>mfc
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 vmap <silent> <M-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
@@ -573,8 +573,9 @@ nmap <silent> <S-D-F3> "tyiw:FzfRgw <C-r>t<CR>
 vmap <silent> <S-D-F3> "ty:FzfRg <C-r>t<CR>
 
 nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-nmap <S-F2> :Rg ''<Left>
-nmap <M-F2> :Rg '' %:p:h<Left><Left><Left><Left><Left><Left><Left>
+" nmap <S-F2> :Rg ''<Left>
+nmap <S-F2> :Rg '' <C-r>w<Home><S-Right><Right><Right>
+nmap <M-F2> :Rg '' %:p:h<Home><S-Right><Right><Right>
 " nmap <D-F2> :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
 " nmap <S-D-F2> :Ack! -rkwi ""<Left>
 " nmap <leader>gr :Rgrep -wi  *<Left><Left>
@@ -636,11 +637,11 @@ set tags=.tags;
 " ctags -f .absl.tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number ../abseil-cpp/absl
 " :set tags+=.absl.tags   格式 .xxx.tags
 " check: echo &tags
-function! SetTags()
-    let l:tags_file = glob("`ls -a | grep '^\\\.\.\\+\.tags$'`")
-    execute 'set tags+=' . substitute(l:tags_file, "\n", ",", "g")
-endfunction
-autocmd VimEnter * nested :silent! call SetTags()<CR>
+" function! SetTags()
+    " let l:tags_file = glob("`ls -a | grep '^\\\.\.\\+\.tags$'`")
+    " execute 'set tags+=' . substitute(l:tags_file, "\n", ",", "g")
+" endfunction
+" autocmd VimEnter * nested :silent! call SetTags()<CR>
 " NOTE 在工程目录下建立.gen_tags.sh 内容如下:
 " ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number .
 " ctags -f .tfs.tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number ../tensorflow_serving_lib
@@ -839,7 +840,15 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " check cscope status :cs show
 " kill all connections  :cs kill -1
 " nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
-nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number .<CR>
+function! SetWorkspace()
+    let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
+endfunction
+autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
+function! GenTags()
+    call SetWorkspace()
+    execute "!ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . @w
+endfunction
+nnoremap <C-F12> :call GenTags()<CR><CR>
 
 
 """ 代码收藏 vim-signature
