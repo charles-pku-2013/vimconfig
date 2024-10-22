@@ -498,7 +498,10 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section vim-highlighter""""""""""""""
-let HiSet   = '<S-F9>'
+let HiSet   = '<F9>'
+let HiErase = '<S-F9>'
+nmap <F6> :silent Hi><CR>
+nmap <S-F6> :silent Hi<<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section 文本编辑 Text edit"""""""""""
@@ -966,8 +969,8 @@ nmap <Leader>mi :BookmarkAnnotate<CR>
 " nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>m/ :CtrlPBookmark<CR>
 nnoremap <C-b> :FZFBookmarks<CR>
-nmap <F6> :BookmarkNext<CR>
-nmap <S-F6> :BookmarkPrev<CR>
+nmap <C-F6> :BookmarkNext<CR>
+nmap <S-C-F6> :BookmarkPrev<CR>
 nmap <M-F6> :BookmarkMoveDown<CR>
 nmap <M-S-F6> :BookmarkMoveUp<CR>
 " nmap <Leader>mc :BookmarkClear<CR>
@@ -1022,7 +1025,6 @@ nnoremap <Leader>uf :Unite file -direction=belowright<CR>
 nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
 nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
 " nnoremap <silent> <M-F9> :UniteResume<CR>
-nnoremap <silent> <M-F9> :FZF %:p:h<CR>
 nnoremap <Leader>us :UniteResume<CR>
 nnoremap <Leader>un :UniteNext<CR>
 nnoremap <Leader>up :UnitePrevious<CR>
@@ -1044,8 +1046,10 @@ call ctrlp_bdelete#init()
 
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
-nnoremap <F9> :CtrlPMRU<CR>
+nnoremap <M-F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-f> :FZF<CR>
+" Alt + f
+nnoremap <silent> ƒ :FZF %:p:h<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 " nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
