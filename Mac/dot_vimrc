@@ -75,7 +75,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=YaHei-Consolas-Hybrid:h24
+set guifont=YaHei-Consolas-Hybrid:h25
 
 """ 配色方案
 set background=dark
@@ -502,6 +502,7 @@ let HiSet   = '<F9>'
 let HiErase = '<S-F9>'
 nmap <F6> :silent Hi><CR>
 nmap <S-F6> :silent Hi<<CR>
+let HiSyncMode = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section 文本编辑 Text edit"""""""""""
