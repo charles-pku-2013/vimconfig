@@ -11,6 +11,12 @@ set nocompatible
 " 隐藏tabpage bar
 " set showtabline=0
 
+" 禁用报警音
+set belloff=all
+
+" 系统剪贴板作为默认寄存器
+" set clipboard=unnamed
+
 " 文件编码
 set enc=utf-8
 " 不自动备份，生成讨厌的~
