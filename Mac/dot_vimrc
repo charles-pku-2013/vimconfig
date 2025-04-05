@@ -15,7 +15,7 @@ set nocompatible
 set belloff=all
 
 " 系统剪贴板作为默认寄存器
-" set clipboard=unnamed
+set clipboard=unnamed
 
 " 文件编码
 set enc=utf-8
@@ -769,40 +769,41 @@ let g:tagbar_width = g:my_screen_width / 7
 " tagbar 子窗口中不显示冗余帮助信息
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
+" let g:tagbar_autoclose_netrw = 1
 " 设置 ctags 对哪些代码元素生成标签
-let g:tagbar_type_cpp = {
-     \ 'ctagstype' : 'c++',
-     \ 'kinds'     : [
-         \ 'd:macros:1',
-         \ 'g:enums',
-         \ 't:typedefs:0:0',
-         \ 'e:enumerators:0:0',
-         \ 'n:namespaces',
-         \ 'c:classes',
-         \ 's:structs',
-         \ 'u:unions',
-         \ 'f:functions',
-         \ 'm:members:0:0',
-         \ 'v:global:0:0',
-         \ 'x:external:0:0',
-         \ 'l:local:0:0'
-     \ ],
-     \ 'sro'        : '::',
-     \ 'kind2scope' : {
-         \ 'g' : 'enum',
-         \ 'n' : 'namespace',
-         \ 'c' : 'class',
-         \ 's' : 'struct',
-         \ 'u' : 'union'
-     \ },
-     \ 'scope2kind' : {
-         \ 'enum'      : 'g',
-         \ 'namespace' : 'n',
-         \ 'class'     : 'c',
-         \ 'struct'    : 's',
-         \ 'union'     : 'u'
-     \ }
-\ }
+" let g:tagbar_type_cpp = {
+     " \ 'ctagstype' : 'c++',
+     " \ 'kinds'     : [
+         " \ 'd:macros:1',
+         " \ 'g:enums',
+         " \ 't:typedefs:0:0',
+         " \ 'e:enumerators:0:0',
+         " \ 'n:namespaces',
+         " \ 'c:classes',
+         " \ 's:structs',
+         " \ 'u:unions',
+         " \ 'f:functions',
+         " \ 'm:members:0:0',
+         " \ 'v:global:0:0',
+         " \ 'x:external:0:0',
+         " \ 'l:local:0:0'
+     " \ ],
+     " \ 'sro'        : '::',
+     " \ 'kind2scope' : {
+         " \ 'g' : 'enum',
+         " \ 'n' : 'namespace',
+         " \ 'c' : 'class',
+         " \ 's' : 'struct',
+         " \ 'u' : 'union'
+     " \ },
+     " \ 'scope2kind' : {
+         " \ 'enum'      : 'g',
+         " \ 'namespace' : 'n',
+         " \ 'class'     : 'c',
+         " \ 'struct'    : 's',
+         " \ 'union'     : 'u'
+     " \ }
+" \ }
 " Reset tagbar width
 autocmd FileType tagbar nmap <silent><buffer> <Tab> :let g:tagbar_width = winwidth(0)<CR>:echo 'Set tagbar size to ' . winwidth(0)<CR>
 "" tagbar auto open
