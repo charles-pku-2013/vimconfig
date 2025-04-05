@@ -562,12 +562,12 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 nmap <silent> <S-F3> *"tyiw:Rg -w <C-r>t <C-r>w<CR>
 vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> <C-r>w<CR>
 " find function call
-nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w<CR>
+nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
 " Shift + Alt + ]
-nmap ’ <Leader>fc
-nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w<CR>
+nmap ’ <Leader>fc<CR>
+nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
 " Shift + Alt + \
-nmap » <Leader>mfc
+nmap » <Leader>mfc<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 vmap <silent> <M-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
