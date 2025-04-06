@@ -330,9 +330,15 @@ function OpenExplorer(...)
     endif
 endfunction
 
+function OpenInVsCode(...)
+    let l:path = (a:0 >= 1) ? a:1 : getcwd()
+    silent execute "!code \"" . l:path . "\""
+endfunction
+
 command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
 nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
 nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p'))<CR>
+nnoremap <silent> <M-F4> :call OpenInVsCode(expand('%:p'))<CR>
 
 function OpenTerminal(...)
     let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
