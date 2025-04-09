@@ -1082,9 +1082,9 @@ let g:ctrlp_prompt_mappings = {
 
 """"""""""""""""""""""fzf""""""""""""""""""""""""""
 " set rtp+=~/.fzf
-" let g:fzf_preview_window = 'right:60%'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
+let g:fzf_preview_window = ['right:50%', '?']
 
 function! s:GotoOrOpen(command, ...)
     for file in a:000
