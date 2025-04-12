@@ -208,11 +208,19 @@ nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
 vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
 nmap <silent># *
-" Alt + 3 highlight
-nmap <silent>£ *
-vmap <silent>£ *
+" Alt + 1 highlight
+nmap <silent>¡ *
+vmap <silent>¡ *
 " Alt + 2 highlight off
 nmap <silent>™ <C-l>
+" Alt + q multi color highlight
+nmap <silent>œ <F9>
+vmap <silent>œ <F9>
+" Alt + w multi color highlight off
+nmap <silent>∑ <S-F9>
+vmap <silent>∑ <S-F9>
+" Alt + e clear multi color highlight
+nmap <silent>´ f<C-l>
 " vmap * y/\<\><Left><Left><C-r>0<CR>
 
 " 复制选区后光标不动
@@ -284,17 +292,17 @@ nnoremap <F11> :call ToggleFullscreen()<CR>
 
 """ 多文档编辑 MiniBufExplorer
 " disable auto open
-let g:miniBufExplorerAutoStart = 0
-let g:miniBufExplMaxSize = 1
+" let g:miniBufExplorerAutoStart = 0
+" let g:miniBufExplMaxSize = 1
 
 " 显示/隐藏 MiniBufExplorer 窗口
 " nnoremap <silent><Leader>bl :MBEToggle<CR>
 " nnoremap <silent><S-F9> :MBEToggle<CR>
 " close tab
-nmap <leader>ct :MBEbd<CR>
+" nmap <leader>ct :MBEbd<CR>
 "" buffer 切换快捷键
-nnoremap <C-Tab> :MBEbn<cr>
-nnoremap <C-S-Tab> :MBEbp<cr>
+" nnoremap <C-Tab> :MBEbn<cr>
+" nnoremap <C-S-Tab> :MBEbp<cr>
 
 """ plugin: NERDTree 文件浏览器
 " autocmd VimEnter * nested :NERDTree				" 启动vim自动开启
@@ -563,10 +571,7 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 " Disable result window key mapping
 " let g:ack_apply_qmappings = 0
 " let g:ack_apply_lmappings = 0
-" nmap <silent> <D-F3> "tyiw:Ack! -rkw ""<Left><C-r>t<CR>/\<\><Left><Left><C-r>t<CR>
-" vmap <silent> <D-F3> *:Ack! -rkw ""<Left><C-r>t<CR>
-" nmap <M-D-F3> *:Ack! -rkw <cword> %:p:h<CR>
-" vmap <M-D-F3> *:Ack! -rkw "" %:p:h<Left><Left><Left><Left><Left><Left><Left><C-r>t<CR>
+
 " RipGrep
 " let g:rg_highlight = 1
 "" NOTE v模式下 * 高亮已经将文本复制到t寄存器中
@@ -576,7 +581,8 @@ vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> <C-r>w<CR>
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
 " Shift + Alt + ]
 nmap ’ <Leader>fc<CR>
-nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
+" nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
+nmap <Leader>mfc *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w
 " Shift + Alt + \
 nmap » <Leader>mfc<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
