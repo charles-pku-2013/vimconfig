@@ -208,6 +208,8 @@ nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
 vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
 nmap <silent># *
+" double click for highlighting cword
+nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
 " Alt + 1 highlight
 nmap <silent>¡ *
 vmap <silent>¡ *
