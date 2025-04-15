@@ -1127,6 +1127,8 @@ let g:fzf_action = {
 nnoremap <F7> :FZFTags<CR>
 nnoremap <C-\> "tyiw:FZFTags <C-r>t<CR>
 vnoremap <C-\> "ty:FZFTags <C-r>t<CR>
+nmap <M-LeftMouse> <C-\>
+vmap <M-LeftMouse> <C-\>
 nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
 vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
 nnoremap <silent> <D-F1> :BTags<CR>
