@@ -210,11 +210,11 @@ vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
 nmap <silent># *
 " double click for highlighting cword
 nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
-" Alt + 1 highlight
-nmap <silent>¡ *
-vmap <silent>¡ *
-" Alt + 2 highlight off
-nmap <silent>™ <C-l>
+" Alt + 2 highlight
+nmap <silent>™ *
+vmap <silent>™ *
+" Alt + 1 highlight off
+nmap <silent>¡ <C-l>
 " Alt + q multi color highlight
 nmap <silent>œ <F9>
 vmap <silent>œ <F9>
@@ -583,10 +583,14 @@ vmap <silent> <S-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> <C-r>w<CR>
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
 " Shift + Alt + ]
 nmap ’ <Leader>fc<CR>
+" Alt + a
+nmap å <Leader>fc<CR>
 " nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
 nmap <Leader>mfc *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w
 " Shift + Alt + \
 nmap » <Leader>mfc<CR>
+" Shift + alt + a
+nmap Å <Leader>mfc<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w <C-r>t %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 vmap <silent> <M-F3> *:EscapeStr t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
