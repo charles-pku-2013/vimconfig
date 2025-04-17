@@ -22,6 +22,9 @@ set enc=utf-8
 " 不自动备份，生成讨厌的~
 set nobackup
 
+" auto reload modified files
+set autoread
+
 " 不使用swp文件
 set noswapfile
 " swp文件单独存放, NOTE!!! 这个目录要手动建立
