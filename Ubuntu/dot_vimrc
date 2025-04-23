@@ -19,8 +19,6 @@ set clipboard=unnamed
 
 set autoread
 
-set mouse=a
-
 " 文件编码
 set enc=utf-8
 " 不自动备份，生成讨厌的~
@@ -194,7 +192,7 @@ nnoremap <Leader><Leader>hr :let g:HI_SAVE_XX=@*<CR>:Hrestore xx<CR>
 
 """"""""""""""""""" Section 控制 Control""""""""""""""""""
 
-" set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
+set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
 filetype on 			" 开启文件类型侦测
 filetype plugin on 		" 根据侦测到的不同类型加载对应的插件
 
@@ -213,7 +211,7 @@ nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
 nmap <silent># *
 " double click for highlighting cword
-nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
+nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>viw
 " Alt + 2 highlight
 nmap <silent>™ *
 vmap <silent>™ *
@@ -381,16 +379,14 @@ nnoremap <D-K> <C-w>k
 nnoremap <D-H> <C-w>h
 nnoremap <D-L> <C-w>l
 " S - A h/l
-nnoremap Ó <C-w>h
-nnoremap Ò <C-w>l
+nnoremap H <C-w>h
+nnoremap L <C-w>l
 " S - A j/k
-nnoremap Ô <C-w>j
-nnoremap  <C-w>k
+nnoremap J <C-w>j
+nnoremap K <C-w>k
 " split resize Alt <> +-
-nnoremap ≤ <C-w><
-nnoremap ≥ <C-w>>
-nnoremap ¯  12<C-w><
-nnoremap ˘ 12<C-w>>
+nnoremap < 10<C-w><
+nnoremap > 10<C-w>>
 nnoremap <D-<> 12<C-w><
 nnoremap <D->> 12<C-w>>
 nnoremap – <C-w>-
@@ -471,9 +467,7 @@ nmap <silent> <C-j>  :cnext<CR>zz
 autocmd FileType qf nmap <silent><buffer> <Esc> :wincmd p<CR>:ccl<CR>:call AdjustCursor()<CR>
 autocmd FileType help nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
 autocmd FileType gundo nmap <silent><buffer> <Esc> :q<CR>:call AdjustCursor()<CR>
-" nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:silent UniteClose<CR>:pwd<CR>
 nnoremap <silent><Esc> <Esc>:lcl<CR>:ccl<CR>:pc<CR>:pwd<CR>
-" nnoremap <silent><Esc> :lcl<CR>:ccl<CR>:pc<CR>:pwd<CR>
 
 " For QFgrep
 autocmd FileType qf nmap <buffer> <F2> :QFGrep<CR>
@@ -762,11 +756,10 @@ nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<C
 " nmap <silent> <Leader>vch :AV<CR>
 " nmap <silent> <Leader>tch :AT<CR>
 command Sch CppSwitchHdrSrc
-nnoremap <silent> <D-\> :CppSwitchHdrSrc<CR>
+" Alt + \
+nnoremap <silent> \ :CppSwitchHdrSrc<CR>
 " <S-D-\> = <D-\><Alt-m> switch and set to main window
 nmap <silent> <D-Bar> <D-\>µ
-" Alt + \
-nmap <silent> « :CppSwitchHdrSrc s<CR>
 
 """ 这两个功能是vim tag功能一部分
 " 正向遍历同名标签
@@ -786,9 +779,9 @@ let g:tagbar_sort = 0
 let g:tagbar_position = 'left'
 " 设置显示／隐藏标签列表子窗口的快捷键。速记：tag list
 " 设置标签子窗口的宽度
-" let g:my_screen_width = winwidth(0)
-" let g:tagbar_width = g:my_screen_width / 7
-let g:tagbar_width = 25
+let g:my_screen_width = winwidth(0)
+let g:tagbar_width = g:my_screen_width / 7
+" let g:tagbar_width = 25
 " tagbar 子窗口中不显示冗余帮助信息
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
@@ -1080,7 +1073,7 @@ nnoremap <D-F9> :CtrlPSmartTabs<CR>
 nnoremap <M-F9> :CtrlPMRU<CR>
 nnoremap <silent> <C-f> :FZF<CR>
 " Alt + f
-nnoremap <silent> ƒ :FZF %:p:h<CR>
+nnoremap <silent> f :FZF %:p:h<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 " nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
@@ -1121,7 +1114,7 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'Tab': 'TabDrop',
   \ 'ctrl-s': 'split',
-  \ 'f1': 'vsplit' }
+  \ 'ctrl-v': 'vsplit' }
 
 nnoremap <F7> :FZFTags<CR>
 nnoremap <C-\> "tyiw:FZFTags <C-r>t<CR>
