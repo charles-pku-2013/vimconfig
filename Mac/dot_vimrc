@@ -883,6 +883,10 @@ function! SetWorkspace()
 endfunction
 autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
 function! GenTags()
+    if filereadable(".gen_tags.sh")
+        execute "!bash .gen_tags.sh"
+        return
+    endif
     call SetWorkspace()
     execute "!ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . @w
 endfunction
