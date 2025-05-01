@@ -716,8 +716,10 @@ command! -nargs=+ -complete=dir AddTag call AddTag(<f-args>)
 " vmap <Leader>lt y:ltag /<c-r>0<CR>:lopen<CR>/\<<C-r>0\><CR>
 " nmap <space> <Leader>lt
 " vmap <space> <Leader>lt
-nmap <silent><F1> :call ToggleQuickfixList()<CR>:call AdjustCursor()<CR>
-nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
+" nnoremap <silent><F1> :call ToggleQuickfixList()<CR>:call AdjustCursor()<CR>
+nnoremap <silent><F1> :call ToggleQuickfixList()<CR>
+autocmd FileType qf nnoremap <buffer><silent> <F1> :ccl<CR>:call AdjustCursor()<CR>
+" nmap <silent><S-F1> :call ToggleLocationList()<CR>:call AdjustCursor()<CR>
 " location list 和 quickfix 按空格跳转到条目后自动关闭
 " autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 
@@ -1145,7 +1147,7 @@ nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
 vnoremap <M-F1> "ty:BTags <C-r>t<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
-nnoremap <S-C-F1> :FZFQuickFix<CR>
+nnoremap <S-F1> :FZFQuickFix<CR>
 " autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
