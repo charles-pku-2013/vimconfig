@@ -608,10 +608,10 @@ command! -bang -nargs=* FzfRgw
 nmap <silent> <S-D-F3> "tyiw:FzfRgw <C-r>t<CR>
 vmap <silent> <S-D-F3> "ty:FzfRg <C-r>t<CR>
 
-nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" nmap <S-F2> :Rg ''<Left>
-nmap <S-F2> :Rg '' <C-r>w<Home><S-Right><Right><Right>
-nmap <M-F2> :Rg '' %:p:h<Home><S-Right><Right><Right>
+" nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap <F2> :Rg '' %<Home><S-Right><Right><Right>
+nnoremap <S-F2> :Rg '' <C-r>w<Home><S-Right><Right><Right>
+nnoremap <M-F2> :Rg '' %:p:h<Home><S-Right><Right><Right>
 " nmap <D-F2> :Ack! -rkwi "" %:p:h<Left><Left><Left><Left><Left><Left><Left>
 " nmap <S-D-F2> :Ack! -rkwi ""<Left>
 " nmap <leader>gr :Rgrep -wi  *<Left><Left>
