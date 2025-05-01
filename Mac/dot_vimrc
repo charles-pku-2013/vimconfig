@@ -1145,7 +1145,8 @@ nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
 vnoremap <M-F1> "ty:BTags <C-r>t<CR>
 nnoremap <M-F7> :Lines<CR>
 nnoremap <D-F7> :Buffers<CR>
-autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
+nnoremap <S-C-F1> :FZFQuickFix<CR>
+" autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
