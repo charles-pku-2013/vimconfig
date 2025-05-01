@@ -1157,6 +1157,9 @@ let g:airline#extensions#tagbar#enabled = 1
 " tab
 " let g:airline#extensions#tabline#enabled = 1
 
+" Used by vim-tab-manager and vim-buffer-manager
+let g:goto_last_tab = 1
+
 function! GenBazelStr()
     normal! vi""ty
     let l:cur_word = getreg('t')
