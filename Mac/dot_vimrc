@@ -884,7 +884,10 @@ function! SetWorkspace()
     let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
     let $FZF_DEFAULT_COMMAND = "fd --type file --color=always . " . @w
 endfunction
+
 autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
+command SetWs call SetWorkspace()
+
 function! GenTags()
     if filereadable(".gen_tags.sh")
         execute "!bash .gen_tags.sh"
