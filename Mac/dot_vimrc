@@ -206,6 +206,20 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 " 不做任何保存，直接退出 vim
 " nmap <Leader>Q :qa!<CR>
 
+function <SID>ToggleHls()
+    " let @t='\V\<'.escape(expand('<cword>'), '\').'\>'
+    let @t='\<' . expand('<cword>') . '\>'
+    if (getreg('t') == getreg('/'))
+        " already highlighted, disable it
+        call feedkeys("\<C-l>")
+        let @/ = ""
+    else
+        let @/ = @t
+        call feedkeys(":\<C-u>set hls\<enter>")
+        call feedkeys(":\<C-u>echon\<enter>")
+    endif
+endfunction
+
 " Highlight without moving cursor
 nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
@@ -214,8 +228,10 @@ vnoremap <silent>* "hy:let @/=escape(getreg('h'), './\$*[]')<CR>:set hls<CR>
 nmap <silent># *
 vmap <silent># *
 " double click for highlighting cword
-nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
-nnoremap <silent> <3-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>viw
+nnoremap <silent> <2-LeftMouse> :call <SID>ToggleHls()<CR>
+nmap <silent> <3-LeftMouse> viw
+" nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
+" nnoremap <silent> <3-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>viw
 nmap <silent> <2-MiddleMouse> <C-l><S-F9>
 " nmap <silent> <2-MiddleMouse> <C-l>
 " nmap <silent> <3-MiddleMouse> <C-l>
