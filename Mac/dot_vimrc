@@ -1099,14 +1099,15 @@ call ctrlp_bdelete#init()
 
 nnoremap <C-F9> :CtrlP %:p:h<CR>
 nnoremap <D-F9> :CtrlPSmartTabs<CR>
-nnoremap <M-F9> :CtrlPMRU<CR>
+" nnoremap <M-F9> :CtrlPMRU<CR>
+nnoremap <M-F9> :FZFHistory <CR>
 nnoremap <silent> <C-f> :FZF<CR>
 " Alt + f
 nnoremap <silent> ƒ :FZF %:p:h<CR>
 nnoremap <silent> <C-a> :CtrlPBuffer<CR>
 " nnoremap <silent> <D-F1> :CtrlPBufTag<CR>
 " nnoremap <silent> <M-F1> :CtrlPQuickfix<CR>
-nnoremap <silent> <C-D-F1> :CtrlPBufTagAll<CR>
+" nnoremap <silent> <C-D-F1> :CtrlPBufTagAll<CR>
 " nmap <silent> <C-F1> <C-f><CR>
 "" open in new tab
 " let g:ctrlp_prompt_mappings = {
