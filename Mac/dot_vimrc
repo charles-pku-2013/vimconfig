@@ -216,6 +216,7 @@ function <SID>ToggleHls()
     else
         let @/ = @t
         call feedkeys(":\<C-u>set hls\<enter>")
+        " clear command output
         call feedkeys(":\<C-u>echon\<enter>")
     endif
 endfunction
@@ -554,8 +555,8 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 """"""""""""""""""" Section vim-highlighter""""""""""""""
 let HiSet   = '<F9>'
 let HiErase = '<S-F9>'
-nmap <F6> :silent Hi><CR>
-nmap <S-F6> :silent Hi<<CR>
+nmap <silent> <F8> :silent Hi><CR>
+nmap <silent> <S-F8> :silent Hi<<CR>
 let HiSyncMode = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -609,14 +610,12 @@ nmap <silent> <S-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> <C-r>w<CR>
 vmap <silent> <S-F3> *gv"sy:let @s=escape(getreg('s'), './\$*()[]{}+-')<CR>:Rg ''<Left><C-r>s<Right> <C-r>w<CR>
 " find function call
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
-" Shift + Alt + ]
-nmap ’ <Leader>fc<CR>
 " Alt + a
 nmap å <Leader>fc<CR>
+nmap <S-M-LeftMouse> <Leader>fc<CR>
+nmap <S-M-MiddleMouse> <Leader>mfc<CR>
 " nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
 nmap <Leader>mfc *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w
-" Shift + Alt + \
-nmap » <Leader>mfc<CR>
 " Shift + alt + a
 nmap Å <Leader>mfc<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> %:p:h<CR>
@@ -678,11 +677,11 @@ function GrepAllBuffers(expression)
     copen
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
-nmap <silent> <S-F8> *:SearchBuffers <C-r>/<CR>
-vmap <silent> <S-F8> *:SearchBuffers \<<C-r>/\><CR>
-" Alt + F8
-nmap <M-F8> :SearchBuffers \<\><Left><Left>
-nmap <D-F8> :CtrlPBufTagAll<CR>
+nmap <silent> <S-F6> *:SearchBuffers <C-r>/<CR>
+vmap <silent> <S-F6> *:SearchBuffers \<<C-r>/\><CR>
+" Alt + F6
+nmap <M-F6> :SearchBuffers \<\><Left><Left>
+nmap <D-F6> :CtrlPBufTagAll<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -1045,10 +1044,10 @@ nmap <Leader>mi :BookmarkAnnotate<CR>
 " nmap <Leader>m/ :BookmarkShowAll<CR>
 nmap <Leader>m/ :CtrlPBookmark<CR>
 nnoremap <C-b> :FZFBookmarks<CR>
-nmap <C-F6> :BookmarkNext<CR>
-nmap <S-C-F6> :BookmarkPrev<CR>
-nmap <M-F6> :BookmarkMoveDown<CR>
-nmap <M-S-F6> :BookmarkMoveUp<CR>
+nmap <silent> <C-F8> :BookmarkNext<CR>
+nmap <silent> <S-C-F8> :BookmarkPrev<CR>
+nmap <silent> <M-F8> :BookmarkMoveDown<CR>
+nmap <silent> <M-S-F8> :BookmarkMoveUp<CR>
 " nmap <Leader>mc :BookmarkClear<CR>
 " nmap <Leader>mx :BookmarkClearAll<CR>
 " nmap <Leader>mkk :BookmarkMoveUp<CR>
