@@ -506,7 +506,7 @@ endfunction
 
 autocmd VimEnter * nested :let g:_home_directory = getcwd()
 command! -nargs=* -complete=dir CD call SetHomeDir(<f-args>)
-nnoremap <C-h> :cd `=g:_home_directory`<CR>:pwd<CR>
+nnoremap <C-h> :cd `=g:_home_directory`<CR>:SetWs<CR>:pwd<CR>
 
 nnoremap <C-ScrollWheelDown> 9zl
 nnoremap <C-ScrollWheelUp> 9zh
@@ -652,7 +652,7 @@ function GrepAllBuffers(expression)
         echo "No match found!"
         return
     endtry
-    exec 'copen'
+    copen
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
 nmap <silent> <S-F8> *:SearchBuffers <C-r>/<CR>
@@ -890,6 +890,7 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 function! SetWorkspace()
     let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
     let $FZF_DEFAULT_COMMAND = "fd --type file --color=always . " . @w
+    echo "workspace: " . @w
 endfunction
 
 autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
