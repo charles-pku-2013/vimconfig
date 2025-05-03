@@ -209,7 +209,8 @@ nmap <Leader>WQ :wa<CR>:q<CR>
 " Highlight without moving cursor
 nnoremap <silent>* :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 " vnoremap <silent>* "ty:let @/='<C-r>t'<CR>:set hls<CR>
-vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
+" vnoremap <silent>* "ty:let @/=@t<CR>:set hls<CR>
+vnoremap <silent>* "hy:let @/=escape(getreg('h'), './\$*[]')<CR>:set hls<CR>
 nmap <silent># *
 vmap <silent># *
 " double click for highlighting cword
@@ -582,7 +583,7 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 "" NOTE v模式下 * 高亮已经将文本复制到t寄存器中
 nmap <silent> <S-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> <C-r>w<CR>
 " In visual mode, press * already copy selected text to t register
-vmap <silent> <S-F3> *:Escape t<CR>:Rg ''<Left><C-r>t<Right> <C-r>w<CR>
+vmap <silent> <S-F3> *gv"sy:let @s=escape(getreg('s'), './\$*()[]{}+-')<CR>:Rg ''<Left><C-r>s<Right> <C-r>w<CR>
 " find function call
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
 " Shift + Alt + ]
@@ -598,7 +599,7 @@ nmap Å <Leader>mfc<CR>
 nmap <silent> <M-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 " In visual mode, press * already copy selected text to t register
-vmap <silent> <M-F3> *:Escape t<CR>:Rg ''<Left><C-r>t<Right> %:p:h<CR>
+vmap <silent> <M-F3> *gv"sy:let @s=escape(getreg('s'), './\$*()[]{}+-')<CR>:Rg ''<Left><C-r>s<Right> %:p:h<CR>
 command! -bang -nargs=* FzfRg
     \ call fzf#vim#grep(
     \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
@@ -609,6 +610,11 @@ command! -bang -nargs=* FzfRgw
     \   fzf#vim#with_preview('right:50%:hidden', 'F1'), <bang>0)
 nmap <silent> <S-D-F3> "tyiw:FzfRgw <C-r>t<CR>
 vmap <silent> <S-D-F3> "ty:FzfRg <C-r>t<CR>
+
+" escape selected string for search
+vmap <leader>ses "sy:let @*=escape(getreg('s'), './\$*()[]{}+-')<CR>:echom @*<CR>
+" escape selected string for highlight
+vmap <leader>hes "hy:let @*=escape(getreg('h'), './\$*[]')<CR>:echom @*<CR>
 
 " nmap <F2> :vimgrep //j % <bar> :copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap <F2> :Rg '' %<Home><S-Right><Right><Right>
