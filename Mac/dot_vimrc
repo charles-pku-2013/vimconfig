@@ -216,9 +216,9 @@ vmap <silent># *
 " double click for highlighting cword
 nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
 nnoremap <silent> <3-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>viw
-nmap <silent> <MiddleMouse> <C-l>
-nmap <silent> <2-MiddleMouse> <C-l>
-nmap <silent> <3-MiddleMouse> <C-l>
+nmap <silent> <2-MiddleMouse> <C-l><S-F9>
+" nmap <silent> <2-MiddleMouse> <C-l>
+" nmap <silent> <3-MiddleMouse> <C-l>
 " Alt + 1 multi color highlight
 nmap <silent>¡ <F9>
 vmap <silent>¡ <F9>
@@ -227,7 +227,14 @@ nmap <silent>™ <S-F9>
 vmap <silent>™ <S-F9>
 " Alt + 3 clear multi color highlight
 nmap <silent>£ f<C-l>
-" vmap * y/\<\><Left><Left><C-r>0<CR>
+" Mouse control multi color highlight
+" left - right for highlighting, left click move cursor first
+nmap <silent> <RightMouse> <F9>
+" After make selection, only right click, no need to left click first
+vmap <silent> <RightMouse> <F9>
+nmap <silent> <MiddleMouse> <S-F9>
+nmap <silent> <3-MiddleMouse> <S-F9><C-l>
+nmap <silent> <S-MiddleMouse> f<C-l>
 
 " 复制选区后光标不动
 " vmap y ygv<ESC>
@@ -1188,6 +1195,7 @@ function! GenBazelStr()
     echo "Saved bazel item " . l:bazelStr . " to clipboard"
 endfunction
 command! Bazel call GenBazelStr()
+cnoreabbrev Bz Bazel
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
