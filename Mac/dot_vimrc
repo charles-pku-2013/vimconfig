@@ -512,26 +512,26 @@ autocmd FileType qf vmap <buffer> <S-F3> "ty:QFGrepPatV \<<C-r>t\><CR>
 autocmd FileType qf nmap <buffer> <F5> <Plug>QFRestore
 
 """ Session
-" goto home
-function! SetHomeDir(...)
-    if a:0 >= 1
-        try
-            execute "cd " . a:1
-        catch
-            echoerr "Cannot change cwd to " . a:1
-        endtry
-    endif
-    let g:_home_directory = getcwd()
-    echo 'HomeDir=' . g:_home_directory
+
+" cd into dir and set workspace
+function! ChCwd(...)
+    let l:dir = a:0 ? a:1 : ""
+    try
+        execute "cd " . l:dir
+        call SetWorkspace()
+    catch
+        echoerr "Cannot change cwd to " . l:dir
+    endtry
 endfunction
 
 autocmd VimEnter * nested :let g:_home_directory = getcwd()
-" Reset HomeDir with cwd
-command! -nargs=* -complete=dir CD call SetHomeDir(<f-args>)
+" Reset HomeDir with cwd, cd into dir and set homedir and set workspace
+command! -nargs=* -complete=dir CD call ChCwd(<f-args>)
 " Reset HomeDir with parent dir of cur buf
-command! CDF call SetHomeDir(expand('%:p:h'))
-" Reset cwd to home dir
-nnoremap <C-h> :cd `=g:_home_directory`<CR>:SetWs<CR>:pwd<CR>
+command! CDF call ChCwd(expand('%:p:h'))
+command! SetHomeDir let g:_home_directory = getcwd() | echo "HomeDir: " . g:_home_directory
+" goto home dir
+nnoremap <C-h> :cd `=g:_home_directory`<CR>:call SetWorkspace()<CR>:pwd<CR>
 
 nnoremap <C-ScrollWheelDown> 9zl
 nnoremap <C-ScrollWheelUp> 9zh
@@ -904,11 +904,10 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 function! SetWorkspace()
     let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
     let $FZF_DEFAULT_COMMAND = "fd --type file --color=always . " . @w
-    echo "workspace: " . @w
+    echom "workspace: " . @w
 endfunction
 
 autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
-command SetWs call SetWorkspace()
 
 function! GenTags()
     if filereadable(".gen_tags.sh")
