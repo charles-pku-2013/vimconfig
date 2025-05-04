@@ -197,14 +197,8 @@ set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
 filetype on 			" 开启文件类型侦测
 filetype plugin on 		" 根据侦测到的不同类型加载对应的插件
 
-" 定义快捷键关闭当前分割窗口
-nmap <silent> <Leader>qt :q<CR>
 " 定义快捷键保存当前窗口内容
 nmap <Leader>w :w<CR>
-" 定义快捷键保存所有窗口内容并退出 vim
-nmap <Leader>WQ :wa<CR>:q<CR>
-" 不做任何保存，直接退出 vim
-" nmap <Leader>Q :qa!<CR>
 
 function <SID>ToggleHls()
     " let @t='\V\<'.escape(expand('<cword>'), '\').'\>'
@@ -611,16 +605,18 @@ vmap <silent> <F3> *:vimgrep /<C-r>//j %<CR>:copen<CR>
 nmap <silent> <S-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> <C-r>w<CR>
 " In visual mode, press * already copy selected text to t register
 vmap <silent> <S-F3> *gv"sy:let @s=escape(getreg('s'), './\$*()[]{}+-')<CR>:Rg ''<Left><C-r>s<Right> <C-r>w<CR>
+
 " find function call
 nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
-" Alt + a
-nmap å <Leader>fc<CR>
+" Alt + \
+nmap « <Leader>fc<CR>
 nmap <S-M-LeftMouse> <Leader>fc<CR>
-nmap <S-M-MiddleMouse> <Leader>mfc<CR>
 " nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
 nmap <Leader>mfc *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w
-" Shift + alt + a
-nmap Å <Leader>mfc<CR>
+" Shift + alt + \
+nmap » <Leader>mfc<CR>
+nmap <S-M-MiddleMouse> <Leader>mfc<CR>
+
 nmap <silent> <M-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
 " In visual mode, press * already copy selected text to t register
@@ -680,10 +676,9 @@ function GrepAllBuffers(expression)
     copen
 endfunction
 command -nargs=+ SearchBuffers call GrepAllBuffers(<q-args>)
-nmap <silent> <S-F6> *:SearchBuffers <C-r>/<CR>
-vmap <silent> <S-F6> *:SearchBuffers \<<C-r>/\><CR>
-" Alt + F6
-nmap <M-F6> :SearchBuffers \<\><Left><Left>
+nmap <silent> <F6> *:SearchBuffers <C-r>/<CR>
+vmap <silent> <F6> *:SearchBuffers <C-r>/<CR>
+nmap <S-F6> :SearchBuffers \<\><Left><Left>
 nmap <D-F6> :CtrlPBufTagAll<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -755,16 +750,6 @@ autocmd FileType qf nnoremap <buffer><silent> <F1> :ccl<CR>:call AdjustCursor()<
 " location list 和 quickfix 按空格跳转到条目后自动关闭
 " autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 
-" jump in new tab
-" nmap <C-\> "tyiw:tab ts <C-r>t<CR>
-" vmap <C-\> "ty:tab ts <C-r>t<CR>
-" jump in new split
-" nmap <D-\> "tyiw:sts <C-r>t<CR>
-" vmap <D-\> "ty:sts <C-r>t<CR>
-" A-\ jump in new vsplit
-" nmap « :vs<CR><C-w><Right>:exec("ts ".expand("<cword>"))<CR>
-" vmap « "ty:vs<CR><C-w><Right>:ts <C-r>t<CR>
-
 """""""""""""
 
 """"""" cscope
@@ -804,19 +789,19 @@ nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<C
 nnoremap <silent> <D-\> :CppSwitchHdrSrc<CR>
 " <S-D-\> = <D-\><Alt-m> switch and set to main window
 nmap <silent> <D-Bar> <D-\>µ
-" Alt + \
-nmap <silent> « :CppSwitchHdrSrc s<CR>
+" Alt + \ Open in horizontal split
+" nmap <silent> « :CppSwitchHdrSrc s<CR>
 
 """ 这两个功能是vim tag功能一部分
 " 正向遍历同名标签
-nmap <Leader>tn :tnext<CR>
+" nmap <Leader>tn :tnext<CR>
 " 反向遍历同名标签
-nmap <Leader>tp :tprevious<CR>
+" nmap <Leader>tp :tprevious<CR>
 
 """ 基于语义的代码导航 plugin: YouCompleteMe
-nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
 " 只能是 #include 或已打开的文件
-nnoremap <leader>je :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>je :YcmCompleter GoToDefinition<CR>
 
 """ 标签列表 plugin: tagbar
 " 默认按源文件中定义顺序而不是字母
