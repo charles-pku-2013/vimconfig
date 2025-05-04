@@ -193,7 +193,7 @@ nnoremap <Leader><Leader>hr :let g:HI_SAVE_XX=@*<CR>:Hrestore xx<CR>
 
 """"""""""""""""""" Section 控制 Control""""""""""""""""""
 
-" set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
+set mouse=a 			" 开启鼠标功能, 可以拖动窗口大小
 filetype on 			" 开启文件类型侦测
 filetype plugin on 		" 根据侦测到的不同类型加载对应的插件
 
