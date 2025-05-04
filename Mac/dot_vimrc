@@ -430,21 +430,24 @@ nnoremap ± 5<C-w>+
 "" Reopen file in new tab
 " nmap <Leader>tb :sp<CR><C-w>T
 " Move tab
-nnoremap <silent> <D-PageDown> :tabm +1<CR>
 nnoremap <silent> <D-PageUp> :tabm -1<CR>
+nnoremap <silent> <D-PageDown> :tabm +1<CR>
 "" Alt + []
-nmap “ <D-PageUp>
-nmap ‘ <D-PageDown>
-nnoremap <silent> <S-D-PageDown> :tabmove<CR>
+nnoremap <silent> “ :tabm -1<CR>
+nnoremap <silent> ‘ :tabm +1<CR>
 nnoremap <silent> <S-D-PageUp> :0tabmove<CR>
-" Alt + {}
-nmap ” <S-D-PageUp>
-nmap ’ <S-D-PageDown>
+nnoremap <silent> <S-D-PageDown> :tabmove<CR>
+" Shift + Alt + []
+nnoremap <silent> ” :0tabmove<CR>
+nnoremap <silent> ’ :tabmove<CR>
 nnoremap <silent> <S-C-PageUp> :tabfirst<CR>
 nnoremap <silent> <S-C-PageDown> :tablast<CR>
+nnoremap <silent> <D-[> :tabfirst<CR>
+nnoremap <silent> <D-]> :tablast<CR>
 " S-D-A-{}
-nnoremap <silent> <D-”> :tabfirst<CR>
-nnoremap <silent> <D-’> :tablast<CR>
+" nnoremap <silent> <D-”> :tabfirst<CR>
+" nnoremap <silent> <D-’> :tablast<CR>
+
 " Last active tab
 " if !exists('g:Lasttab')
     " let g:Lasttab = 1
@@ -477,7 +480,7 @@ endfunction
 nmap <C-U> :call ScrollUp()<CR>
 nmap <C-D> :call ScrollDown()<CR>
 
-nmap <leader>qf :call ToggleQuickfixList()<CR>
+" nmap <leader>qf :call ToggleQuickfixList()<CR>
 
 " Span multi vertical splits
 autocmd FileType qf :wincmd J
