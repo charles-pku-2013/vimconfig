@@ -526,7 +526,11 @@ function! SetHomeDir(...)
 endfunction
 
 autocmd VimEnter * nested :let g:_home_directory = getcwd()
+" Reset HomeDir with cwd
 command! -nargs=* -complete=dir CD call SetHomeDir(<f-args>)
+" Reset HomeDir with parent dir of cur buf
+command! CDF call SetHomeDir(expand('%:p:h'))
+" Reset cwd to home dir
 nnoremap <C-h> :cd `=g:_home_directory`<CR>:SetWs<CR>:pwd<CR>
 
 nnoremap <C-ScrollWheelDown> 9zl
