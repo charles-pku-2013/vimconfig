@@ -367,15 +367,25 @@ function OpenExplorer(...)
     endif
 endfunction
 
-function OpenInVsCode(...)
-    let l:path = (a:0 >= 1) ? a:1 : getcwd()
-    silent execute "!code \"" . l:path . "\""
+function OpenInOtherApp(...)
+    let l:app = a:1
+    let l:path = (a:0 >= 2) ? a:2 : expand('%:p')
+    if l:app == "vim"
+        bd
+        silent execute "!open -a MacVim \"" . l:path . "\""
+    elseif l:app == "code"
+        silent execute "!code" . " \"" . l:path . "\""
+    else
+        silent execute "!open -a \"" . l:app . "\" \"" . l:path . "\""
+    endif
 endfunction
 
 command -nargs=* -complete=file OpenExplorer call OpenExplorer(<f-args>)
 nnoremap <silent> <D-F10> :call OpenExplorer()<CR>
 nnoremap <silent> <S-D-F10> :call OpenExplorer(expand('%:p'))<CR>
-nnoremap <silent> <M-F4> :call OpenInVsCode(expand('%:p'))<CR>
+nnoremap <silent> <M-F4> :call OpenInOtherApp("code")<CR>
+nnoremap <silent> <D-F4> :call OpenInOtherApp("vim")<CR>
+nnoremap <silent> <S-F4> :call OpenInOtherApp("Sublime Text")<CR>
 
 function OpenTerminal(...)
     let l:dirname = (a:0 >= 1) ? a:1 : getcwd()
@@ -391,9 +401,9 @@ nnoremap <silent> <F4> :call CloseBufOrWin()<CR>
 " nnoremap <silent> <F4> :bd<CR>
 """ BufOnly.vim
 " close all buffers except this vim-tab-manager
-nnoremap <S-F4> :TabBufOnly<CR>
-nnoremap <silent> <D-F4> :q<CR>
-nnoremap <silent> <S-D-F4> :q!<CR>
+" nnoremap <S-F4> :TabBufOnly<CR>
+" nnoremap <silent> <D-F4> :q<CR>
+" nnoremap <silent> <S-D-F4> :q!<CR>
 
 """ 分割窗口 split window
 nmap <leader>sp :sp<CR><C-w><Down>
@@ -790,8 +800,9 @@ nnoremap  <leader>fi yiw:cs find i <C-r>0<CR>:copen<CR>/\<\><Left><Left><C-r>0<C
 " nmap <silent> <Leader>vch :AV<CR>
 " nmap <silent> <Leader>tch :AT<CR>
 nnoremap <silent> <D-\> :CppSwitchHdrSrc<CR>
+nnoremap <silent> <D-Bar> :CppSwitchHdrSrc s<CR>
 " <S-D-\> = <D-\><Alt-m> switch and set to main window
-nmap <silent> <D-Bar> <D-\>µ
+" nmap <silent> <D-Bar> <D-\>µ
 " Alt + \ Open in horizontal split
 " nmap <silent> « :CppSwitchHdrSrc s<CR>
 
