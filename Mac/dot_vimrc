@@ -914,7 +914,7 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 function! SetWorkspace()
     let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
     let $FZF_DEFAULT_COMMAND = "fd --type file --color=always . " . @w
-    echom "workspace: " . @w
+    echom "CWD: " . getcwd() . " WORKSPACE: " . @w
 endfunction
 
 autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
@@ -1182,7 +1182,7 @@ nnoremap <silent> <D-F1> :BTags<CR>
 " nnoremap <silent> <S-D-F1> :BTags!<CR>
 nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
 vnoremap <M-F1> "ty:BTags <C-r>t<CR>
-nnoremap <D-F7> :Lines<CR>
+nnoremap <D-F7> :BLines<CR>
 " nnoremap <M-F7> :Buffers<CR>
 nnoremap <S-F1> :FZFQuickFix<CR>
 " autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
