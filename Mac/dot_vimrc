@@ -84,7 +84,8 @@ endif
 
 " 设置字体
 " set guifont=YaHei_Consolas_Hybrid:h16:cANSI
-set guifont=YaHei-Consolas-Hybrid:h25
+" set guifont=YaHei-Consolas-Hybrid:h25
+set guifont=Monaco:h25
 
 """ 配色方案
 set background=dark
