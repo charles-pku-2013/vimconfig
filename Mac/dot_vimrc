@@ -1214,7 +1214,6 @@ function! GenBazelStr()
     echo "Saved bazel item " . l:bazelStr . " to clipboard"
 endfunction
 command! Bazel call GenBazelStr()
-cnoreabbrev Bz Bazel
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
