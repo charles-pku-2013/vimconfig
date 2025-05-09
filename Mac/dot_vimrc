@@ -83,7 +83,6 @@ if has("gui_running")
 endif
 
 " 设置字体
-" set guifont=YaHei_Consolas_Hybrid:h16:cANSI
 " set guifont=YaHei-Consolas-Hybrid:h25
 set guifont=Monaco:h25
 
@@ -1150,7 +1149,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_preview_window = ['right:50%', '?']
 " set system environment variable this way
-let $FZF_DEFAULT_OPTS="--ansi"
+let $FZF_DEFAULT_OPTS = "--ansi"
 
 function! s:GotoOrOpen(command, ...)
     for file in a:000
@@ -1183,7 +1182,7 @@ nnoremap <silent> <D-F1> :BTags<CR>
 " nnoremap <silent> <S-D-F1> :BTags!<CR>
 nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
 vnoremap <M-F1> "ty:BTags <C-r>t<CR>
-nnoremap <D-F7> :BLines<CR>
+nnoremap <D-F7> :FZFBLines<CR>
 " nnoremap <M-F7> :Buffers<CR>
 nnoremap <S-F1> :FZFQuickFix<CR>
 " autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
