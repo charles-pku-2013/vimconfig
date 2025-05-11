@@ -925,7 +925,7 @@ function! GenTags()
         return
     endif
     call SetWorkspace()
-    execute "!ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . @w
+    execute "!ctags -f .tags -R --links=no --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number " . @w
 endfunction
 nnoremap <C-F12> :call GenTags()<CR><CR>
 
