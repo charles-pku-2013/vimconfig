@@ -1169,20 +1169,20 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-nnoremap <F7> :FZFTags<CR>
-nnoremap <C-\> "tyiw:FZFTags <C-r>t<CR>
-vnoremap <C-\> "ty:FZFTags <C-r>t<CR>
+nmap <F7> m':FZFTags<CR>
+nmap <C-\> m'"tyiw:FZFTags <C-r>t<CR>
+vmap <C-\> m'"ty:FZFTags <C-r>t<CR>
 nmap <M-LeftMouse> <C-\>
 vmap <M-LeftMouse> <C-\>
-nmap <M-F7> :CtrlPBufTagAll<CR>
+nmap <M-F7> m':CtrlPBufTagAll<CR>
 " 带!是用全屏预览窗口
 " nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
 " vnoremap <S-F7> "ty:FZFTags! <C-r>t<CR>
-nnoremap <silent> <D-F1> :BTags<CR>
+nmap <silent> <D-F1> m':BTags<CR>
 " nnoremap <silent> <S-D-F1> :BTags!<CR>
-nnoremap <M-F1> "tyiw:BTags <C-r>t<CR>
-vnoremap <M-F1> "ty:BTags <C-r>t<CR>
-nnoremap <D-F7> :FZFBLines<CR>
+nmap <silent> <M-F1> m'"tyiw:BTags <C-r>t<CR>
+vmap <silent> <M-F1> m'"ty:BTags <C-r>t<CR>
+nmap <silent> <D-F7> m':FZFBLines<CR>
 " nnoremap <M-F7> :Buffers<CR>
 nnoremap <S-F1> :FZFQuickFix<CR>
 " autocmd FileType qf nnoremap <buffer> <D-F1> :FZFQuickFix<CR>
