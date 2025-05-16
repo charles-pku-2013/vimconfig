@@ -275,8 +275,10 @@ vnoremap <Leader>P "*P
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " Copy / cut to sys clipboard
 nnoremap <Leader>yiw "*yiw
+nnoremap <D-c> "*yiw
 nnoremap <Leader>yiW "*yiW
 nnoremap <Leader>diw "*diw
+nnoremap <D-x> "*diw
 nnoremap <Leader>diW "*diW
 nnoremap <Leader>yy "*yy
 nnoremap <Leader>dd "*dd
