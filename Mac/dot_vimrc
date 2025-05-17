@@ -1003,6 +1003,12 @@ let g:ycm_cache_omnifunc=0
 let g:ycm_seed_identifiers_with_syntax=1
 " 全局配置文件
 let ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py"
+" 禁止在命令行显示语法诊断错误
+let g:ycm_show_diagnostics_ui = 0
+" 禁止语法检查下划红线
+let g:ycm_enable_diagnostic_signs = 0
+" 禁止自动添加include
+let g:ycm_clangd_args = ['--header-insertion=never']
 
 " 禁止自动弹出帮助文档
 let g:ycm_auto_hover = ''
