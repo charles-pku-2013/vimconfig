@@ -1223,6 +1223,13 @@ function! GenBazelStr()
 endfunction
 command! Bazel call GenBazelStr()
 
+function ClangFormat(...)
+    let l:fmt_file = (a:0 >= 1) ? a:1 : ".clang-format"
+    let l:cmd = "%!clang-format -style=file:" . l:fmt_file
+    execute(l:cmd)
+endfunction
+command -nargs=* -complete=file Cfmt call ClangFormat(<f-args>)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
