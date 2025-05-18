@@ -1179,7 +1179,7 @@ let g:fzf_action = {
 
 nmap <F7> :normal! m'<CR>:FZFTags<CR>
 nmap <C-\> :normal! m'<CR>"tyiw:FZFTags <C-r>t<CR>
-vmap <C-\> :normal! m'<CR>"ty:FZFTags <C-r>t<CR>
+vmap <C-\> :normal! m'<CR>gv"ty:FZFTags <C-r>t<CR>
 nmap <M-LeftMouse> <C-\>
 vmap <M-LeftMouse> <C-\>
 nmap <M-F7> :normal! m'<CR>:CtrlPBufTagAll<CR>
@@ -1189,7 +1189,7 @@ nmap <M-F7> :normal! m'<CR>:CtrlPBufTagAll<CR>
 nmap <silent> <D-F1> :normal! m'<CR>:BTags<CR>
 " nnoremap <silent> <S-D-F1> :BTags!<CR>
 nmap <silent> <M-F1> :normal! m'<CR>"tyiw:BTags <C-r>t<CR>
-vmap <silent> <M-F1> :normal! m'<CR>"ty:BTags <C-r>t<CR>
+vmap <silent> <M-F1> :normal! m'<CR>gv"ty:BTags <C-r>t<CR>
 nmap <silent> <D-F7> :normal! m'<CR>:FZFBLines<CR>
 nmap <silent> <S-D-F7> :normal! m'<CR>:FZFBLines!<CR>
 " nnoremap <M-F7> :Buffers<CR>
