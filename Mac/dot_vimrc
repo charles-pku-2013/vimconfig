@@ -225,6 +225,7 @@ vmap <silent># *
 " double click for highlighting cword
 nnoremap <silent> <2-LeftMouse> :call <SID>ToggleHls()<CR>
 nmap <silent> <3-LeftMouse> viw
+nmap <silent> <M-MiddleMouse> viw
 " nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
 " nnoremap <silent> <3-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>viw
 nmap <silent> <2-MiddleMouse> <C-l><S-F9>
