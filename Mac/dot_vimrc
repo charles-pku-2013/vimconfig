@@ -284,6 +284,9 @@ nnoremap <Leader>diW "*diW
 nnoremap <Leader>yy "*yy
 nnoremap <Leader>dd "*dd
 
+" select cur to line ending
+nmap vol v$h
+
 " 文本移动
 " ∆ = Alt-j ˚ = Alt-k
 " To get the special char, in insert mode, press Ctrl-v,
