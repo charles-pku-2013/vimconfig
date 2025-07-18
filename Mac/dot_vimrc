@@ -627,15 +627,14 @@ nmap <silent> <S-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> <C-r>w<CR>
 vmap <silent> <S-F3> *gv"sy:let @s=escape(getreg('s'), './\$*()[]{}+-')<CR>:Rg ''<Left><C-r>s<Right> <C-r>w<CR>
 
 " find function call
-nmap <Leader>fc *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w
 " Alt + \
-nmap « <Leader>fc<CR>
-nmap <S-M-LeftMouse> <Leader>fc<CR>
-" nmap <Leader>mfc *"tyiw:Rg -s '[::\.\\|\->]<C-r>t\(' <C-r>w
-nmap <Leader>mfc *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w
+nmap « *"tyiw:Rg -s '\b<C-r>t\(' <C-r>w<CR>
+nmap <Leader>fc :Rg '\b\('<Left><Left><Left>
 " Shift + alt + \
-nmap » <Leader>mfc<CR>
-nmap <S-M-MiddleMouse> <Leader>mfc<CR>
+nmap » *"tyiw:Rg -s '(::\\|->\\|\.)<C-r>t\(' <C-r>w<CR>
+nmap <Leader>mfc :Rg '(::\\|->\\|\.)\('<Left><Left><Left>
+" nmap <S-M-LeftMouse> <Leader>fc<CR>
+" nmap <S-M-MiddleMouse> <Leader>mfc<CR>
 
 nmap <silent> <M-F3> *"tyiw:Rg -w ''<Left><C-r>t<Right> %:p:h<CR>
 " vmap <silent> <M-F3> *"ty:Rg ''<Left><C-r>t<Right> %:p:h<CR>
