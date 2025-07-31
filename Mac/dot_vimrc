@@ -157,7 +157,7 @@ let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 " let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 
-""" Enable multiple highlights at startup 用不同颜色高亮不同单词 highlights.vim
+" Enable multiple highlights at startup 用不同颜色高亮不同单词 highlights.vim
 " 模拟键盘按键，这里不知如何引用<leader>
 autocmd VimEnter * nested :call feedkeys(";hi")
 
@@ -231,6 +231,8 @@ nmap <silent> <M-MiddleMouse> viw
 nmap <silent> <2-MiddleMouse> <C-l><S-F9>
 " nmap <silent> <2-MiddleMouse> <C-l>
 " nmap <silent> <3-MiddleMouse> <C-l>
+
+"""""""" multi color highlight
 " Alt + 1 multi color highlight
 nmap <silent>¡ <F9>
 vmap <silent>¡ <F9>
@@ -297,6 +299,9 @@ inoremap <silent> ∆ <Esc>:m .+1<CR>==gi
 inoremap <silent> ˚ <Esc>:m .-2<CR>==gi
 vnoremap <silent> ∆ :m '>+1<CR>gv=gv
 vnoremap <silent> ˚ :m '<-2<CR>gv=gv
+
+" 文件保存时自动删除行尾空白 auto remove trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 " 删除行尾空格
 nnoremap <silent><Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
