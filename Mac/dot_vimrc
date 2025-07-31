@@ -232,24 +232,6 @@ nmap <silent> <2-MiddleMouse> <C-l><S-F9>
 " nmap <silent> <2-MiddleMouse> <C-l>
 " nmap <silent> <3-MiddleMouse> <C-l>
 
-"""""""" multi color highlight
-" Alt + 1 multi color highlight
-nmap <silent>¡ <F9>
-vmap <silent>¡ <F9>
-" Alt + 2 multi color highlight off
-nmap <silent>™ <S-F9>
-vmap <silent>™ <S-F9>
-" Alt + 3 clear multi color highlight
-nmap <silent>£ f<C-l>
-" Mouse control multi color highlight
-" left - right for highlighting, left click move cursor first
-nmap <silent> <RightMouse> <F9>
-" After make selection, only right click, no need to left click first
-vmap <silent> <RightMouse> <F9>
-nmap <silent> <MiddleMouse> <S-F9>
-nmap <silent> <3-MiddleMouse> <S-F9><C-l>
-nmap <silent> <S-MiddleMouse> f<C-l>
-
 " 复制选区后光标不动
 " vmap y ygv<ESC>
 " 设置快捷键将选中文本块复制至系统剪贴板
@@ -574,12 +556,29 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""" Section vim-highlighter""""""""""""""
+""""""""""""""""""" Section vim-highlighter multi color highlight""""""""""""""
 let HiSet   = '<F9>'
 let HiErase = '<S-F9>'
-nmap <silent> <F8> :silent Hi><CR>
-nmap <silent> <S-F8> :silent Hi<<CR>
+nmap <silent> <F8> :normal! m'<CR>:silent Hi><CR>
+nmap <silent> <S-F8> :normal! m'<CR>:silent Hi<<CR>
 let HiSyncMode = 2
+" Alt + 1 multi color highlight
+nmap <silent>¡ <F9>
+vmap <silent>¡ <F9>
+" Alt + 2 multi color highlight off
+nmap <silent>™ <S-F9>
+vmap <silent>™ <S-F9>
+" Alt + 3 clear multi color highlight
+nmap <silent>£ f<C-l>
+" Mouse control multi color highlight
+" left - right for highlighting, left click move cursor first
+nmap <silent> <RightMouse> <F9>
+" After make selection, only right click, no need to left click first
+vmap <silent> <RightMouse> <F9>
+nmap <silent> <MiddleMouse> <S-F9>
+nmap <silent> <3-MiddleMouse> <S-F9><C-l>
+nmap <silent> <S-MiddleMouse> f<C-l>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""" Section 文本编辑 Text edit"""""""""""
