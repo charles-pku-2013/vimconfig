@@ -1138,16 +1138,16 @@ let g:bookmark_highlight_lines = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""" Unite""""""""""""""""""""""""""""
-nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
-nnoremap <Leader>uf :Unite file -direction=belowright<CR>
-nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
-nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
+" nnoremap <Leader>ub :Unite buffer -direction=belowright<CR>
+" nnoremap <Leader>uf :Unite file -direction=belowright<CR>
+" nnoremap <Leader>ur :Unite file_rec -direction=belowright<CR>
+" nnoremap <S-F10> :Unite file_rec -direction=belowright<CR>
 " nnoremap <silent> <M-F9> :UniteResume<CR>
-nnoremap <Leader>us :UniteResume<CR>
-nnoremap <Leader>un :UniteNext<CR>
-nnoremap <Leader>up :UnitePrevious<CR>
+" nnoremap <Leader>us :UniteResume<CR>
+" nnoremap <Leader>un :UniteNext<CR>
+" nnoremap <Leader>up :UnitePrevious<CR>
 " In unite window, press Esc to quit
-autocmd FileType unite nmap <silent><buffer> <Esc> :UniteClose<CR>:call AdjustCursor()<CR>
+" autocmd FileType unite nmap <silent><buffer> <Esc> :UniteClose<CR>:call AdjustCursor()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
