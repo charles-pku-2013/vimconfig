@@ -1219,8 +1219,9 @@ let g:fzf_action = {
 nmap <F7> :normal! m'<CR>:FZFTags<CR>
 nmap <C-\> :normal! m'<CR>"tyiw:FZFTags <C-r>t<CR>
 vmap <C-\> :normal! m'<CR>gv"ty:FZFTags <C-r>t<CR>
-nmap <M-LeftMouse> <C-\>
-vmap <M-LeftMouse> <C-\>
+nmap <M-LeftMouse> <C-]>
+vmap <M-LeftMouse> <C-]>
+nmap <S-M-LeftMouse> <C-t>
 nmap <M-F7> :normal! m'<CR>:CtrlPBufTagAll<CR>
 " 带!是用全屏预览窗口
 " nnoremap <S-F7> "tyiw:FZFTags! <C-r>t<CR>
