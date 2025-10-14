@@ -286,7 +286,7 @@ vnoremap <silent> ∆ :m '>+1<CR>gv=gv
 vnoremap <silent> ˚ :m '<-2<CR>gv=gv
 
 " 文件保存时自动删除行尾空白 auto remove trailing whitespaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " 删除行尾空格
 nnoremap <silent><Leader>rtw :%s/\s\+$//<CR>:nohl<CR>
@@ -1031,6 +1031,13 @@ augroup END
 """ 注释 NERDCommenter
 " 注释符后跟一个空格
 let NERDSpaceDelims = 1
+" custom python 解决注释符号后面2个空格问题
+let g:NERDCustomDelimiters = {
+    \ 'python': {
+        \ 'left': '#',
+        \ 'leftAlt': ''
+    \ }
+\ }
 
 """ vim-go
 "" first make sure env vars were set
