@@ -84,7 +84,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei-Consolas-Hybrid:h25
-set guifont=Monaco:h20
+set guifont=Monaco:h25
 " 设置标签子窗口的宽度
 let g:my_screen_width = winwidth(0)
 let g:tagbar_width = g:my_screen_width / 8
@@ -1270,13 +1270,15 @@ function! GenBazelStr()
 endfunction
 command! Bazel call GenBazelStr()
 
-function ClangFormat(...)
-    let l:fmt_file = (a:0 >= 1) ? a:1 : ".clang-format"
-    let l:fmt_file = expand(l:fmt_file)
-    let l:cmd = "%!clang-format -style=file:" . l:fmt_file
-    execute(l:cmd)
-endfunction
-command -nargs=* -complete=file Cfmt call ClangFormat(<f-args>)
+" function ClangFormat(...)
+    " let l:fmt_file = (a:0 >= 1) ? a:1 : ".clang-format"
+    " let l:fmt_file = expand(l:fmt_file)
+    " let l:cmd = "%!clang-format -style=file:" . l:fmt_file
+    " execute(l:cmd)
+" endfunction
+" command -nargs=* -complete=file Cfmt call ClangFormat(<f-args>)
+" vim-clang-format plugin
+command! -range=% -nargs=0 Cfmt ClangFormat
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
