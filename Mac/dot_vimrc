@@ -84,7 +84,7 @@ endif
 
 " 设置字体
 " set guifont=YaHei-Consolas-Hybrid:h25
-set guifont=Monaco:h25
+set guifont=Monaco:h20
 " 设置标签子窗口的宽度
 let g:my_screen_width = winwidth(0)
 let g:tagbar_width = g:my_screen_width / 8
@@ -1038,6 +1038,7 @@ let g:NERDCustomDelimiters = {
         \ 'leftAlt': ''
     \ }
 \ }
+let g:NERDDefaultAlign = 'left'
 
 """ vim-go
 "" first make sure env vars were set
