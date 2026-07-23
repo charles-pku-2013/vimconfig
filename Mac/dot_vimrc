@@ -563,6 +563,7 @@ nnoremap <silent> <M-F12> :AirlineToggle<CR>
 """"""""""""""""""" Section vim-highlighter multi color highlight""""""""""""""
 let HiSet   = '<F9>'
 let HiErase = '<S-F9>'
+nmap <silent> <F8> :normal! m'<CR>:silent Hi><CR>
 nmap <silent> <D-F8> :normal! m'<CR>:silent Hi><CR>
 nmap <silent> <S-F8> :normal! m'<CR>:silent Hi<<CR>
 let HiSyncMode = 2
