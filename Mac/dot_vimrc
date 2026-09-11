@@ -44,6 +44,8 @@ set splitright
 " 在新tab或已有tab中打开文档
 set switchbuf+=usetab,newtab
 
+set virtualedit=block
+
 """"""""""""""""""""""""""""""""""""""""""
 
 
