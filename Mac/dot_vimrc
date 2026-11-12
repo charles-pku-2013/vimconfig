@@ -244,6 +244,16 @@ nmap <silent> <2-MiddleMouse> <C-l><S-F9>
 vnoremap <Leader>y "*y
 " vmap <Leader>y "*ygv<ESC>
 " 设置快捷键将选中文本块剪切至系统剪贴板
+" DrawIt 默认的通用映射 ;di / ;ds 会使可视模式的 ;d 等待后续按键。
+" 仅在普通模式启停 DrawIt；同时清理旧映射，使重新 source 配置也能生效。
+nmap <Leader>di <Plug>DrawItStart
+nmap <Leader>ds <Plug>DrawItStop
+if maparg('<Leader>di', 'v') ==# '<Plug>DrawItStart'
+    vunmap <Leader>di
+endif
+if maparg('<Leader>ds', 'v') ==# '<Plug>DrawItStop'
+    vunmap <Leader>ds
+endif
 vnoremap <Leader>d "*d
 " 粘贴后光标在末尾
 " nmap p pgp<ESC>
