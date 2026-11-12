@@ -935,12 +935,16 @@ nnoremap <leader>ll :call ToggleLocationList()<CR>
 " kill all connections  :cs kill -1
 " nnoremap <C-F12> :silent !ctags -f .tags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extras=+q --excmd=number . && cscope -bkqR -i .cscope.files<CR>:cs kill -1<CR>:cs add .<CR>
 function! SetWorkspace()
-    let @w = ". " . join(systemlist("cat .vim-workspace 2>/dev/null | sort | uniq"))
-    let $FZF_DEFAULT_COMMAND = "fd --type file --color=always . " . @w
-    echom "CWD: " . getcwd() . " WORKSPACE: " . @w
+    call user_workspace#refresh()
 endfunction
 
-autocmd VimEnter * nested :silent! call SetWorkspace()<CR>
+autocmd VimEnter * nested silent! call SetWorkspace()
+
+augroup user_workspace_search
+    autocmd!
+    autocmd DirChanged * call user_workspace#refresh()
+    autocmd QuickFixCmdPost grep call user_workspace#quickfix_post()
+augroup END
 
 function! GenTags()
     if filereadable(".gen_tags.sh")
@@ -996,7 +1000,8 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 
 """ YouCompleteMe
 " Use homebrew's clangd
-let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
+" Keep the existing embedded-libclang completion backend after the YCM upgrade.
+let g:ycm_use_clangd = 0
 "" YCM 补全菜单配色
 " 菜单
 highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
@@ -1383,5 +1388,8 @@ nnoremap <Leader>ud :GundoToggle<CR>
 
 " let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 
-
-
+" BEGIN ctags-only migration overlay
+if filereadable(expand('~/.vim/ctags.vim'))
+    execute 'source ' . fnameescape(expand('~/.vim/ctags.vim'))
+endif
+" END ctags-only migration overlay
